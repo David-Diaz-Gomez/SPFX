@@ -1,0 +1,135 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "hello-rdt-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/helloRdt/HelloRdtWebPart.js",
+          "manifest": "./src/webparts/helloRdt/HelloRdtWebPart.manifest.json"
+        }
+      ]
+    },
+    "banner-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/banner/BannerWebPart.js",
+          "manifest": "./src/webparts/banner/BannerWebPart.manifest.json"
+        }
+      ]
+    },
+    "page-1-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/page1/Page1WebPart.js",
+          "manifest": "./src/webparts/page1/Page1WebPart.manifest.json"
+        }
+      ]
+    },
+    "page-2-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/page2/Page2WebPart.js",
+          "manifest": "./src/webparts/page2/Page2WebPart.manifest.json"
+        }
+      ]
+    },
+    "home-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/home/HomeWebPart.js",
+          "manifest": "./src/webparts/home/HomeWebPart.manifest.json"
+        }
+      ]
+    },
+    "experiencias-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/experiencias/ExperienciasWebPart.js",
+          "manifest": "./src/webparts/experiencias/ExperienciasWebPart.manifest.json"
+        }
+      ]
+    },
+    "page-3-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/page3/Page3WebPart.js",
+          "manifest": "./src/webparts/page3/Page3WebPart.manifest.json"
+        }
+      ]
+    },
+    "aplicaciones-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/aplicaciones/AplicacionesWebPart.js",
+          "manifest": "./src/webparts/aplicaciones/AplicacionesWebPart.manifest.json"
+        }
+      ]
+    },
+    "page-4-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/page4/Page4WebPart.js",
+          "manifest": "./src/webparts/page4/Page4WebPart.manifest.json"
+        }
+      ]
+    },
+    "page-5-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/page5/Page5WebPart.js",
+          "manifest": "./src/webparts/page5/Page5WebPart.manifest.json"
+        }
+      ]
+    },
+    "onboarding-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/onboarding/OnboardingWebPart.js",
+          "manifest": "./src/webparts/onboarding/OnboardingWebPart.manifest.json"
+        }
+      ]
+    },
+    "plan-carrera-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/planCarrera/PlanCarreraWebPart.js",
+          "manifest": "./src/webparts/planCarrera/PlanCarreraWebPart.manifest.json"
+        }
+      ]
+    },
+    "page-4-origin-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/page4Origin/Page4OriginWebPart.js",
+          "manifest": "./src/webparts/page4Origin/Page4OriginWebPart.manifest.json"
+        }
+      ]
+    },
+    "onboarding-origin-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/onboardingOrigin/OnboardingOriginWebPart.js",
+          "manifest": "./src/webparts/onboardingOrigin/OnboardingOriginWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "HelloRdtWebPartStrings": "lib/webparts/helloRdt/loc/{locale}.js",
+    "BannerWebPartStrings": "lib/webparts/banner/loc/{locale}.js",
+    "Page1WebPartStrings": "lib/webparts/page1/loc/{locale}.js",
+    "Page2WebPartStrings": "lib/webparts/page2/loc/{locale}.js",
+    "HomeWebPartStrings": "lib/webparts/home/loc/{locale}.js",
+    "ExperienciasWebPartStrings": "lib/webparts/experiencias/loc/{locale}.js",
+    "Page3WebPartStrings": "lib/webparts/page3/loc/{locale}.js",
+    "AplicacionesWebPartStrings": "lib/webparts/aplicaciones/loc/{locale}.js",
+    "Page4WebPartStrings": "lib/webparts/page4/loc/{locale}.js",
+    "Page5WebPartStrings": "lib/webparts/page5/loc/{locale}.js",
+    "OnboardingWebPartStrings": "lib/webparts/onboarding/loc/{locale}.js",
+    "PlanCarreraWebPartStrings": "lib/webparts/planCarrera/loc/{locale}.js",
+    "Page4OriginWebPartStrings": "lib/webparts/page4Origin/loc/{locale}.js",
+    "OnboardingOriginWebPartStrings": "lib/webparts/onboardingOrigin/loc/{locale}.js"
+  }
+}

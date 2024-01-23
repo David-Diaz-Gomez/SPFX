@@ -1,0 +1,52 @@
+
+.container {
+  height: 95vh;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.pinGroup {
+  position: absolute;
+}
+.pinContainer {
+  position: absolute;/* Ajusta la posición horizontal según sea necesario */
+  width: 100%;
+  height: 100%;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: 100% 100%;
+}
+
+.pin {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+/* Estilos para cada pin específico */
+.pinGroup1 { top: 33%; left: 7%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup2 { top: 33%; left: 23%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup3 { top: 43%; left: 40%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup4 { top: 50%; left: 60%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup5 { top: 25%; left: 60%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup6 { top: 43%; left: 80%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;}
+
+/* Repite para los demás pines */
+
+/* Estilos para las descripciones */
+.description {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  top: 100%;
+  height: 100%;
+}
+

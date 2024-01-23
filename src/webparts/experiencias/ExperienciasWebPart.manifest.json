@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "95361669-ca07-4f9e-a278-dd5fd035822a",
+  "alias": "ExperienciasWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart", "TeamsPersonalApp", "TeamsTab", "SharePointFullPage"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Advanced" },
+    "title": { "default": "Experiencias" },
+    "description": { "default": "Experiencias description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "Experiencias",
+      "url1": "url1",
+      "url2": "url2",
+      "url3": "url3",
+      "url4": "url4",
+      "url5": "url5",
+      "url6": "url6",
+      "url7": "url7",
+      "url8": "url8",
+      "url9": "url9"
+    }
+  }]
+}

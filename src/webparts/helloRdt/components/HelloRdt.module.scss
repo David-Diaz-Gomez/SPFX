@@ -1,0 +1,126 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+.completo {
+  /* Asegúrate de que el contenedor no se extienda más allá del ancho máximo permitido */
+  max-width: 100%;
+  margin: 0;
+  position: sticky;
+  z-index: 99;
+  top: 0px;
+  height: 10vh;
+ }
+
+.header {
+  font-family: "Avenir Next", "Helvetica Neue", sans-serif, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  text-align: left;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  flex: 0 0 auto;
+  justify-content: space-between;
+}
+
+
+.welcome {
+  text-align: center;
+}
+
+.welcomeImage {
+  width: 100%;
+  max-width: 420px;
+  
+}
+
+.links {
+  a {
+    text-decoration: none;
+    color: "[theme:link, default:#03787c]";
+    color: var(--link); // note: CSS Custom Properties support is limited to modern browsers only
+
+    &:hover {
+      text-decoration: underline;
+      color: "[theme:linkHovered, default: #014446]";
+      color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
+    }
+  }
+}
+
+.header_img {
+  overflow: visible;
+  min-width: 16px;
+  min-height: 16px;
+  left: 0.6%;
+  top: -0.6%;
+  width: 13.7%;
+  height: 94%;
+  display: flex;
+}
+
+.header_list {
+  overflow: visible;
+  min-width: 16px;
+  min-height: 16px;
+  width: 72%;
+  height: 58.6%;
+  flex-direction: row;
+  min-height: 100%;
+  //width: fit-content;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 0.6rem;
+  ul {
+    flex-direction: row;
+    min-width: 100%;
+    min-height: 100%;
+    width: fit-content;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+
+    li {
+      list-style: none;
+      flex-basis: 0px;
+      -webkit-box-flex: 1;
+      flex-grow: 1;
+      text-align: center;
+
+      a {
+        cursor: pointer;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        background-color: rgb(186, 224, 247);
+        border-radius: 6.25rem;
+        font-weight: 400;
+        text-decoration: none;
+        font-style: normal;
+        padding: .5rem 1.7rem
+      }
+    }
+  }
+}
+
+.banner{
+    position: relative;
+    overflow: visible;
+    min-width: 16px;
+    min-height: 16px;
+    margin-top: unset;
+    width: 100%;
+    height: 773px;
+    flex-shrink: 0;
+}

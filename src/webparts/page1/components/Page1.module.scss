@@ -1,0 +1,261 @@
+/* Page1.module.scss */
+
+.page1 {
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #ffff;
+
+  &.teams {
+    border-color: #0078d4;
+  }
+
+  .slider {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .slide {
+    flex: 0 0 100%;
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    img {
+      width: 100%;
+      height: 90vh;
+      object-fit: cover;
+    }
+  }
+
+  .navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+  }
+
+  .navButton:hover {
+    background-color: #0078d4;
+  }
+
+  .navButton:nth-child(1) {
+    left: 0;
+  }
+
+  .navButton:nth-child(2) {
+    right: 0;
+  }
+}
+
+
+.card-container {
+  display: flex;
+}
+
+.card {
+  width: 24vw; /* 22vw - (2vw de margen a la izquierda + 2vw de margen a la derecha) */
+  height: 65vh; /* 98vh - (2vh de margen arriba + 2vh de margen abajo) */
+  margin: 1%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #ccc; /* Añadir un borde para verificar el tamaño del div */
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+    &:hover {
+      filter: brightness(80%);
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    h4{
+      text-align: center;
+    }
+    p {
+      font-size: 1rem;
+      margin: 10px;
+      line-height: 0.9;
+      text-align: justify;
+    }
+
+    .description {
+      font-size: 0.8rem;
+      margin: 10px;
+      text-align: justify;
+    }
+
+    .location, .phone, .email {
+      font-size: 0.8rem;
+      line-height: 0.9;
+      text-align: justify;
+      margin-top: auto;
+      box-sizing: border-box;// Alinea estos elementos en la parte inferior
+    }
+
+    .icon {
+      margin-right: 5px;
+      text-align: justify;
+    }
+  }
+
+  .cardOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    background-color: rgba(0, 33, 56, 0.5);
+    z-index: 2; /* Asegurémonos de que el z-index sea 1 para estar sobre la imagen */
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .infoLabel {
+    text-align: center;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    font-size: 0.8rem;
+    color: white;
+    z-index: 20;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+
+  &:hover .overlay {
+    opacity: 1;
+  }
+
+  &:hover .cardOverlay{
+    display: none; /* Oculta el card overlay en hover */
+  }
+  &:hover .infoLabel{
+    display: none; /* Oculta el card overlay en hover */
+  }
+}
+
+/* TuEstilo.module.scss */
+/* TuEstilo.module.scss */
+
+.imageSection {
+  position: relative;
+}
+
+.imageContainer {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.columnContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items:start;
+  flex-wrap: wrap;
+  color: #fff;
+}
+
+.column {
+  flex: 1;
+  max-width: 400px;
+  margin: 10px;
+  padding: 20px;
+  background-color: transparent;
+}
+
+h3 {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  text-align: justify;
+  line-height: 1.4;
+}
+
+/* TuEstilo.module.scss */
+
+.clickableImageSection {
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 1vh;
+}
+
+.clickableImageLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.clickableImage {
+  width: 98%;
+  height: 100%;
+  object-fit: cover /* Ajusta según tus preferencias */
+}
+
+
+.clickableImageSection1 {
+  width: 100%;
+  height: 50vh;
+  margin-bottom: 2vh;
+}
+
+.clickableImageLink1 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.clickableImage1 {
+  width: 98%;
+  height: 100%;
+  object-fit: cover; /* Ajusta según tus preferencias */
+}

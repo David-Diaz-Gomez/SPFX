@@ -1,0 +1,268 @@
+.container {
+  height: 25vh;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cardsSection {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.card {
+  width: 32%; /* Ajusta el ancho de las tarjetas según tus necesidades */
+  padding: 20px;
+  height: 65vh; /* Altura deseada */
+  background-image: url("https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/background_setting/1695134261115.jpg");
+  background-size:auto;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  transition: background-color 0.5s, color 0.5s;
+
+  &:hover {
+    background-color: rgb(173, 104, 13);
+    color: white;
+    height: auto;
+    background-image: none;
+    cursor: pointer;
+  }
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  p{
+    display: none;
+    text-align: justify ;
+  }
+
+  &:hover p{
+    display: block;
+  }
+
+  a.infoButton {
+    display: none;
+    background-color: white;
+    color: rgb(173, 104, 13);
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-right: 20%;
+    margin-left: 20%;
+    transition: background-color 0.5s, color 0.5s;
+    text-decoration: none;
+    &:hover {
+      background-color: white;
+      color: rgb(173, 104, 13);
+    }
+  }
+
+  &:hover a.infoButton {
+    display: block
+  }
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2%;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  flex: 0 0 100%;
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  img {
+    width: 70%;
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 80vh;
+    object-fit: cover;
+  }
+}
+
+.slider1 {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2%;
+}
+
+.slides1 {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide1 {
+  flex: 0 0 100%;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  img {
+    width: 60%;
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 60vh;
+    object-fit: cover;
+  }
+}
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  color: black;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.navButton:hover {
+  background-color: #0078d4;
+  color:white;
+}
+
+.navButton:nth-child(1) {
+  left: 0;
+}
+
+.navButton:nth-child(2) {
+  right: 0;
+}
+
+.imageSection {
+  height: auto;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.divimg1{
+  width: 70%;
+  margin-right: 1%;
+  margin-left: 2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  height: 100%;
+}
+.divimg2{
+  width: 25%;
+  margin-right: 2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  height: 100%;
+}
+
+.image1 {
+  height: 80vh;
+  width: 100%;
+}
+
+.image2 {
+  height: 80vh;
+  width: 100%;
+}
+
+
+/* Page4.module.scss */
+.carousel { 
+  perspective: 1200px; 
+  background: transparent; 
+  padding-top: 5%; 
+  font-size:0; 
+  margin-bottom: 3rem; 
+  overflow: hidden; 
+}
+.spinner { 
+  transform-style: preserve-3d; 
+  height: 75vh; 
+  transform-origin: 50% 50% -26vw; 
+  transition: 1s;
+} 
+.spinner img { 
+  width: 40%; max-width: 50vw; 
+  position: absolute; left: 30%;
+  transform-origin: 50% 50% -26vw;
+  outline:1px solid transparent; 
+}
+.spinner img:nth-child(1) { transform:rotateY(0deg); 
+}
+.spinner img:nth-child(2) { transform: rotateY(72deg); }
+.spinner img:nth-child(3) { transform: rotateY(144deg); }
+.spinner img:nth-child(4) { transform: rotateY(216deg); }
+.spinner img:nth-child(5){ transform: rotateY(288deg); }
+.spinner img:nth-child(6){ transform: rotateY(360deg); }
+.span { 
+  color: black; 
+  margin: 5%; 
+  display: inline-block; 
+  text-decoration: none; 
+  font-size: 2rem; 
+  transition: 0.6s color; 
+  position: relative; 
+  margin-top: -6rem; 
+  border-bottom: none; 
+  line-height: 0; }
+.span:hover { color: #888; cursor: pointer; }
+.imguni{
+  height:70vh;
+  object-fit:fill;
+  object-position:50%
+}   
+ @media screen and (max-width: 768px) {
+  figure#spinner {
+    height: 40vh;
+    transform-origin: 50% 50% -23vw;
+  }
+
+  figure#spinner img {
+    width: 40%;
+    max-width: 50vw;
+    left: 25%;
+    transform-origin: 50% 50% -23vw;
+  }
+
+  .imguni {
+    height: 35vh;
+  }
+}
+.controls {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  top: -15em; /* Ajusta según sea necesario */
+}
