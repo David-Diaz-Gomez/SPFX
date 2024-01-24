@@ -22,7 +22,10 @@
     "description": { "default": "planCarrera description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "planCarrera"
+      "description": "planCarrera",
+      "url1": "url1",
+      "url2": "url2",
+      "url3": "url3"
     }
   }]
 }
