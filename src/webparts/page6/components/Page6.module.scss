@@ -1,0 +1,328 @@
+.container {
+  height: 20%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: 100% 100%;
+}
+
+
+/* TuEstilo.css */
+/* Agrega tus estilos según sea necesario */
+
+.contenedorPrincipal {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  overflow: hidden;
+}
+
+.contenedor20, .contenedor60 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor20 {
+  width: 20%;
+}
+
+.contenedor60 {
+  width: 60%;
+  z-index: 2;
+}
+
+/* Agrega estilos para las tarjetas y otras clases necesarias */
+
+/* ... */
+
+/* Tarjeta emergente */
+.tarjetaEmergente {
+  position: absolute;
+  background: white;
+  color: #2b7434;
+  padding: 10px;
+  display: none;
+  z-index: 1;
+}
+
+#tarjeta1:hover .tarjetaEmergente {
+  display: block;
+}
+
+/* ... */
+
+/* Estilo del botón "Conoce el catálogo" */
+.conoceCatalogo {
+  background: #2b7434;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+  width: 50%;
+}
+
+/* Estilo para las celdas */
+.celda {
+  height: 16.67%; /* 100% dividido en 6 celdas */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TuEstilo.css */
+
+/* ... (estilos anteriores) */
+
+
+.tarjeta:hover .tarjetaEmergente {
+  transform: translateY(0);
+}
+
+.tarjetaEmergente {
+  /* ... (estilos anteriores) */
+  width: 100%;
+  height: 100%;
+}
+
+.divisiones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaciado entre las divisiones */
+  background-color: #fff;
+  z-index: 2;
+  max-height: 100%;
+}
+
+.fraseCentrada {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: white;
+  color: #2b7434;
+  height: 16.6%;
+}
+
+.fraseCentrada p {
+  margin: 0;
+}
+
+.divisiones a {
+  width: 100%;
+  height: 16.6%;
+  overflow: hidden;
+}
+
+.divisiones img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* TuEstilo.css */
+
+/* ... (estilos anteriores) */
+
+.buttonContainer {
+  position: relative;
+  top: -50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.botonIzquierda,
+.botonDerecha {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.5em;
+  margin-right: 10px; /* Ajusta el margen entre los botones según sea necesario */
+}
+.botonIzquierda{
+  position: absolute;
+  left: -5%;
+}
+.botonDerecha{
+  position: absolute;
+  right:  -5%;
+}
+
+.otro {
+  background-color: #cde7ca;
+}
+.otro1 {
+  background-color: #cde7ca;
+}
+.otro1:hover{
+  .unique{
+    display: none;
+  }
+}
+.tarjeta {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-right: 0; /* Quité el margen derecho para evitar superposiciones */
+  z-index: 1;
+  position: relative;
+  p{
+    margin-top: 33%;
+    color:#2b7434;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+}
+.overlay {
+  font-size:.8em;
+  position: relative;
+  overflow: hidden; /* Oculta el contenido que se desborda */
+  height: 100%; /* Ajusta la altura inicial */
+  transition: height 0.5s ease-in-out; /* Agrega una transición suave en la altura */
+}
+
+.overlay::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #cde7ca;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%; /* Inicialmente con altura cero */
+  transition: height 0.5s ease-in-out; /* Agrega una transición suave en la altura */
+}
+
+.overlay:hover::before {
+  font-size:.8em;
+  transition: height 0.5s ease-in-out; 
+  height: 0%; /* Muestra el overlay ajustando la altura desde cero hasta 100% */
+}
+
+.slideContenedor {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.5s ease-in-out;
+  position: relative;
+  width: 600%; /* Cambiado de 600% a 100% */
+}
+
+.contenedor60 .slideContenedor {
+  z-index: -1; /* Para enviar el slide al fondo en el contenedor 60 */
+}
+
+.textoSubrayado {
+  background: #cde7ca;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  font-weight: 600;
+}
+
+.col{
+  flex-direction: column;
+}
+
+.ocultar:hover{
+  display: none;
+}
+
+.slider2andContainer {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  height: 75vh; /* Altura deseada del slider */
+  width: 100%;
+}
+.slides2 {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+  z-index: 2;
+}
+
+.slide2 {
+  flex: 0 0 100%;
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: 100% 100%;
+  }
+}
+.imguni2 {
+  width: 55%; /* Ajusta el ancho de las imágenes del slider según tus necesidades */
+  height: 100%;
+  object-fit: 100% 100%;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  z-index: 2;
+}
+.controls {
+  position: absolute;
+  top: 50%;
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  .span {
+    background-color: transparent;
+    color: rgb(7, 7, 7);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: background-color 0.5s, color 0.5s;
+
+    &:hover {
+      background-color: #0078d4;
+      color: white;
+    }
+  }
+}
+.container40 {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+  height: 75vh;
+  background-image: url("https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2697/1700168930841.png");
+  background-size: 100% 100%;
+  color: white;
+  text-align: center;
+  z-index: 5;
+  overflow: hidden;
+  transition: color 0.5s ease;
+
+}
+.card1 {
+  width: 100%; /* Ajusta el ancho del contenedor según tus necesidades */
+  position: relative;
+  z-index: 2;
+}

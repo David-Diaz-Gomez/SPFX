@@ -1,6 +1,6 @@
 
 .container {
-  height: 95vh;
+  height: 115vh;
   width: 100%;
   margin: 0;
   display: flex;
@@ -30,11 +30,11 @@
 }
 
 /* Estilos para cada pin específico */
-.pinGroup1 { top: 33%; left: 7%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
-.pinGroup2 { top: 33%; left: 23%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
-.pinGroup3 { top: 43%; left: 40%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
-.pinGroup4 { top: 50%; left: 60%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
-.pinGroup5 { top: 25%; left: 60%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup1 { top: 39%; left: 7%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup2 { top: 39%; left: 23%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup3 { top: 49%; left: 40%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup4 { top: 56%; left: 60%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup5 { top: 31%; left: 60%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
 .pinGroup6 { top: 43%; left: 80%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;}
 
 /* Repite para los demás pines */

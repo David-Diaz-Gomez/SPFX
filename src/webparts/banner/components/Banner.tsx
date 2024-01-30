@@ -14,7 +14,7 @@ export default class Banner extends React.Component<IBannerProps, {}> {
           {/* Imagen principal */}
           <img
             title=""
-            src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2012/1696513203238.png?token=DJn4K_VSdg37ENF-PzAjdE3gaRTslm9ObltPuoNr-R1u9UEfpVwgytrodeEB3B3gjZrdPkPMieqfVhTMFHl0WYQNxAAhkfxZ_KdzgUSzT_xH4JNaj0bgVtDWQWRiMppSU7kf4qS16SE7o2x9n0ZC5mn2rOfFcZtlaPCImGiujNOePFQNn5bhcwV20xoEc7omVeRfXx2W7qsFYQbbrmHmhDUiKDbacnzzg8vMDq-0om4."
+            src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2012/1696513203238.png"
             alt=""
             style={{ display: "block", objectFit: "contain", width: '100%' }}
           />
@@ -25,7 +25,7 @@ export default class Banner extends React.Component<IBannerProps, {}> {
           <a href='https://www.facebook.com/EsriColombia' target='_blank' style={{ display: "block", objectFit: "contain", objectPosition: "50% 50%", width: '30%',margin:'1%' }}>
           <img
             title=""
-            src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2230/1698290028186.png?token=DJn4K_VSdg37ENF-PzAjdE3gaRTslm9ObltPuoNr-R1u9UEfpVwgytrodeEB3B3gjZrdPkPMieqfVhTMFHl0WYQNxAAhkfxZ_KdzgUSzT_xH4JNaj0bgVtDWQWRiMppSU7kf4qS16SE7o2x9n0ZC5mn2rOfFcZtlaPCImGiujNOePFQNn5bhcwV20xoEc7omVeRfXx2W7qsFYQbbrmHmhDUiKDbacnzzg8vMDq-0om4."
+            src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2230/1698290028186.png"
             alt=""
             className="w-100 h-100"
             style={{ display: "block", objectFit: "contain", objectPosition: "50% 50%", width: '100%',margin:'1%' }}
@@ -34,7 +34,7 @@ export default class Banner extends React.Component<IBannerProps, {}> {
           <a href='https://twitter.com/EsriColombia' target='_blank' style={{ display: "block", objectFit: "contain", objectPosition: "50% 50%", width: '30%',margin:'1%' }}>
           <img
             title=""
-            src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2231/1698290120830.png?token=DJn4K_VSdg37ENF-PzAjdE3gaRTslm9ObltPuoNr-R1u9UEfpVwgytrodeEB3B3gjZrdPkPMieqfVhTMFHl0WYQNxAAhkfxZ_KdzgUSzT_xH4JNaj0bgVtDWQWRiMppSU7kf4qS16SE7o2x9n0ZC5mn2rOfFcZtlaPCImGiujNOePFQNn5bhcwV20xoEc7omVeRfXx2W7qsFYQbbrmHmhDUiKDbacnzzg8vMDq-0om4."
+            src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2231/1698290120830.png"
             alt=""
             className="w-100 h-100"
             style={{ display: "block", objectFit: "contain", objectPosition: "50% 50%",width: '100%',margin:'1%' }}
@@ -43,7 +43,7 @@ export default class Banner extends React.Component<IBannerProps, {}> {
           <a href='https://www.linkedin.com/company/esri-colombia/' target='_blank' style={{ display: "block", objectFit: "contain", objectPosition: "50% 50%", width: '30%',margin:'1%' }}>
           <img
             title=""
-            src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2232/1698290150589.png?token=DJn4K_VSdg37ENF-PzAjdE3gaRTslm9ObltPuoNr-R1u9UEfpVwgytrodeEB3B3gjZrdPkPMieqfVhTMFHl0WYQNxAAhkfxZ_KdzgUSzT_xH4JNaj0bgVtDWQWRiMppSU7kf4qS16SE7o2x9n0ZC5mn2rOfFcZtlaPCImGiujNOePFQNn5bhcwV20xoEc7omVeRfXx2W7qsFYQbbrmHmhDUiKDbacnzzg8vMDq-0om4."
+            src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2232/1698290150589.png"
             alt=""
             className="w-100 h-100"
             style={{ display: "block", objectFit: "contain", objectPosition: "50% 50%", width: '100%',margin:'1%' }}
@@ -56,7 +56,7 @@ export default class Banner extends React.Component<IBannerProps, {}> {
         <a href='https://www.youtube.com/results?search_query=esri+colombia' target='_blank' style={{ display: "block", objectFit: "contain", objectPosition: "50% 50%", width: '30%',margin:'1%' }}>          
         <img
             title=""
-            src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2234/1698290279219.png?token=DJn4K_VSdg37ENF-PzAjdE3gaRTslm9ObltPuoNr-R1u9UEfpVwgytrodeEB3B3gjZrdPkPMieqfVhTMFHl0WYQNxAAhkfxZ_KdzgUSzT_xH4JNaj0bgVtDWQWRiMppSU7kf4qS16SE7o2x9n0ZC5mn2rOfFcZtlaPCImGiujNOePFQNn5bhcwV20xoEc7omVeRfXx2W7qsFYQbbrmHmhDUiKDbacnzzg8vMDq-0om4."
+            src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2234/1698290279219.png"
             alt=""
             className="w-100 h-100"
             style={{ display: "block", objectFit: "contain", objectPosition: "50% 50%", width: '100%',margin:'1%' }}
@@ -65,7 +65,7 @@ export default class Banner extends React.Component<IBannerProps, {}> {
           <a href='https://www.instagram.com/esricolombia/' target='_blank' style={{ display: "block", objectFit: "contain", objectPosition: "50% 50%", width: '30%',margin:'1%' }}>          
           <img
             title=""
-            src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2233/1698290230104.png?token=DJn4K_VSdg37ENF-PzAjdE3gaRTslm9ObltPuoNr-R1u9UEfpVwgytrodeEB3B3gjZrdPkPMieqfVhTMFHl0WYQNxAAhkfxZ_KdzgUSzT_xH4JNaj0bgVtDWQWRiMppSU7kf4qS16SE7o2x9n0ZC5mn2rOfFcZtlaPCImGiujNOePFQNn5bhcwV20xoEc7omVeRfXx2W7qsFYQbbrmHmhDUiKDbacnzzg8vMDq-0om4."
+            src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2233/1698290230104.png"
             alt=""
             className="w-100 h-100"
             style={{ display: "block", objectFit: "contain", objectPosition: "50% 50%", width: '100%',margin:'1%' }}

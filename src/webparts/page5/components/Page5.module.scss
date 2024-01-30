@@ -1,5 +1,5 @@
 .container {
-  height: 25vh;
+  height: 20%;
   width: 100%;
   margin: 0;
   display: flex;
@@ -27,7 +27,7 @@
 .backgroundImage {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: 100% 100%;
 }
 
 // Page5.module.scss
@@ -129,7 +129,7 @@ button {
 }
 .section2 {
   width: 100%;
-  height: 90vh;
+  height: 120vh;
 
   iframe {
     width: 100%;
@@ -140,7 +140,7 @@ button {
 .section3{
   margin-top: 2%;
   width: 100%;
-  height: 80vh;
+  height: 110vh;
   img{
     width: 100%;
     height: 100%;
@@ -166,10 +166,12 @@ button {
   position: relative;
   width: 100%;
   height: auto;
+  display: flex;
+  justify-content: center;
 
   img {
-    width: 100%;
-    height: 80vh;
+    width: 840%;
+    height: 115vh;
     object-fit: 100% 100%;
   }
 }
@@ -191,11 +193,11 @@ button {
 }
 
 .navButton:nth-child(1) {
-  left: 0;
+  left: 5%;
 }
 
 .navButton:nth-child(2) {
-  right: 0;
+  right: 5%;
 }
 
 /* Page5.module.scss */
@@ -210,6 +212,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2%;
 }
 
 .textContainer {
@@ -225,10 +228,12 @@ button {
   width: 100%;
   background-color: #ffffff; /* Fondo blanco para el contenedor de imagen */
   overflow: hidden; /* Asegura que la imagen no se desborde del contenedor */
+  display: flex;
+  justify-content: center;
 }
 
 .image {
-  width: 100%;
-  max-height: 85vh;
+  width: 90%;
+  max-height: 125vh;
   object-fit: 100% 100%; /* Ajusta el tamaño de la imagen sin distorsión */
 }

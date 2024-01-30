@@ -75,7 +75,7 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
             </div>
 
             <div className={styles.pinGroup6}>
-               <a href={url9}>
+               <a href={url9} target='_blank'>
               <img
                 src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2686/1700189452529.gif"
                 alt="Pin 6"

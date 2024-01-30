@@ -113,6 +113,38 @@
           "manifest": "./src/webparts/onboardingOrigin/OnboardingOriginWebPart.manifest.json"
         }
       ]
+    },
+    "page-6-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/page6/Page6WebPart.js",
+          "manifest": "./src/webparts/page6/Page6WebPart.manifest.json"
+        }
+      ]
+    },
+    "entrenamiento-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/entrenamiento/EntrenamientoWebPart.js",
+          "manifest": "./src/webparts/entrenamiento/EntrenamientoWebPart.manifest.json"
+        }
+      ]
+    },
+    "page-7-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/page7/Page7WebPart.js",
+          "manifest": "./src/webparts/page7/Page7WebPart.manifest.json"
+        }
+      ]
+    },
+    "bienestar-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/bienestar/BienestarWebPart.js",
+          "manifest": "./src/webparts/bienestar/BienestarWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -130,6 +162,10 @@
     "OnboardingWebPartStrings": "lib/webparts/onboarding/loc/{locale}.js",
     "PlanCarreraWebPartStrings": "lib/webparts/planCarrera/loc/{locale}.js",
     "Page4OriginWebPartStrings": "lib/webparts/page4Origin/loc/{locale}.js",
-    "OnboardingOriginWebPartStrings": "lib/webparts/onboardingOrigin/loc/{locale}.js"
+    "OnboardingOriginWebPartStrings": "lib/webparts/onboardingOrigin/loc/{locale}.js",
+    "Page6WebPartStrings": "lib/webparts/page6/loc/{locale}.js",
+    "EntrenamientoWebPartStrings": "lib/webparts/entrenamiento/loc/{locale}.js",
+    "Page7WebPartStrings": "lib/webparts/page7/loc/{locale}.js",
+    "BienestarWebPartStrings": "lib/webparts/bienestar/loc/{locale}.js"
   }
 }
