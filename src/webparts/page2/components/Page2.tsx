@@ -81,7 +81,7 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
                 alt="Pin 6"
                 className={`${styles.pin} `}
               />
-              <div className={styles.description}>SELECC</div>
+              <div className={styles.description}>SELECCIÓN</div>
               </a>
             </div>
             {/* Repite para los demás pines */}

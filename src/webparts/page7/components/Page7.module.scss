@@ -1,34 +1,141 @@
-@import '~@fluentui/react/dist/sass/References.scss';
+/* Page7.module.scss */
 
-.page7 {
-  overflow: hidden;
-  padding: 1em;
-  color: "[theme:bodyText, default: #323130]";
-  color: var(--bodyText);
-  &.teams {
-    font-family: $ms-font-family-fallbacks;
-  }
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.welcome {
-  text-align: center;
-}
-
-.welcomeImage {
+.pestanas {
+  display: flex;
   width: 100%;
-  max-width: 420px;
 }
 
-.links {
-  a {
-    text-decoration: none;
-    color: "[theme:link, default:#03787c]";
-    color: var(--link); // note: CSS Custom Properties support is limited to modern browsers only
+.pestana {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  background-color: #004675; /* Azul */
+  color: #fff; /* Blanco */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  cursor: pointer;
+}
+
+.pestana.activa {
+  background-color: #002741; /* Azul más oscuro para la pestaña activa */
+}
+
+.contenedorTarjetas {
+  margin-top: 5vh;
+  display: flex;          // Hace que los elementos hijos se muestren en una fila
+  flex-wrap: nowrap;      // Evita que los elementos se envuelvan a la siguiente línea
+  overflow-x: auto;       // Agrega una barra de desplazamiento horizontal si el contenido es demasiado ancho
+}
+
+.tarjeta {
+  padding: 10px;
+  text-align: center;
+  height: auto;
+  width: 14%;
+  max-width: 14%;
+}
+
+.tarjeta img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.tarjeta h2 {
+  font-size: 0.8em;
+  margin-bottom: 5px;
+  height: 10vh;
+}
+
+.tarjeta p {
+  font-size: 0.7em;
+  margin-bottom: 10px;
+  height: 20vh;
+}
+
+.tarjeta button {
+  background-color: #004675; /* Azul */
+  color: #fff; /* Blanco */
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que esté encima de otros elementos */
+}
+
+.modalContent {
+  background: #fff; /* Fondo blanco del modal */
+  padding: 20px;
+  border-radius: 8px;
+  width: 95%; /* Ancho del modal igual al ancho de la ventana */
+  height: 100%; /* Altura del modal igual a la altura de la ventana */
+ /* Máximo ancho del modal */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra del modal */
+}
+/* Agrega más estilos según sea necesario */
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background:#2980b9; 
+  color: #fff;
+  border: none;
+  font-size: 1.4em;
+  cursor: pointer;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 50%;
+}
+.closeButton:hover{
+  background: red;
+}
+
+.modalTabs {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.modalTab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 5px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+
+  &.activeTab {
+    background-color: rgb(50, 158, 144);;
+    color: white;
 
     &:hover {
-      text-decoration: underline;
-      color: "[theme:linkHovered, default: #014446]";
-      color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
+      background-color: rgb(25, 121, 109);
     }
   }
 }

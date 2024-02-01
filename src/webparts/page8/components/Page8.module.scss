@@ -1,0 +1,78 @@
+/* Estilos para el modal */
+
+/* En Page8.module.scss */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Aumenta el z-index para que esté por encima de otros elementos */
+}
+
+.modalContent {
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: black; /* Color negro para el botón de cerrar */
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.modalSlider {
+  position: relative;
+}
+
+.sliderButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  background-color: black; /* Color negro para los botones de slide */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.modalImage {
+  width: 100%;
+  height: auto;
+  max-height: 70vh; /* Ajusta la altura máxima según tus necesidades */
+}
+
+.slideButton {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 24px;
+  background-color: black; /* Color negro para los botones de slide */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+.slideButtonLeft {
+  left: 10px;
+}
+
+.slideButtonRight {
+  right: 10px;
+}

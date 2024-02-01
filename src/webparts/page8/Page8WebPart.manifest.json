@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "f7baf233-b289-48fc-ab4a-dd1b89b95abb",
-  "alias": "BienestarWebPart",
+  "id": "201f05e4-b9c6-440b-9ed0-fcbf909bd1d8",
+  "alias": "Page8WebPart",
   "componentType": "WebPart",
 
   // The "*" signifies that the version should be taken from the package.json
@@ -18,14 +18,11 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
     "group": { "default": "Advanced" },
-    "title": { "default": "bienestar" },
-    "description": { "default": "bienestar description" },
+    "title": { "default": "page8" },
+    "description": { "default": "page8 description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "bienestar",
-      "url1": "url1",
-      "url2": "url2",
-      "url3": "url3"
+      "description": "page8"
     }
   }]
 }

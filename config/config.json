@@ -145,6 +145,22 @@
           "manifest": "./src/webparts/bienestar/BienestarWebPart.manifest.json"
         }
       ]
+    },
+    "page-8-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/page8/Page8WebPart.js",
+          "manifest": "./src/webparts/page8/Page8WebPart.manifest.json"
+        }
+      ]
+    },
+    "sst-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/sst/SstWebPart.js",
+          "manifest": "./src/webparts/sst/SstWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -166,6 +182,8 @@
     "Page6WebPartStrings": "lib/webparts/page6/loc/{locale}.js",
     "EntrenamientoWebPartStrings": "lib/webparts/entrenamiento/loc/{locale}.js",
     "Page7WebPartStrings": "lib/webparts/page7/loc/{locale}.js",
-    "BienestarWebPartStrings": "lib/webparts/bienestar/loc/{locale}.js"
+    "BienestarWebPartStrings": "lib/webparts/bienestar/loc/{locale}.js",
+    "Page8WebPartStrings": "lib/webparts/page8/loc/{locale}.js",
+    "SstWebPartStrings": "lib/webparts/sst/loc/{locale}.js"
   }
 }

@@ -1,4 +1,4 @@
-declare interface IBienestarWebPartStrings {
+declare interface ISstWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
@@ -16,7 +16,7 @@ declare interface IBienestarWebPartStrings {
   UnknownEnvironment: string;
 }
 
-declare module 'BienestarWebPartStrings' {
-  const strings: IBienestarWebPartStrings;
+declare module 'SstWebPartStrings' {
+  const strings: ISstWebPartStrings;
   export = strings;
 }

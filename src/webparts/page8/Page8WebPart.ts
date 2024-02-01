@@ -8,30 +8,24 @@ import {
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
 
-import * as strings from 'BienestarWebPartStrings';
-import Bienestar from './components/Bienestar';
-import { IBienestarProps } from './components/IBienestarProps';
+import * as strings from 'Page8WebPartStrings';
+import Page8 from './components/Page8';
+import { IPage8Props } from './components/IPage8Props';
 
-export interface IBienestarWebPartProps {
+export interface IPage8WebPartProps {
   description: string;
-  url1: string;
-  url2: string;
-  url3: string;
 }
 
-export default class BienestarWebPart extends BaseClientSideWebPart<IBienestarWebPartProps> {
+export default class Page8WebPart extends BaseClientSideWebPart<IPage8WebPartProps> {
 
   private _isDarkTheme: boolean = false;
   private _environmentMessage: string = '';
 
   public render(): void {
-    const element: React.ReactElement<IBienestarProps> = React.createElement(
-      Bienestar,
+    const element: React.ReactElement<IPage8Props> = React.createElement(
+      Page8,
       {
         description: this.properties.description,
-        url1: this.properties.url1,
-        url2: this.properties.url2,
-        url3: this.properties.url3,
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
@@ -116,15 +110,6 @@ export default class BienestarWebPart extends BaseClientSideWebPart<IBienestarWe
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
-                }),
-                PropertyPaneTextField('url1', {
-                  label: strings.Url1FieldLabel
-                }),
-                PropertyPaneTextField('url2', {
-                  label: strings.Url2FieldLabel
-                }),
-                  PropertyPaneTextField('url3', {
-                  label: strings.Url3FieldLabel
                 })
               ]
             }

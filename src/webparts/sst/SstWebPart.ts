@@ -8,25 +8,25 @@ import {
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
 
-import * as strings from 'BienestarWebPartStrings';
-import Bienestar from './components/Bienestar';
-import { IBienestarProps } from './components/IBienestarProps';
+import * as strings from 'SstWebPartStrings';
+import Sst from './components/Sst';
+import { ISstProps } from './components/ISstProps';
 
-export interface IBienestarWebPartProps {
+export interface ISstWebPartProps {
   description: string;
   url1: string;
   url2: string;
   url3: string;
 }
 
-export default class BienestarWebPart extends BaseClientSideWebPart<IBienestarWebPartProps> {
+export default class SstWebPart extends BaseClientSideWebPart<ISstWebPartProps> {
 
   private _isDarkTheme: boolean = false;
   private _environmentMessage: string = '';
 
   public render(): void {
-    const element: React.ReactElement<IBienestarProps> = React.createElement(
-      Bienestar,
+    const element: React.ReactElement<ISstProps> = React.createElement(
+      Sst,
       {
         description: this.properties.description,
         url1: this.properties.url1,

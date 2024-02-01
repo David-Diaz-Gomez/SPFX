@@ -1,10 +1,7 @@
-declare interface IBienestarWebPartStrings {
+declare interface IPage8WebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
-  Url1FieldLabel: string;
-  Url2FieldLabel: string;
-  Url3FieldLabel: string;
   AppLocalEnvironmentSharePoint: string;
   AppLocalEnvironmentTeams: string;
   AppLocalEnvironmentOffice: string;
@@ -16,7 +13,7 @@ declare interface IBienestarWebPartStrings {
   UnknownEnvironment: string;
 }
 
-declare module 'BienestarWebPartStrings' {
-  const strings: IBienestarWebPartStrings;
+declare module 'Page8WebPartStrings' {
+  const strings: IPage8WebPartStrings;
   export = strings;
 }

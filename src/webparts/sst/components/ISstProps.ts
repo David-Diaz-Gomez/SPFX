@@ -1,4 +1,4 @@
-export interface IBienestarProps {
+export interface ISstProps {
   description: string;
   url1: string;
   url2: string;

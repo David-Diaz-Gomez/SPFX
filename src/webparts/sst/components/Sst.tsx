@@ -1,13 +1,12 @@
 import * as React from 'react';
-import type { IBienestarProps } from './IBienestarProps';
+import type { ISstProps } from './ISstProps';
 import  HelloRdt  from '../../helloRdt/components/HelloRdt';
-import  Page7  from '../../page7/components/Page7';
+import  Page8  from '../../page8/components/Page8';
 import  Banner from '../../banner/components/Banner';
 import type { IBannerProps } from '../../banner/components/IBannerProps';
 
-
-export default class Bienestar extends React.Component<IBienestarProps, {}> {
-  public render(): React.ReactElement<IBienestarProps> {
+export default class Sst extends React.Component<ISstProps, {}> {
+  public render(): React.ReactElement<ISstProps> {
     const { url1,url2,url3 } = this.props;
     const {
       hasTeamsContext,
@@ -38,7 +37,7 @@ export default class Bienestar extends React.Component<IBienestarProps, {}> {
       />
 
         {/* Renderizar el componente Page1 */}
-        <Page7 
+        <Page8
           hasTeamsContext={hasTeamsContext}
           userDisplayName={userDisplayName}
           description="Descripción predeterminada"
