@@ -1,6 +1,11 @@
 /* Estilos para el modal */
 
 /* En Page8.module.scss */
+@import '../../../../styles/fonts';
+
+*{
+  font-family: "Avenir Next";
+}
 
 .modalOverlay {
   position: fixed;

@@ -13,15 +13,15 @@ export default class Page8 extends React.Component<IPage8Props, {showModal: bool
       };
     }
 
-  openModal = (images: string[]) => {
+  openModal = (images: string[]): void => {
     this.setState({ showModal: true, modalImages: images });
   }
 
-  closeModal = () => {
+  closeModal = (): void => {
     this.setState({ showModal: false, modalImages: [] });
   }
 
-  navigateImages = (direction: 'prev' | 'next', event: React.MouseEvent<HTMLButtonElement>) => {
+  navigateImages = (direction: 'prev' | 'next', event: React.MouseEvent<HTMLButtonElement>): void => {
     event.stopPropagation();
   
     const { modalImages, currentImageIndex } = this.state;
@@ -127,7 +127,7 @@ export default class Page8 extends React.Component<IPage8Props, {showModal: bool
             src="https://esricolombia.sharepoint.com/Areas/GH/SiteAssets/Forms/AllItems.aspx?id=%2FAreas%2FGH%2FSiteAssets%2FSitePages%2FSST%2Fcertificacion%2Dautoevaculaci%C3%B3n%2Destandares%2D2022%5F29MAYO023%2Epdf&parent=%2FAreas%2FGH%2FSiteAssets%2FSitePages%2FSST"
             title="Certificación Autoevacuación Estándares 2022"
             style={{ width: '100%', height: '100%', border:'none' }}
-          ></iframe>
+          />
         </div>
         {showModal && (
           <div className={styles.modalOverlay} onClick={this.closeModal}>
