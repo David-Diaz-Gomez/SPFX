@@ -7,6 +7,8 @@ interface IPage7State {
   showModal: boolean;
   modalContent: React.ReactNode | null;
   accion: string;
+  focusedIndex: number | null;
+  focusedIndex1: number | null;
 }
 
 const Page7: React.FC<IPage7Props> = (props) => {
@@ -102,27 +104,96 @@ const Page7: React.FC<IPage7Props> = (props) => {
     activeTab: 'bienestar',
     showModal: false,
     modalContent: null,
-    accion: ''
+    accion: '',
+    focusedIndex: null,
+    focusedIndex1: null,
   });
 
   const [currentSlideFirst, setCurrentSlideFirst] = useState(0);
 
   const handleNextSlideFirst = (): void => {
+    if (state.accion === 'popup4') {
+      setCurrentSlideFirst((currentSlideFirst + 1) % 2);
+    }
     if (state.accion === 'popup5') {
       setCurrentSlideFirst((currentSlideFirst + 1) % 12);
     }
-
+    if (state.accion === 'popup9') {
+      setCurrentSlideFirst((currentSlideFirst + 1) % 2);
+    }
     if (state.accion === 'popup10') {
       setCurrentSlideFirst((currentSlideFirst + 1) % 2);
     }
 
   };
 
+  const renderIframeContent= (index:number): React.ReactNode => {
+    // Asume que este método devolverá el contenido del iframe según el índice proporcionado.
+    // Adaptar según tus necesidades.
+    switch (index) {
+      case 0:
+        return <iframe title={`iframe-${index}`} src="https://esricolombia-my.sharepoint.com/personal/talvarez_esri_co/_layouts/15/AccessDenied.aspx?Source=https%3A%2F%2Fesricolombia%2Dmy%2Esharepoint%2Ecom%2Fpersonal%2Ftalvarez%5Fesri%5Fco%2FDocuments%2FGrabaciones%2FPrevenci%C3%B3n%20riesgo%20psicosocial%20y%20cuidado%20de%20las%20emociones%2D20230515%5F102235%2DMeeting%20Recording%2Emp4%3Fcsf%3D1%26web%3D1%26e%3Dn7cR9o%26cid%3D8eaea775%2D41b8%2D4618%2D8d2f%2Db7248d1e3dbe&correlation=1992eca0%2Dc07b%2D4000%2D6da3%2D72de457f5575&Type=item&name=73ab7959%2D3fe5%2D4d0c%2Db58b%2De290c259fedd&listItemId=50092&listItemUniqueId=e08bf544%2D1b5a%2D4bc2%2Da560%2D322f5f2cc410" style={{ width: '100%', height: '100%', border: 'none' }} />;
+      case 1:
+        return <iframe title={`iframe-${index}`} src="https://esricolombia-my.sharepoint.com/personal/eventosesri_esri_co/_layouts/15/embed.aspx?UniqueId=0dcc7b69-d274-4356-a7e0-f79ab69d49ff&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" style={{ width: '100%', height: '100%', border: 'none' }} />;
+      case 2:
+        return <iframe title={`iframe-${index}`} src="https://esricolombia-my.sharepoint.com/personal/talvarez_esri_co/_layouts/15/embed.aspx?UniqueId=dfc3b184-c5b1-4719-90da-e7747dc95a83&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" style={{ width: '100%', height: '100%', border: 'none' }} />;
+      case 3:
+        return <iframe title={`iframe-${index}`} src="https://esricolombia-my.sharepoint.com/personal/talvarez_esri_co/_layouts/15/embed.aspx?UniqueId=6ccf59eb-013f-457e-a800-07395d9236da&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" style={{ width: '100%', height: '100%', border: 'none' }} />;
+      case 4:
+        return <iframe title={`iframe-${index}`} src="https://esricolombia-my.sharepoint.com/personal/talvarez_esri_co/_layouts/15/embed.aspx?UniqueId=de346e78-d079-424b-a44c-8466b0ab9fd2&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" style={{ width: '100%', height: '100%', border: 'none' }} />;
+      case 5:
+        return <iframe title={`iframe-${index}`} src="https://esricolombia.sharepoint.com/Areas/GH/_layouts/15/stream.aspx?id=%2FAreas%2FGH%2FPausasActivas%2FEjercicio%20para%20pausa%20activa6%2Emp4&nav=eyJwbGF5YmFja09wdGlvbnMiOnsic3RhcnRUaW1lSW5TZWNvbmRzIjoyNC41NDM0OTJ9fQ%3D%3D&referrer=SharePointFileViewer%2EWeb&referrerScenario=PopOut%2Emis%2E65c35079%2Db8f3%2D4530%2Daa65%2D2482c5654e09" style={{ width: '100%', height: '100%', border: 'none' }} />;
+      // Añadir más casos según sea necesario
+      default:
+        return null;
+    }
+  }
+
+  const renderIframeContent1= (index:number): React.ReactNode => {
+    // Asume que este método devolverá el contenido del iframe según el índice proporcionado.
+    // Adaptar según tus necesidades.
+    switch (index) {
+      case 0:
+        return <iframe title={`iframe-${index}`} src="https://esricolombia-my.sharepoint.com/personal/talvarez_esri_co/_layouts/15/AccessDenied.aspx?Source=https%3A%2F%2Fesricolombia%2Dmy%2Esharepoint%2Ecom%2Fpersonal%2Ftalvarez%5Fesri%5Fco%2FDocuments%2FGrabaciones%2FPrevenci%C3%B3n%20riesgo%20psicosocial%20y%20cuidado%20de%20las%20emociones%2D20230515%5F102235%2DMeeting%20Recording%2Emp4%3Fcsf%3D1%26web%3D1%26e%3Dn7cR9o%26cid%3D8eaea775%2D41b8%2D4618%2D8d2f%2Db7248d1e3dbe&correlation=1992eca0%2Dc07b%2D4000%2D6da3%2D72de457f5575&Type=item&name=73ab7959%2D3fe5%2D4d0c%2Db58b%2De290c259fedd&listItemId=50092&listItemUniqueId=e08bf544%2D1b5a%2D4bc2%2Da560%2D322f5f2cc410" style={{ width: '100%', height: '100%', border: 'none' }} />;
+      case 1:
+        return <iframe title={`iframe-${index}`} src="https://esricolombia-my.sharepoint.com/personal/eventosesri_esri_co/_layouts/15/embed.aspx?UniqueId=0dcc7b69-d274-4356-a7e0-f79ab69d49ff&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" style={{ width: '100%', height: '100%', border: 'none' }} />;
+      case 2:
+        return <iframe title={`iframe-${index}`} src="https://esricolombia-my.sharepoint.com/personal/talvarez_esri_co/_layouts/15/embed.aspx?UniqueId=dfc3b184-c5b1-4719-90da-e7747dc95a83&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" style={{ width: '100%', height: '100%', border: 'none' }} />;
+      case 3:
+        return <iframe title={`iframe-${index}`} src="https://esricolombia-my.sharepoint.com/personal/talvarez_esri_co/_layouts/15/embed.aspx?UniqueId=6ccf59eb-013f-457e-a800-07395d9236da&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" style={{ width: '100%', height: '100%', border: 'none' }} />;
+      case 4:
+        return <iframe title={`iframe-${index}`} src="https://esricolombia-my.sharepoint.com/personal/talvarez_esri_co/_layouts/15/embed.aspx?UniqueId=de346e78-d079-424b-a44c-8466b0ab9fd2&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" style={{ width: '100%', height: '100%', border: 'none' }} />;
+      case 5:
+        return <iframe title={`iframe-${index}`} src="https://esricolombia.sharepoint.com/Areas/GH/_layouts/15/stream.aspx?id=%2FAreas%2FGH%2FPausasActivas%2FEjercicio%20para%20pausa%20activa6%2Emp4&nav=eyJwbGF5YmFja09wdGlvbnMiOnsic3RhcnRUaW1lSW5TZWNvbmRzIjoyNC41NDM0OTJ9fQ%3D%3D&referrer=SharePointFileViewer%2EWeb&referrerScenario=PopOut%2Emis%2E65c35079%2Db8f3%2D4530%2Daa65%2D2482c5654e09" style={{ width: '100%', height: '100%', border: 'none' }} />;
+      // Añadir más casos según sea necesario
+      default:
+        return null;
+    }
+  }
+  const handleFocusChange = (index: number | null) => {
+    setState((prevState) => ({
+      ...prevState,
+      focusedIndex: index
+    }));
+  };
+
+  const handleFocusChange1 = (index: number | null) => {
+    setState((prevState) => ({
+      ...prevState,
+      focusedIndex1: index
+    }));
+  };
+
   const handlePrevSlideFirst = (): void => {
+    if (state.accion === 'popup4') {
+      setCurrentSlideFirst((currentSlideFirst - 1 + 2) % 2);
+    }
     if (state.accion === 'popup5') {
       setCurrentSlideFirst((currentSlideFirst - 1 + 12) % 12);
     }
-
+    if (state.accion === 'popup9') {
+      setCurrentSlideFirst((currentSlideFirst - 1 + 2) % 2);
+    }
     if (state.accion === 'popup10') {
       setCurrentSlideFirst((currentSlideFirst - 1 + 2) % 2);
     }
@@ -606,6 +677,273 @@ const Page7: React.FC<IPage7Props> = (props) => {
         </div>
       )}
 
+{(state.showModal && state.accion === 'popup4') && (
+        <div className={styles.modalBackdrop} onClick={closePopup}>
+          <div className={styles.modalContent} onClick={handleModalClick}>
+            <button className={styles.closeButton} onClick={closePopup}>
+              X
+            </button>
+            <div style={{ width: '100%', height: '100%', overflowY: 'auto' }}>
+              {/* Contenido del modal */}
+              <img
+                src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2477/1701728375537.png"
+                style={{ width: '100%', height: '30vh' }}
+                alt="Imagen emergente"
+              />
+              <div style={{ height: '75vh', display: 'flex' }}>
+                <div style={{ width: '100%' }}>
+                  <div className={`${styles.slider2andContainer} ${styles.firstSlider}`}>
+                    <div className={styles.slides2} style={{ transform: `translateX(-${currentSlideFirst * 100}%)` }}>
+                      <div className={styles.slide2}>
+                        <div style={{ height: '100%'}}>
+                          {/* Primer slide */}
+                          <div style={{width:'100%',height:'100%'}}>
+            
+              {/* Contenido del modal de "Pausas activas" */}
+              <div className={styles.modalRow}>
+                {/* Primer div */}
+                <div className={styles.modalColumn} onMouseEnter={() => handleFocusChange(0)}
+              onMouseLeave={() => handleFocusChange(null)}>
+                {state.focusedIndex === 0 ? (
+                  renderIframeContent(0)
+                ) : (
+                  <div style={{position:'relative',width:'100%',height:'100%'}}>
+                  <div className={styles.imageContainer}>
+                    {/* Contenido de la imagen */}
+                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1699580792720.jpeg' alt="Imagen" className={styles.modalImage} />
+                  </div>
+                  <div className={styles.blankContainer} style={{ background: 'transparent' }}>
+                    <div className={styles.flexibilityText}><p>Prevencion de riesgo psicosocial y cuidado de las emociones</p></div>
+                </div>
+                </div>
+                )}
+                </div>
+                <div className={styles.modalColumn} onMouseEnter={() => handleFocusChange(1)}
+              onMouseLeave={() => handleFocusChange(null)}>
+                {state.focusedIndex === 1 ? (
+                  renderIframeContent(1)
+                ) : (
+                  <div style={{position:'relative',width:'100%',height:'100%'}}>
+                  <div className={styles.imageContainer}>
+                    {/* Contenido de la imagen */}
+                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1699580816405.jpeg' alt="Imagen" className={styles.modalImage} />
+                  </div>
+                  <div className={styles.blankContainer} style={{ background: 'transparent' }}>
+                    <div className={styles.flexibilityText}><p>Zumba terapia</p></div>
+
+                </div>
+                </div>
+                )}
+                </div>
+                <div className={styles.modalColumn} onMouseEnter={() => handleFocusChange(2)}
+              onMouseLeave={() => handleFocusChange(null)}>
+                {state.focusedIndex === 2 ? (
+                  renderIframeContent(2)
+                ) : (
+                  <div style={{position:'relative',width:'100%',height:'100%'}}>
+                  <div className={styles.imageContainer}>
+                    {/* Contenido de la imagen */}
+                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1699580829278.jpeg' alt="Imagen" className={styles.modalImage} />
+                  </div>
+                  <div className={styles.blankContainer} style={{ background: 'transparent' }}>
+                    <div className={styles.flexibilityText}><p>Tecnoestrés y tecnoansiedad</p></div>
+
+                </div>
+                </div>
+                )}
+                </div>
+                {/* ... Repite esto para los demás divs */}
+              </div>
+              <div className={styles.modalRow}>
+              <div className={styles.modalColumn} onMouseEnter={() => handleFocusChange(3)}
+              onMouseLeave={() => handleFocusChange(null)}>
+                {state.focusedIndex === 3 ? (
+                  renderIframeContent(3)
+                ) : (
+                  <div style={{position:'relative',width:'100%',height:'100%'}}>
+                  <div className={styles.imageContainer}>
+                    {/* Contenido de la imagen */}
+                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1699580760003.jpeg' alt="Imagen" className={styles.modalImage} />
+                  </div>
+                  <div className={styles.blankContainer} style={{ background: 'transparent' }}>
+                    <div className={styles.flexibilityText}><p>Equilibrio entre la vida laboral y familiar</p></div>
+
+                </div>
+                </div>
+                )}
+                </div>
+                <div className={styles.modalColumn} onMouseEnter={() => handleFocusChange(4)}
+              onMouseLeave={() => handleFocusChange(null)}>
+                {state.focusedIndex === 4 ? (
+                  renderIframeContent(4)
+                ) : (
+                  <div style={{position:'relative',width:'100%',height:'100%'}}>
+                  <div className={styles.imageContainer}>
+                    {/* Contenido de la imagen */}
+                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1699580812105.jpeg' alt="Imagen" className={styles.modalImage} />
+                  </div>
+                  <div className={styles.blankContainer} style={{ background: 'transparent' }}>
+                    <div className={styles.flexibilityText}><p>Cuida de tu corazón (riesgo cardiovascular)</p></div>
+
+                </div>
+                </div>
+                )}
+                </div>
+                <div className={styles.modalColumn} onMouseEnter={() => handleFocusChange(5)}
+              onMouseLeave={() => handleFocusChange(null)}>
+                {state.focusedIndex === 5 ? (
+                  renderIframeContent(5)
+                ) : (
+                  <div style={{position:'relative',width:'100%',height:'100%'}}>
+                  <div className={styles.imageContainer}>
+                    {/* Contenido de la imagen */}
+                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1699580787103.jpeg' alt="Imagen" className={styles.modalImage} />
+                  </div>
+                  <div className={styles.blankContainer} style={{ background: 'transparent' }}>
+                    <div className={styles.flexibilityText}><p>Cuida de tu corazón (riesgo cardiovascular)</p></div>
+                </div>
+                </div>
+                )}
+                </div>
+                {/* ... Repite esto para los demás divs */}
+              </div>
+              </div>
+                        </div>
+                      </div>
+                      <div className={styles.slide2}>
+                        <div style={{ height: '100%' }}>
+                          {/* Segundo slide */}
+                          <div className={styles.slide2}>
+                        <div style={{ height: '100%'}}>
+                          
+                          <div style={{width:'100%',height:'100%'}}>
+            
+              {/* Contenido del modal de "Pausas activas" */}
+              <div className={styles.modalRow}>
+                {/* Primer div */}
+                <div className={styles.modalColumn} onMouseEnter={() => handleFocusChange1(0)}
+              onMouseLeave={() => handleFocusChange1(null)}>
+                {state.focusedIndex1 === 0 ? (
+                  renderIframeContent1(0)
+                ) : (
+                  <div style={{position:'relative',width:'100%',height:'100%'}}>
+                  <div className={styles.imageContainer}>
+                    {/* Contenido de la imagen */}
+                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1699580792720.jpeg' alt="Imagen" className={styles.modalImage} />
+                  </div>
+                  <div className={styles.blankContainer} style={{ background: 'transparent' }}>
+                    <div className={styles.flexibilityText}><p>Prevencion del riesgo público</p></div>
+                </div>
+                </div>
+                )}
+                </div>
+                <div className={styles.modalColumn} onMouseEnter={() => handleFocusChange1(1)}
+              onMouseLeave={() => handleFocusChange1(null)}>
+                {state.focusedIndex1 === 1 ? (
+                  renderIframeContent1(1)
+                ) : (
+                  <div style={{position:'relative',width:'100%',height:'100%'}}>
+                  <div className={styles.imageContainer}>
+                    {/* Contenido de la imagen */}
+                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1699580816405.jpeg' alt="Imagen" className={styles.modalImage} />
+                  </div>
+                  <div className={styles.blankContainer} style={{ background: 'transparent' }}>
+                    <div className={styles.flexibilityText}><p>Fitness uno a uno</p></div>
+
+                </div>
+                </div>
+                )}
+                </div>
+                <div className={styles.modalColumn} onMouseEnter={() => handleFocusChange1(2)}
+              onMouseLeave={() => handleFocusChange1(null)}>
+                {state.focusedIndex1 === 2 ? (
+                  renderIframeContent1(2)
+                ) : (
+                  <div style={{position:'relative',width:'100%',height:'100%'}}>
+                  <div className={styles.imageContainer}>
+                    {/* Contenido de la imagen */}
+                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1699580829278.jpeg' alt="Imagen" className={styles.modalImage} />
+                  </div>
+                  <div className={styles.blankContainer} style={{ background: 'transparent' }}>
+                    <div className={styles.flexibilityText}><p>Estilos de vida y trabajo saludable</p></div>
+
+                </div>
+                </div>
+                )}
+                </div>
+                {/* ... Repite esto para los demás divs */}
+              </div>
+              <div className={styles.modalRow}>
+              <div className={styles.modalColumn} onMouseEnter={() => handleFocusChange1(3)}
+              onMouseLeave={() => handleFocusChange1(null)}>
+                {state.focusedIndex1 === 3 ? (
+                  renderIframeContent1(3)
+                ) : (
+                  <div style={{position:'relative',width:'100%',height:'100%'}}>
+                  <div className={styles.imageContainer}>
+                    {/* Contenido de la imagen */}
+                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1699580760003.jpeg' alt="Imagen" className={styles.modalImage} />
+                  </div>
+                  <div className={styles.blankContainer} style={{ background: 'transparent' }}>
+                    <div className={styles.flexibilityText}><p>Alimentación equilibrada</p></div>
+
+                </div>
+                </div>
+                )}
+                </div>
+                <div className={styles.modalColumn} onMouseEnter={() => handleFocusChange1(4)}
+              onMouseLeave={() => handleFocusChange1(null)}>
+                {state.focusedIndex1 === 4 ? (
+                  renderIframeContent1(4)
+                ) : (
+                  <div style={{position:'relative',width:'100%',height:'100%'}}>
+                  <div className={styles.imageContainer}>
+                    {/* Contenido de la imagen */}
+                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1699580812105.jpeg' alt="Imagen" className={styles.modalImage} />
+                  </div>
+                  <div className={styles.blankContainer} style={{ background: 'transparent' }}>
+                    <div className={styles.flexibilityText}><p>Capacitación y socialización riesgo público</p></div>
+
+                </div>
+                </div>
+                )}
+                </div>
+                <div className={styles.modalColumn} onMouseEnter={() => handleFocusChange1(5)}
+              onMouseLeave={() => handleFocusChange1(null)}>
+                {state.focusedIndex1 === 5 ? (
+                  renderIframeContent1(5)
+                ) : (
+                  <div style={{position:'relative',width:'100%',height:'100%'}}>
+                  <div className={styles.imageContainer}>
+                    {/* Contenido de la imagen */}
+                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1699580787103.jpeg' alt="Imagen" className={styles.modalImage} />
+                  </div>
+                  <div className={styles.blankContainer} style={{ background: 'transparent' }}>
+                    <div className={styles.flexibilityText}><p>Manejo de emociones</p></div>
+                </div>
+                </div>
+                )}
+                </div>
+                {/* ... Repite esto para los demás divs */}
+              </div>
+              </div>
+                        </div>
+                      </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Controles del primer slider */}
+                    <div className={styles.controls1}>
+                      <span className={styles.span1} style={{color:'white'}} onClick={handlePrevSlideFirst}>{'<'}</span>
+                      <span className={styles.span1} style={{color:'white'}} onClick={handleNextSlideFirst}>{'>'}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
 
       {(state.showModal && state.accion === 'popup5') && (
@@ -1023,7 +1361,84 @@ const Page7: React.FC<IPage7Props> = (props) => {
         </div>
       )}
 
+{(state.showModal && state.accion === 'popup9') && (
+        <div className={styles.modalBackdrop} onClick={closePopup}>
+          <div className={styles.modalContent} onClick={handleModalClick}>
+            <button className={styles.closeButton} onClick={closePopup}>
+              X
+            </button>
+            <div style={{ width: '100%', height: '100%', overflowY: 'auto' }}>
+              {/* Contenido del modal */}
+              <img
+                src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2527/1701728909888.png"
+                style={{ width: '100%', height: '25vh' }}
+                alt="Imagen emergente"
+              />
+              <div style={{ height: '75vh', display: 'flex'}}>
+              <div style={{ width: '30%', height:'100%' }}>
+                  <img
+                    src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_439/1692047531501.jpeg"
+                    style={{ width: '100%', height: '100%' }}
+                    alt="Imagen emergente"
+                  />
+                </div>
+                <div style={{ width: '70%', borderLeft: "solid 1px rgb(50, 158, 144)", paddingLeft: "20px", paddingRight: "20px" }}>
+                  <>
+                    <p style={{ textAlign: "justify", lineHeight: "1.2" }}>
+                      <span style={{ fontSize: "19px", color: "rgb(0, 0, 0)", backgroundColor: "rgba(0, 0, 0, 0)" }}>
+                      La medicina prepagada o plan complementario es un plan en salud, adicional a la EPS, que mejora la atención y la oportunidad en citas médicas, urgencias y hospitalización. Cuida de tu salud e inscríbete en alguna de las opciones que la compañía tiene para ti.
+                      </span>
+                    </p>
+                    <div style={{height:'100%'}}>
+                    <div style={{ width: '100%' }}>
+                  <div className={`${styles.slider2andContainer} ${styles.firstSlider}`}>
+                    <div className={styles.slides2} style={{ height:'58vh',transform: `translateX(-${currentSlideFirst * 100}%)` }}>
+                      {/* Imágenes del primer slider */}
+                      <div className={styles.slide2}>
+                        <div style={{ height: '100%', display: 'flex' }}>
+                          <div style={{ width: '100%' }}>
+                            <img
+                              src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_475/1692047650769.png"
+                              style={{ width: '100%', height: '100%' }}
+                              alt="Imagen emergente"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.slide2}>
+                        <div style={{ height: '100%', display: 'block' }}>
+                          <p style={{textAlign:'center', width:'100%', fontWeight:'600', display:'block', fontSize:'1.2rem'}}>Información del plan</p>
+                          <div style={{width:'100%', height:'30%', display:'flex'}}>
 
+                          <a target='_blank' href='https://esricolombia.sharepoint.com/Areas/GH/Videos%20Reuniones/Forms/AllItems.aspx?id=%2FAreas%2FGH%2FVideos%20Reuniones%2FPortafolio%20ESRI%2Epdf&parent=%2FAreas%2FGH%2FVideos%20Reuniones' style={{width:'33.3%', objectFit:'fill'}}><img src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/background_setting/1692062099548.png" style={{width:'100%', objectFit:'contain'}}/></a>
+                          <a target='_blank' href='https://esricolombia.sharepoint.com/Areas/GH/Videos%20Reuniones/Forms/AllItems.aspx?id=%2FAreas%2FGH%2FVideos%20Reuniones%2FPortafolio%20ESRI%2Epdf&parent=%2FAreas%2FGH%2FVideos%20Reuniones' style={{width:'33.3%', objectFit:'fill'}}><img src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/background_setting/1692062213284.png" style={{width:'100%', objectFit:'contain'}}/></a>
+                          <a target='_blank' href='https://esricolombia.sharepoint.com/Areas/GH/Videos%20Reuniones/Forms/AllItems.aspx?id=%2FAreas%2FGH%2FVideos%20Reuniones%2FSanitas%2Epdf&parent=%2FAreas%2FGH%2FVideos%20Reuniones' style={{width:'33.3%', objectFit:'fill'}}><img src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/background_setting/1692062129142.png" style={{width:'100%', objectFit:'contain'}}/></a>
+                          </div>
+                          <p style={{textAlign:'center', width:'100%', fontWeight:'600', display:'block', fontSize:'1.2rem'}}>Videos informativos</p>
+                          <div style={{width:'100%', height:'30%', display:'flex', justifyContent:'center'}}>
+
+                          <a target='_blank' href='https://esricolombia.sharepoint.com/Areas/GH/Videos%20Reuniones/Forms/AllItems.aspx?id=%2FAreas%2FGH%2FVideos%20Reuniones%2FSanitas%2Epdf&parent=%2FAreas%2FGH%2FVideos%20Reuniones' style={{width:'40%', objectFit:'fill'}}><img src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/background_setting/1692062099548.png" style={{width:'100%', objectFit:'contain'}}/></a>
+                          <a target='_blank' href='https://esricolombia.sharepoint.com/Areas/GH/_layouts/15/viewer.aspx?sourcedoc=26bd6bf0-04f5-42eb-9b20-0be591244e0d&referrer=SharePointFileViewer.Web&referrerScenario=PopOut.mis.8d293a16-21b2-444c-af28-69b7f6056646&nav=eyJwbGF5YmFja09wdGlvbnMiOnsic3RhcnRUaW1lSW5TZWNvbmRzIjoxLjk0OTU1OX19' style={{width:'50%', objectFit:'fill'}}><img src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/background_setting/1692062129142.png" style={{width:'100%', objectFit:'contain'}}/></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Controles del primer slider */}
+                    <div className={styles.controls1}>
+                      <span className={styles.span1} onClick={handlePrevSlideFirst}>{'<'}</span>
+                      <span className={styles.span1} onClick={handleNextSlideFirst}>{'>'}</span>
+                    </div>
+                  </div>
+                </div>
+                    </div>
+                  </>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {(state.showModal && state.accion === 'popup10') && (
         <div className={styles.modalBackdrop} onClick={closePopup}>
