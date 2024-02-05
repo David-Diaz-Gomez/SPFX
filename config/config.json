@@ -161,6 +161,14 @@
           "manifest": "./src/webparts/sst/SstWebPart.manifest.json"
         }
       ]
+    },
+    "calendar-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/calendar/CalendarWebPart.js",
+          "manifest": "./src/webparts/calendar/CalendarWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -184,6 +192,7 @@
     "Page7WebPartStrings": "lib/webparts/page7/loc/{locale}.js",
     "BienestarWebPartStrings": "lib/webparts/bienestar/loc/{locale}.js",
     "Page8WebPartStrings": "lib/webparts/page8/loc/{locale}.js",
-    "SstWebPartStrings": "lib/webparts/sst/loc/{locale}.js"
+    "SstWebPartStrings": "lib/webparts/sst/loc/{locale}.js",
+    "CalendarWebPartStrings": "lib/webparts/calendar/loc/{locale}.js"
   }
 }
