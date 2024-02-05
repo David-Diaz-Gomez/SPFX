@@ -120,7 +120,7 @@ export default class Page5 extends React.Component<IPage5Props, { currentSlide: 
         <section>
           <div className={styles.container}>
             <img
-              src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1701875485253.jpeg'
+              src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1701959512498.jpeg'
               alt="Background"
               className={styles.backgroundImage}
             />
