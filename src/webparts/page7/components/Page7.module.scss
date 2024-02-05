@@ -1,5 +1,11 @@
 /* Page7.module.scss */
 
+@import '../../../../styles/fonts';
+
+*{
+  font-family: "Avenir Next";
+}
+
 .section {
   display: flex;
   flex-direction: column;
@@ -70,10 +76,11 @@
 
 .modalBackdrop {
   position: fixed;
-  top: 0;
+  top: 2.5vh;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  max-height: 100vh;
+  height: 95vh;
   background: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
   display: flex;
   justify-content: center;
@@ -85,7 +92,8 @@
   background: #fff; /* Fondo blanco del modal */
   padding: 20px;
   border-radius: 8px;
-  width: 95%; /* Ancho del modal igual al ancho de la ventana */
+  //width: 95%; /* Ancho del modal igual al ancho de la ventana */
+  width: 1326px;
   height: 100%; /* Altura del modal igual a la altura de la ventana */
  /* Máximo ancho del modal */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra del modal */
@@ -137,5 +145,242 @@
     &:hover {
       background-color: rgb(25, 121, 109);
     }
+  }
+}
+
+//Estilos Slider
+.slider2andContainer {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  //height: 75vh; /* Altura deseada del slider */
+  height: 100%;
+  width: 100%;
+}
+
+.slides2 {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+  z-index: 2;
+}
+
+.slide2 {
+  flex: 0 0 100%;
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: 100% 100%;
+  }
+}
+
+.container40 {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+  height: 75vh;
+  background-image: url("https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/background_setting/1695134261115.jpg");
+  background-size: cover;
+  color: white;
+  text-align: center;
+  z-index: 5;
+  margin-left: 1%;
+  overflow: hidden;
+  transition: color 0.5s ease;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, transparent 100%, #ad680d 0);
+    transition: transform 0.5s ease;
+    transform: translateX(100%);
+    z-index: 1;
+  }
+
+  &:hover {
+    color: white;
+
+    &:before {
+      transform: translateX(0%);
+      background: linear-gradient(270deg,transparent 0%,#ad680d 0);
+      z-index: 1;
+    }
+  }
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    display: none;
+    text-align: justify;
+  }
+
+  &:hover p {
+    display: block;
+  }
+
+  a.infoButton {
+    background-color: rgb(255, 255, 255);
+    display: none;
+    color: rgb(173, 104, 13);
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-right: 20%;
+    margin-left: 20%;
+    transition: transform 0.5s ease;
+    text-decoration: none;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &:hover a.infoButton {
+    display: block;
+  }
+}
+
+
+.card1 {
+  width: 100%; /* Ajusta el ancho del contenedor según tus necesidades */
+  position: relative;
+  z-index: 2;
+}
+
+.controls {
+  position: absolute;
+  top: 50%;
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  .span {
+    background-color: transparent;
+    color: rgb(7, 7, 7);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: background-color 0.5s, color 0.5s;
+
+    &:hover {
+      background-color: #0078d4;
+      color: white;
+    }
+  }
+}
+
+.controls1 {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  .span1 {
+    background-color: transparent;
+    color: rgb(7, 7, 7);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: background-color 0.5s, color 0.5s;
+
+    &:hover {
+      background-color: #0078d4;
+      color: white;
+    }
+  }
+}
+.imguni2 {
+  width: 55%; /* Ajusta el ancho de las imágenes del slider según tus necesidades */
+  height: 100%;
+  object-fit: 100% 100%;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  z-index: 2;
+}
+
+
+.imageSection {
+  height: auto;
+  margin-bottom: 2%;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.divimg1{
+  width: 70%;
+  margin-right: 1%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  height: 100%;
+}
+.divimg2{
+  width: 30%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  height: 100%;
+}
+
+.image1 {
+  height: 80vh;
+  width: 100%;
+}
+
+.image2 {
+  height: 80vh;
+  width: 100%;
+}
+
+/* Estilos del Primer Slider con 5 imágenes */
+.firstSlider {
+  .slides2 {
+    width: 500%; /* 5 imágenes, cada una ocupa el 100% del contenedor */
+    transition: transform 0.5s ease; /* Agregado para la animación de desplazamiento */
+  }
+  .slides2 {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .slide2 {
+    width: 100%; /* Cada imagen ocupa el 100% del contenedor */
+    float: left;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: 100% 100%; /* Ajusta según sea necesario para el ajuste de la imagen */
+    }
+  }
+}
+
+
+.smartFitImg{
+  &:hover{
+    transform: scale(1.1);
   }
 }

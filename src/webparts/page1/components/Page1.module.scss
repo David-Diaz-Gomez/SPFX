@@ -1,4 +1,10 @@
 /* Page1.module.scss */
+@import '../../../../styles/fonts';
+
+*{
+  font-family: "Avenir Next";
+}
+
 
 .page1 {
   padding: 20px;
