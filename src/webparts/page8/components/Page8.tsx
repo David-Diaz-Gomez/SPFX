@@ -167,7 +167,6 @@ export default class Page8 extends React.Component<IPage8Props, {showModal: bool
             title="Certificación Autoevacuación Estándares 2022"
             style={{ width: '100%', height: '100%', border:'none' }}
           />
-          />
         </div>
         {showPausasActivasModal && (
           <div className={styles.pausasActivasModalOverlay}>
