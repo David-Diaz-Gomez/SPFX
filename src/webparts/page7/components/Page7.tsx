@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './Page7.module.scss';
 import type { IPage7Props } from './IPage7Props';
-import Calendar from '@toast-ui/react-calendar';
-import '@toast-ui/calendar/dist/toastui-calendar.min.css';
-import axios, { AxiosRequestConfig } from 'axios';
-var XLSX = require("xlsx");
 
 interface IPage7State {
   activeTab: 'bienestar' | 'beneficios';
@@ -114,35 +110,7 @@ const Page7: React.FC<IPage7Props> = (props) => {
   });
 
   const [currentSlideFirst, setCurrentSlideFirst] = useState(0);
-
-  useEffect( () => { 
-    async function fetchData() {
-        try {
-            const res = await testAxiosXlsx("https://krysgctest.sharepoint.com/sites/Prueba/SiteAssets/FR-GH-14%20Cronograma%20actividades%202024%20(1)-d8189961-a11b-42a7-8488-8d4a01ba69fd.xlsx");
-            console.log(res) 
-        } catch (err) {
-            console.log(err);
-        }
-    }
-    fetchData();
-}, []);
-
-  const testAxiosXlsx = async (url: string) => {
-    const options: AxiosRequestConfig<any> = {
-      url,
-      responseType: "arraybuffer"
-    }
-    let axiosResponse = await axios(options);
-    console.log(axiosResponse);
-    
-    const workbook = XLSX.read(axiosResponse.data);
-    console.log(workbook);
-    // let worksheets = workbook.SheetNames.map((sheetName : string) => {
-    //    return { sheetName, data: XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]) };
-    // });
-    return axiosResponse;
-    // console.log("json:\n", JSON.stringify(worksheets), "\n\n");
-  }
+  
   const handleNextSlideFirst = (): void => {
     if (state.accion === 'popup4') {
       setCurrentSlideFirst((currentSlideFirst + 1) % 2);
@@ -301,9 +269,6 @@ const Page7: React.FC<IPage7Props> = (props) => {
 
   return (
     <>
-      <div>
-        <Calendar usageStatistics={false} />
-      </div>
       <section>
         <div className={styles.pestanas}>
           <div
