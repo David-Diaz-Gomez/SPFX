@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import type { ICalendarProps } from './ICalendarProps';
 import axios, { AxiosRequestConfig } from 'axios';
-import styles from './Calendar.module.scss'
+// import styles from './Calendar.module.scss'
 var XLSX = require("xlsx");
 import CalendarTUI from '@toast-ui/react-calendar';
 import '@toast-ui/calendar/dist/toastui-calendar.min.css';
@@ -41,7 +41,10 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
   }
   const [events, setEvents] = useState<EventObject[]>();
 
-  const calendars = [{ id: '1', name: 'Personal' }];
+  const calendars = [
+    { id: '1', name: 'Personal' }
+  ];
+
 
   const testAxiosXlsx = async (url: string) => {
     const options: AxiosRequestConfig<any> = {
@@ -59,7 +62,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     worksheets[0].data.forEach((element: any, index: number) => {
       let event: EventObject = {
         id: index.toString(),
-        calendarId: '1',
+        calendarId: "1",
         title: element.Actividad,
         body: element.Temas,
         start: element.Fecha,
@@ -108,9 +111,9 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
   }, []);
 
   return (
-    <section style={{position: 'relative'}} className={styles.container}>
+    <section style={{position: 'relative'}} >
       {events && console.log(events)}
-      <CalendarTUI usageStatistics={false} calendars={calendars} events={events} view="month" template={template} useDetailPopup={true} useFormPopup={true}/>
+      <CalendarTUI usageStatistics={false} calendars={calendars} events={events} view="month" template={template} useDetailPopup={true} useFormPopup={true} isReadOnly={true}/>
     </section>
   );
 }
