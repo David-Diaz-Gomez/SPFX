@@ -50,15 +50,15 @@
 }
 
 .controlsMonth{
-  width: 15%;
+  width: 25% ;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .controlMonth {
   border: 1px solid transparent;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,10 +72,7 @@
  
 }
 
-.controlMonth:hover {
-  background-color: lightgray; 
-  transition: background-color 0.3s ease;
-}
+
 .CalenderName{
   padding-right: 1rem;
   width: auto;
@@ -84,4 +81,58 @@
   align-items: center;
   font-size: x-large;
   font-weight: bold;
+}
+.controlHoy{
+  width: 4rem;
+  height: 2rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding-block: 0;
+  padding-inline: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.controlMonth,.controlHoy:hover {
+  background-color: lightgray; 
+  transition: background-color 0.3s ease;
+}
+.calendarContainer{
+  width: 100%;
+  display: flex;
+}
+
+.lateral{
+  width: 15%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave gris */
+  margin-right: 8px;
+}
+.calendario{
+  width: 85%;
+  height: auto;
+}
+
+.listCalendars{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+.calendarName{
+  width: 4rem;
+  height: 1rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:8px;
 }

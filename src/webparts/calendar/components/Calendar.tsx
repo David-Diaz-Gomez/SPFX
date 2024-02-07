@@ -75,7 +75,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     '#CCFFFF', // Azul claro
     '#FFFF99', // Amarillo pastel
   ];
-  const meses:string[] = [
+  const meses: string[] = [
     "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
   ];
@@ -96,10 +96,14 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     const calendars: CalendarObject[] = [];
 
     worksheets[0].data.forEach((element: any, index: number) => {
-      if (element.Modalidad !== undefined && dataCalendars.indexOf(element.Modalidad) === -1) {
-        dataCalendars.push(element.Modalidad);
+      if (element.Modalidad !== undefined) {
+        const modalidad = element.Modalidad.trim(); // Eliminar espacios al principio y al final
+        if (modalidad && dataCalendars.indexOf(modalidad) === -1) {
+          dataCalendars.push(modalidad);
+        }
       }
     });
+    
 
     dataCalendars.forEach((element, index) => {
       const calendar: CalendarObject = {
@@ -175,13 +179,13 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     fetchData();
 
     function getDateCalendar() {
-     const calendarInstance = calendarRef.current.getInstance();
-     if (calendarInstance) {
-    const currentLocalDate = calendarInstance.getDate();
-     const year= currentLocalDate.getFullYear().toString()
-      const month = meses[currentLocalDate.getMonth()]
-      setCurrentDate({ Month: month, year: year});
-     }
+      const calendarInstance = calendarRef.current.getInstance();
+      if (calendarInstance) {
+        const currentLocalDate = calendarInstance.getDate();
+        const year = currentLocalDate.getFullYear().toString()
+        const month = meses[currentLocalDate.getMonth()]
+        setCurrentDate({ Month: month, year: year });
+      }
     }
 
     getDateCalendar();
@@ -194,37 +198,63 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
   const handleClickNextButton = () => {
     const calendarInstance = calendarRef.current.getInstance();
     if (calendarInstance) {
-        calendarInstance.next();
-        const currentLocalDate = calendarInstance.getDate();
-        const year = currentLocalDate.getFullYear().toString();
-        const month = meses[currentLocalDate.getMonth()];
-        setCurrentDate({ Month: month, year: year });
+      calendarInstance.next();
+      const currentLocalDate = calendarInstance.getDate();
+      const year = currentLocalDate.getFullYear().toString();
+      const month = meses[currentLocalDate.getMonth()];
+      setCurrentDate({ Month: month, year: year });
     }
-};
+  };
 
-const handleClickBackButton = () => {
+  const handleClickBackButton = () => {
     const calendarInstance = calendarRef.current.getInstance();
     if (calendarInstance) {
-        calendarInstance.prev();
-        const currentLocalDate = calendarInstance.getDate();
-        const year = currentLocalDate.getFullYear().toString();
-        const month = meses[currentLocalDate.getMonth()];
-        setCurrentDate({ Month: month, year: year });
+      calendarInstance.prev();
+      const currentLocalDate = calendarInstance.getDate();
+      const year = currentLocalDate.getFullYear().toString();
+      const month = meses[currentLocalDate.getMonth()];
+      setCurrentDate({ Month: month, year: year });
     }
-};
+  };
+  const handleGoToToday = () => {
+    const today = new Date();
+    const calendarInstance = calendarRef.current.getInstance();
+    if (calendarInstance) {
+      calendarInstance.setDate(today);
+      const month = String(today.getMonth());
+      const year = String(today.getFullYear());
+      setCurrentDate({ Month: meses[Number(month)], year: year });
+    }
+  };
 
   return (
-    <section style={{ position: 'relative' }} >
+    <section  >
       <div className={styles.calendarControl}>
         <div className={styles.controlsMonth}>
           <button className={styles.controlMonth} onClick={handleClickBackButton}>&lsaquo;</button>
           <button className={styles.controlMonth} onClick={handleClickNextButton}>&rsaquo;</button>
+          <button className={styles.controlHoy} onClick={handleGoToToday}>Hoy</button>
         </div>
 
         <span className={styles.CalenderName}>{currentDate?.Month}  {currentDate?.year}</span>
       </div>
+      <div className={styles.calendarContainer}>
+        <div className={styles.lateral}>
+          <h4>Calendarios</h4>
+          <div className={styles.listCalendars} >
+            {calendars && calendars.map((calendar: CalendarObject) => (
+              <div key={calendar.id} >
+                <span className={styles.calendarName} style={{ backgroundColor: calendar.bgColor}}>{calendar.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className={styles.calendario}>
+          <CalendarTUI ref={calendarRef} usageStatistics={false} calendars={calendars} events={events} view="month" template={template} useDetailPopup={true} useFormPopup={true} isReadOnly={true} />
+        </div>
+      </div>
 
-      <CalendarTUI ref={calendarRef} usageStatistics={false} calendars={calendars} events={events} view="month" template={template} useDetailPopup={true} useFormPopup={true} isReadOnly={true} />
+
 
     </section>
   );
