@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import type { ICalendarProps } from './ICalendarProps';
 import axios, { AxiosRequestConfig } from 'axios';
-// import styles from './Calendar.module.scss'
+import styles from './Calendar.module.scss'
 var XLSX = require("xlsx");
 import CalendarTUI from '@toast-ui/react-calendar';
-import '@toast-ui/calendar/dist/toastui-calendar.min.css';
+// import '@toast-ui/calendar/dist/toastui-calendar.min.css';
+import "./Calendario.css"
+// import { format } from 'date-fns'; 
+
 
 
 
@@ -50,12 +53,11 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     borderColor?: string;
     dragBgColor?: string;
     color?: string;
-
-
   }
 
   const [events, setEvents] = useState<EventObject[]>();
   const [calendars, setCalendars] = useState<any>();
+  const [currentDate, setCurrentDate] = useState<{ Month: string; year: string }>();
   const colors: string[] = [
     '#FFCCCC', // Rosa claro
     '#FFCC99', // Melocotón claro
@@ -73,20 +75,12 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     '#CCFFFF', // Azul claro
     '#FFFF99', // Amarillo pastel
   ];
-  
+  const meses:string[] = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  ];
 
-  // funciones
-
-  // // Función para obtener el color del calendario q
-  // const getCalendarColor = (calendarId: string) => {
-
-  //   const calendar = calendars.find((cal: CalendarObject) => cal.id === calendarId);
-  //   console.log("calendar para color", calendar)
-  //   return calendar ? calendar.bgColor : 'transparent';
-
-  // }
-
-  const getValuesFromXMLCalendars = async (url:string) => {
+  const getValuesFromXlsxCalendars = async (url: string) => {
     // logica repetica start
     const options: AxiosRequestConfig<any> = {
       url,
@@ -119,42 +113,34 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
 
       calendars.push(calendar);
     });
-
-    return { calendars };
+    testAxiosXlsx(calendars, worksheets[0].data);
   }
-  // -------------------------
-  const testAxiosXlsx = async (url: string) => {
 
-    const options: AxiosRequestConfig<any> = {
-      url,
-      responseType: "arraybuffer"
-    }
-    let axiosResponse = await axios(options);
-    const workbook = XLSX.read(axiosResponse.data, { type: 'binary', cellText: false, cellDates: true });
-    let worksheets = workbook.SheetNames.map((sheetName: string) => {
-      return { sheetName, data: XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { raw: false, dateNF: 'yyyy-mm-dd' }) };
-    });
+  const testAxiosXlsx = (calendars: CalendarObject[], data: []) => {
     var events_data: EventObject[] = [];
 
-    worksheets[0].data.forEach((element: any, index: number) => {
-      // Verificamos si el calendario ya está en la lista de calendarios
-      const existingCalendar = calendars.find((cal:CalendarObject) => cal.id === element.Modalidad);
-      let event: EventObject = {
-        id: index.toString(),
-        calendarId: element.Modalidad,
-        title: element.Actividad,
-        body: element.Temas,
-        start: element.Fecha,
-        end: element.Fecha,
-        category: 'allday',
-        isReadOnly: true,
-        backgroundColor: existingCalendar ? existingCalendar.bgColor : 'transparent',
-        customStyle: { backgroundImage: `url("https://github.com/nhn/tui.calendar/blob/main/docs/assets/EventObject_style.png")` }
+    data?.forEach((element: any, index: number) => {
+      if (element.Fecha !== undefined) {
+        const existingCalendar = calendars.map((cal: CalendarObject) => cal.id).indexOf(element.Modalidad);
+        let event: EventObject = {
+          id: index.toString(),
+          calendarId: element.Modalidad,
+          title: element.Actividad,
+          body: element.Temas,
+          start: element.Fecha,
+          end: element.Fecha,
+          category: 'allday',
+          isReadOnly: true,
+          backgroundColor: existingCalendar !== -1 ? calendars[existingCalendar].bgColor : 'transparent',
+          customStyle: { backgroundImage: `url("https://github.com/nhn/tui.calendar/blob/main/docs/assets/EventObject_style.png")` }
+        };
+        events_data.push(event);
       };
-      events_data.push(event);
+
     });
 
-    return { events_data};
+    setEvents(events_data);
+    setCalendars(calendars);
   }
 
   const template = {
@@ -176,45 +162,82 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     },
   };
 
-    
+
   useEffect(() => {
     async function fetchData() {
       try {
-        const { calendars } = await getValuesFromXMLCalendars("https://krysgctest.sharepoint.com/sites/Prueba/SiteAssets/FR-GH-14%20Cronograma%20actividades%202024%20(1)-d8189961-a11b-42a7-8488-8d4a01ba69fd.xlsx");
-        setCalendars(calendars);
+        await getValuesFromXlsxCalendars("https://krysgctest.sharepoint.com/sites/Prueba/SiteAssets/FR-GH-14%20Cronograma%20actividades%202024%20(1)-d8189961-a11b-42a7-8488-8d4a01ba69fd.xlsx");
+
       } catch (err) {
         console.log(err);
       }
     }
     fetchData();
+
+    function getDateCalendar() {
+     const calendarInstance = calendarRef.current.getInstance();
+     if (calendarInstance) {
+    const currentLocalDate = calendarInstance.getDate();
+     const year= currentLocalDate.getFullYear().toString()
+      const month = meses[currentLocalDate.getMonth()]
+      setCurrentDate({ Month: month, year: year});
+     }
+    }
+
+    getDateCalendar();
+
   }, []);
- 
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        if (calendars) {
-          const { events_data} = await testAxiosXlsx("https://krysgctest.sharepoint.com/sites/Prueba/SiteAssets/FR-GH-14%20Cronograma%20actividades%202024%20(1)-d8189961-a11b-42a7-8488-8d4a01ba69fd.xlsx");
-          setEvents(events_data);
-        }
-      } catch (err) {
-        console.log(err);
-      }
+
+  const calendarRef: any = React.createRef();
+
+  const handleClickNextButton = () => {
+    const calendarInstance = calendarRef.current.getInstance();
+    if (calendarInstance) {
+        calendarInstance.next();
+        const currentLocalDate = calendarInstance.getDate();
+        const year = currentLocalDate.getFullYear().toString();
+        const month = meses[currentLocalDate.getMonth()];
+        setCurrentDate({ Month: month, year: year });
     }
-    fetchData();
-  }, [calendars]);
+};
 
- 
-
+const handleClickBackButton = () => {
+    const calendarInstance = calendarRef.current.getInstance();
+    if (calendarInstance) {
+        calendarInstance.prev();
+        const currentLocalDate = calendarInstance.getDate();
+        const year = currentLocalDate.getFullYear().toString();
+        const month = meses[currentLocalDate.getMonth()];
+        setCurrentDate({ Month: month, year: year });
+    }
+};
 
   return (
     <section style={{ position: 'relative' }} >
-      <CalendarTUI usageStatistics={false} calendars={calendars} events={events} view="month" template={template} useDetailPopup={true} useFormPopup={true} isReadOnly={true} />
+      <div className={styles.calendarControl}>
+        <div className={styles.controlsMonth}>
+          <button className={styles.controlMonth} onClick={handleClickBackButton}>&lsaquo;</button>
+          <button className={styles.controlMonth} onClick={handleClickNextButton}>&rsaquo;</button>
+        </div>
+
+        <span className={styles.CalenderName}>{currentDate?.Month}  {currentDate?.year}</span>
+      </div>
+
+      <CalendarTUI ref={calendarRef} usageStatistics={false} calendars={calendars} events={events} view="month" template={template} useDetailPopup={true} useFormPopup={true} isReadOnly={true} />
+
     </section>
   );
 }
 
 export default Calendar;
+
+
+
+
+
+
+
 
 
 

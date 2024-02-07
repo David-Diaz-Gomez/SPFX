@@ -32,3 +32,56 @@
     }
   }
 }
+// // estilos aparte
+// .calendar{
+//   background-color: aqua;
+//   width: 30%;
+//   height: auto;
+// }
+.calendarControl {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave gris */
+  margin-bottom: 1rem;
+  padding: 0.3rem;
+}
+
+.controlsMonth{
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.controlMonth {
+  border: 1px solid transparent;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  font-size: xx-large;
+  border-radius: 50%; 
+  padding-block: 0;
+  padding-inline: 0;
+  font-family:none !important;
+ 
+}
+
+.controlMonth:hover {
+  background-color: lightgray; 
+  transition: background-color 0.3s ease;
+}
+.CalenderName{
+  padding-right: 1rem;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  font-weight: bold;
+}
