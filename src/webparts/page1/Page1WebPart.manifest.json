@@ -22,7 +22,13 @@
     "description": { "default": "Page1 description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "Page1"
+      "description": "Page1",
+      "url4": "url4",
+      "url5": "url5",
+      "url6": "url6",
+      "url7": "url7",
+      "url8": "url8",
+      "url9": "url9"
     }
   }]
 }

@@ -5,6 +5,12 @@ declare interface IHomeWebPartStrings {
   Url1FieldLabel: string;
   Url2FieldLabel: string;
   Url3FieldLabel: string;
+  Url4FieldLabel: string;
+  Url5FieldLabel: string;
+  Url6FieldLabel: string;
+  Url7FieldLabel: string;
+  Url8FieldLabel: string;
+  Url9FieldLabel: string;
   AppLocalEnvironmentSharePoint: string;
   AppLocalEnvironmentTeams: string;
   AppLocalEnvironmentOffice: string;

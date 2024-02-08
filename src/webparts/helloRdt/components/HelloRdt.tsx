@@ -1,11 +1,14 @@
 import * as React from 'react';
 import styles from './HelloRdt.module.scss';
 import type { IHelloRdtProps } from './IHelloRdtProps';
-//import { escape } from '@microsoft/sp-lodash-subset';
 
 export default class HelloRdt extends React.Component<IHelloRdtProps, {}> {
+
   public render(): React.ReactElement<IHelloRdtProps> {
-    const { url1,url2,url3 } = this.props;
+
+    function handleClick(id:string) {
+      console.log(id)
+    }
     return (
       <section className={styles.completo}>
         <div className={styles.header}>
@@ -20,8 +23,8 @@ export default class HelloRdt extends React.Component<IHelloRdtProps, {}> {
               <li title="ORGANIZACIÓN " role="menuitem"
                 className="scroll-item nav-item"><a id="jimu-link-app-0"
                   draggable="false" role="button" aria-pressed="true"
-                  href={url1}
-                  
+                  href={'#organizacion'}
+                  onClick={() => {handleClick("organizacion")}}
                   tabIndex={0}
                   className="jimu-btn jimu-link  app-root-emotion-cache-ltr-nzkanw nav-link jimu-outline-inside active btn btn-default"
                   aria-label="ORGANIZACIÓN "><span
@@ -30,8 +33,8 @@ export default class HelloRdt extends React.Component<IHelloRdtProps, {}> {
               <li title="MAPA DE EXPERIENCIAS" role="menuitem"
                 className="scroll-item nav-item"><a id="jimu-link-app-1"
                   draggable="false" role="button" aria-pressed="false"
-                  href={url2}
-                  
+                  href={'#experiencias'}
+                  onClick={() => {handleClick("experiencias")}}
                   tabIndex={0}
                   className="jimu-btn jimu-link  app-root-emotion-cache-ltr-nzkanw nav-link jimu-outline-inside btn btn-default"
                   aria-label="MAPA DE EXPERIENCIAS"><span
@@ -40,8 +43,8 @@ export default class HelloRdt extends React.Component<IHelloRdtProps, {}> {
               <li title="APLICACIONES" role="menuitem"
                 className="scroll-item nav-item"><a id="jimu-link-app-2"
                   draggable="false" role="button" aria-pressed="false"
-                  href={url3}
-                  
+                  href={'#aplicaciones'}
+                  onClick={() => {handleClick("aplicaciones")}}
                   tabIndex={0}
                   className="jimu-btn jimu-link  app-root-emotion-cache-ltr-nzkanw nav-link jimu-outline-inside btn btn-default"
                   aria-label="APLICACIONES"><span

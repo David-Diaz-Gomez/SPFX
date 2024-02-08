@@ -7,7 +7,7 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
   public render(): React.ReactElement<IPage2Props> {
     const { url4,url5,url6,url7,url8,url9 } = this.props;
     return (
-      <section>
+      <section id="experiencias">
         <div className={styles.container}>
           <img
             src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2496/1699620717661.png"

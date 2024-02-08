@@ -25,7 +25,7 @@ export default class Page3 extends React.Component<IPage3Props, {}> {
   
   public render(): React.ReactElement<IPage3Props> {
     return (
-      <section className={styles.container}>
+      <section className={styles.container} id="aplicaciones">
         <div className={styles.backgroundImage}>
           <img
             src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2298/1698323936309.jpg"

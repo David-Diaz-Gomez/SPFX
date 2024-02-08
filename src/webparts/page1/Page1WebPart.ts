@@ -14,6 +14,12 @@ import { IPage1Props } from './components/IPage1Props';
 
 export interface IPage1WebPartProps {
   description: string;
+  url4: string;
+  url5: string;
+  url6: string;
+  url7: string;
+  url8: string;
+  url9: string;
 }
 
 export default class Page1WebPart extends BaseClientSideWebPart<IPage1WebPartProps> {
@@ -29,7 +35,13 @@ export default class Page1WebPart extends BaseClientSideWebPart<IPage1WebPartPro
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
-        userDisplayName: this.context.pageContext.user.displayName
+        userDisplayName: this.context.pageContext.user.displayName,
+        url4: this.properties.url4,
+        url5: this.properties.url5,
+        url6: this.properties.url6,
+        url7: this.properties.url7,
+        url8: this.properties.url8,
+        url9: this.properties.url9,
       }
     );
 
