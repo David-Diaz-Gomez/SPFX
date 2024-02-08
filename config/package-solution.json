@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "home1",
+    "name": "GestionHuama",
     "id": "e7da743b-bb7c-428f-9d0b-4261391623d1",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
@@ -27,7 +27,7 @@
     },
     "features": [
       {
-        "title": "my-webpart Feature",
+        "title": "GH Feature",
         "description": "The feature that activates elements of the my-webpart solution.",
         "id": "f2d6b790-7110-4913-b865-d61d3ab2c8f8",
         "version": "1.0.0.0"
@@ -35,6 +35,6 @@
     ]
   },
   "paths": {
-    "zippedPackage": "solution/my-webpart.sppkg"
+    "zippedPackage": "solution/GH.sppkg"
   }
 }
