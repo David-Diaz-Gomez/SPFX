@@ -170,7 +170,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
   useEffect(() => {
     async function fetchData() {
       try {
-        await getValuesFromXlsxCalendars("https://krysgctest.sharepoint.com/sites/Prueba/SiteAssets/FR-GH-14%20Cronograma%20actividades%202024%20(1)-d8189961-a11b-42a7-8488-8d4a01ba69fd.xlsx");
+        await getValuesFromXlsxCalendars("https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/FR-GH-14%20Cronograma%20actividades%202024%20(1)-d8189961-a11b-42a7-8488-8d4a01ba69fd.xlsx");
 
       } catch (err) {
         console.log(err);
@@ -228,7 +228,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
   };
 
   return (
-    <section  >
+    <section  id={styles.calendarContainer}>
       <div className={styles.calendarControl}>
         <div className={styles.controlsMonth}>
           <button className={styles.controlMonth} onClick={handleClickBackButton}>&lsaquo;</button>

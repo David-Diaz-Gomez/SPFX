@@ -4,6 +4,7 @@ import styles from './Page1.module.scss';
 import { IPage1Props } from './IPage1Props';
 import Page2 from '../../page2/components/Page2';
 import Page3 from '../../page3/components/Page3';
+import Calendar from '../../calendar/components/Calendar';
 
 export default class Page1 extends React.Component<IPage1Props, { currentSlide: number }> {
   constructor(props: IPage1Props) {
@@ -50,7 +51,7 @@ export default class Page1 extends React.Component<IPage1Props, { currentSlide: 
   render() {
     const {
       hasTeamsContext, userDisplayName,
-      url4,url5,url6,url7,url8,url9
+      url4, url5, url6, url7, url8, url9
     } = this.props;
 
     const imageInfo = [
@@ -170,7 +171,7 @@ export default class Page1 extends React.Component<IPage1Props, { currentSlide: 
         {/* Renderizar el componente Page2 */}
         <Page2
           url4={url4}
-          url5={url5} 
+          url5={url5}
           url6={url6}
           url7={url7}
           url8={url8}
@@ -183,7 +184,15 @@ export default class Page1 extends React.Component<IPage1Props, { currentSlide: 
         />
 
         {/* Renderizar el componente Page3 */}
-        <Page3 
+        <Page3
+          hasTeamsContext={hasTeamsContext}
+          userDisplayName={userDisplayName}
+          description="Descripción predeterminada"
+          isDarkTheme={false}
+          environmentMessage="Mensaje predeterminado"
+        />
+
+        <Calendar
           hasTeamsContext={hasTeamsContext}
           userDisplayName={userDisplayName}
           description="Descripción predeterminada"

@@ -1,5 +1,11 @@
 @import '~@fluentui/react/dist/sass/References.scss';
 
+#calendar_container{
+  width: 98%;
+  margin: 0 auto;
+  margin-bottom: 1vh 
+}
+
 .calendar {
   overflow: hidden;
   padding: 1em;
