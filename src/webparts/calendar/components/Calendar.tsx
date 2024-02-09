@@ -32,7 +32,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     attendees?: string[];
     category?: 'milestone' | 'task' | 'allday' | 'time';
     recurrenceRule?: string;
-    state?: 'Busy' | 'Free';
+    state?: 'Busy' | 'Free' | string | undefined;
     isVisible?: boolean;
     isPending?: boolean;
     isFocused?: boolean;
@@ -103,7 +103,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
         }
       }
     });
-    
+
 
     dataCalendars.forEach((element, index) => {
       const calendar: CalendarObject = {
@@ -130,22 +130,28 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
           id: index.toString(),
           calendarId: element.Modalidad,
           title: element.Actividad,
-          body: element.Temas,
+          body:   `
+          <h3>${element.Actividad}</h3>
+          <span>Fecha: ${element.Fecha}</span>
+          <p>Descripción: ${element.Temas}</p>
+          <div style="background-color: ${existingCalendar !== -1 ? calendars[existingCalendar].bgColor : 'transparent'}; width: 4rem; height: auto; display: flex; justify-content: center; border-radius: 5px; padding:4px;">
+           ${element.Modalidad}
+          </div>
+          `,
           start: element.Fecha,
           end: element.Fecha,
           category: 'allday',
           isReadOnly: true,
           backgroundColor: existingCalendar !== -1 ? calendars[existingCalendar].bgColor : 'transparent',
-          customStyle: { backgroundImage: `url("https://github.com/nhn/tui.calendar/blob/main/docs/assets/EventObject_style.png")` }
         };
         events_data.push(event);
       };
 
     });
-
     setEvents(events_data);
     setCalendars(calendars);
   }
+
 
   const template = {
     milestone(event: EventObject) {
@@ -164,8 +170,24 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
       const { date } = moreTitle;
       return `<span>${date}</span>`;
     },
+    popupDetailTitle({ title }: { title: any }) {
+      return `<h3 style=" black: white;">${title}</h3>`;
+    },
+ 
+    popupDetailRecurrenceRule({ recurrenceRule }: { recurrenceRule: any }) {
+   
+      return `<div style="background-color: yellow; color: black;">${recurrenceRule}</div>`;
+    },
+    popupDetailBody({ body }: { body: any }) {
+   
+      return `<span style="color: black;">${body}</span>`;
+    },
+    popupDetailState({ state }: { state: any }) {
+      return '';
+    },
+    
+  
   };
-
 
   useEffect(() => {
     async function fetchData() {
@@ -227,8 +249,9 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     }
   };
 
+
   return (
-    <section  id={styles.calendarContainer}>
+    <section id={styles.calendarContainer}>
       <div className={styles.calendarControl}>
         <div className={styles.controlsMonth}>
           <button className={styles.controlMonth} onClick={handleClickBackButton}>&lsaquo;</button>
@@ -244,13 +267,13 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
           <div className={styles.listCalendars} >
             {calendars && calendars.map((calendar: CalendarObject) => (
               <div key={calendar.id} >
-                <span className={styles.calendarName} style={{ backgroundColor: calendar.bgColor}}>{calendar.name}</span>
+                <span className={styles.calendarName} style={{ backgroundColor: calendar.bgColor }}>{calendar.name}</span>
               </div>
             ))}
           </div>
         </div>
         <div className={styles.calendario}>
-          <CalendarTUI ref={calendarRef} usageStatistics={false} calendars={calendars} events={events} view="month" template={template} useDetailPopup={true} useFormPopup={true} isReadOnly={true} />
+          <CalendarTUI  ref={calendarRef} usageStatistics={false} calendars={calendars} events={events} view="month" template={template} useDetailPopup={true} isReadOnly={true} />
         </div>
       </div>
 

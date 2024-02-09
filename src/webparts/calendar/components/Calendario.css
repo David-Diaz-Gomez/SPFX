@@ -373,7 +373,7 @@
   .toastui-calendar-weekday-event-dot {
     position: relative;
     top: 8px;
-    float: left;
+    /* float: left; */
     display: inline-block;
     width: 8px;
     height: 8px;
@@ -525,6 +525,7 @@
   
   .toastui-calendar-floating-layer * {
     box-sizing: border-box;
+ 
   }
   
   .toastui-calendar-popup-overlay {
@@ -546,6 +547,7 @@
   .toastui-calendar-popup-section {
     font-size: 0;
     min-height: 40px;
+
   }
   
   .toastui-calendar-popup-button.toastui-calendar-popup-close {
@@ -656,6 +658,7 @@
     display: inline-block;
     font-size: 0;
     border-radius: 2px;
+   
   }
   
   .toastui-calendar-popup-section-item input {
@@ -672,6 +675,7 @@
     vertical-align: middle;
     position: relative;
     padding-left: 8px;
+  
   }
   
   .toastui-calendar-popup-date-picker .toastui-calendar-content {
@@ -858,6 +862,8 @@
   
   .toastui-calendar-detail-container .toastui-calendar-section-header {
     margin-bottom: 6px;
+    display: none;
+  
   }
   
   .toastui-calendar-detail-container .toastui-calendar-section-detail {
@@ -874,13 +880,17 @@
     font-size: 12px;
     line-height: 2;
   }
-  
+  .toastui-calendar-detail-container .toastui-calendar-content:nth-child(2) {
+    display: none;
+  }
   .toastui-calendar-detail-container .toastui-calendar-icon {
     width: 12px;
     height: 12px;
     background-size: 12px;
     position: relative;
     margin-right: 8px;
+    display: none;
+   
   }
   
   .toastui-calendar-detail-container .toastui-calendar-calendar-dot {
@@ -889,6 +899,7 @@
     height: 10px;
     top: -4px;
     margin-right: 10px;
+
   }
   
   .toastui-calendar-event-title {
@@ -901,6 +912,7 @@
   .toastui-calendar-detail-item-indent {
     text-indent: -20px;
     padding-left: 20px;
+    display: none;
   }
   
   .toastui-calendar-edit-button,
