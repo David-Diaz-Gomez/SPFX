@@ -114,7 +114,26 @@
   padding-right: 10px;
   border-radius: 50%;
 }
-.closeButton:hover{
+
+.backButton{
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  display: none;
+  z-index: 10;
+  background:#2980b9; 
+  color: #fff;
+  border: none;
+  font-size: 1.4em;
+  cursor: pointer;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 50%;
+}
+
+.closeButton:hover, .backButton:hover{
   background: red;
 }
 
