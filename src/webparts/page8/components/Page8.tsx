@@ -78,6 +78,7 @@ export default class Page8 extends React.Component<IPage8Props, {showModal: bool
   handleFocusChange = (index: number | null) => {
     this.setState({ focusedIndex: index });
   };
+
   public render(): React.ReactElement<IPage8Props> {
     const { showModal, modalImages, currentImageIndex, showPausasActivasModal, focusedIndex,modalTab } = this.state;
     return (
@@ -327,6 +328,7 @@ export default class Page8 extends React.Component<IPage8Props, {showModal: bool
             </div>
           </div>
         )}
+        
       </section>
     );
   }

@@ -58,6 +58,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
   const [events, setEvents] = useState<EventObject[]>();
   const [calendars, setCalendars] = useState<any>();
   const [currentDate, setCurrentDate] = useState<{ Month: string; year: string }>();
+
   const colors: string[] = [
     '#FFCCCC', // Rosa claro
     '#FFCC99', // Melocotón claro
@@ -75,6 +76,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     '#CCFFFF', // Azul claro
     '#FFFF99', // Amarillo pastel
   ];
+
   const meses: string[] = [
     "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
@@ -131,12 +133,15 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
           calendarId: element.Modalidad,
           title: element.Actividad,
           body:   `
-          <h3>${element.Actividad}</h3>
+        <div style="display: flex; flex-direction: column;">
+          <h3 style="margin-block-end: 0; margin-block-start:0;" >${element.Actividad}</h3>
+          <img src="${element.LINK_IMG}" alt="Imagen" style="width: 4em; height: 3em;"/>
           <span>Fecha: ${element.Fecha}</span>
           <p>Descripción: ${element.Temas}</p>
-          <div style="background-color: ${existingCalendar !== -1 ? calendars[existingCalendar].bgColor : 'transparent'}; width: 4rem; height: auto; display: flex; justify-content: center; border-radius: 5px; padding:4px;">
+          <div  style="background-color: ${existingCalendar !== -1 ? calendars[existingCalendar].bgColor : 'transparent'}; width: 4rem; height: auto; display: flex; justify-content: center; border-radius: 5px; padding:4px;">
            ${element.Modalidad}
           </div>
+         </div> 
           `,
           start: element.Fecha,
           end: element.Fecha,
