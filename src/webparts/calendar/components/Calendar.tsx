@@ -60,22 +60,23 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
   const [currentDate, setCurrentDate] = useState<{ Month: string; year: string }>();
 
   const colors: string[] = [
-    '#FFCCCC', // Rosa claro
-    '#FFCC99', // Melocotón claro
-    '#FFCCFF', // Lavanda claro
-    '#99CCFF', // Azul cielo claro
-    '#99FF99', // Verde menta claro
-    '#FFFFCC', // Amarillo claro
-    '#CCCCCC', // Gris claro
-    '#CCFFCC', // Verde claro
-    '#CCCCFF', // Azul claro
-    '#FFCCFF', // Lila claro
-    '#FF99CC', // Rosa suave
-    '#CC99FF', // Púrpura claro
-    '#99FFFF', // Turquesa claro
-    '#CCFFFF', // Azul claro
-    '#FFFF99', // Amarillo pastel
-  ];
+    '#FFB58E', // Naranja suave
+    '#B48EAD', // Púrpura suave
+    '#76D7C4', // Verde suave
+    '#F9E79F', // Amarillo suave
+    '#85C1E9', // Azul suave
+    '#FFD966', // Amarillo suave
+    '#D5F5E3', // Verde claro suave
+    '#FFA07A', // Rojo suave
+    '#82E0AA', // Verde suave
+    '#A569BD', // Púrpura suave
+    '#F1948A', // Rojo suave
+    '#7FB3D5', // Azul suave
+    '#FDEBD0', // Amarillo suave
+    '#A9DFBF', // Verde suave
+    '#D2B4DE', // Púrpura suave
+];
+
 
   const meses: string[] = [
     "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
@@ -108,6 +109,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
 
 
     dataCalendars.forEach((element, index) => {
+
       const calendar: CalendarObject = {
         id: element,
         name: element,
@@ -127,10 +129,12 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
 
     data?.forEach((element: any, index: number) => {
       if (element.Fecha !== undefined) {
-        const existingCalendar = calendars.map((cal: CalendarObject) => cal.id).indexOf(element.Modalidad);
+        const modalidad = element.Modalidad.trim();
+        const existingCalendar = calendars.map((cal: CalendarObject) => cal.id).indexOf(modalidad);
+
         let event: EventObject = {
           id: index.toString(),
-          calendarId: element.Modalidad,
+          calendarId: modalidad,
           title: element.Actividad,
           body:   `
         <div style="display: flex; flex-direction: column;">

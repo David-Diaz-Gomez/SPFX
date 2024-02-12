@@ -3,22 +3,77 @@ import styles from './Page8.module.scss';
 import type { IPage8Props } from './IPage8Props';
 
 
-export default class Page8 extends React.Component<IPage8Props, {showModal: boolean; modalImages: string[];currentImageIndex: number; showPausasActivasModal: boolean;focusedIndex: number | null;modalTab: 'pausas' | 'ejercicios';}> {
-    constructor(props: IPage8Props) {
-      super(props);
-      this.state = {
-        showModal: false,
-        modalImages: [],
-        currentImageIndex: 0,
-        showPausasActivasModal: false,
-        focusedIndex: null,
-        modalTab: 'pausas',
-      };
-    }
-    
-    handleModalTabClick = (tab: 'pausas' | 'ejercicios') => {
-      this.setState({ modalTab: tab });
+export default class Page8 extends React.Component<IPage8Props, { showModal: boolean; modalImages: string[]; currentImageIndex: number; showPausasActivasModal: boolean; focusedIndex: number | null; modalTab: 'pausas' | 'ejercicios'; imagesActivities: string[];currentImageIndexActividades:number }> {
+  constructor(props: IPage8Props) {
+    super(props);
+    this.state = {
+      showModal: false,
+      modalImages: [],
+      currentImageIndex: 0,
+      showPausasActivasModal: false,
+      focusedIndex: null,
+      modalTab: 'pausas',
+      imagesActivities: [
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/f56b0005-3b19-4d00-8db3-78261227a56f/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/0cb7cf7a-695a-4bfb-9a2c-4cfbdb251cef/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/4bc24977-8697-400e-b617-3181af5a061a/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/40c75531-0652-42e7-975e-cd674db4466b/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/b5281525-2be7-4b86-b6da-cf7e24fde603/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/ccd65bcb-c165-4c18-bec0-db2798c2b289/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/61d53a21-1985-4946-8f31-fb429bf1be7e/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/9f888d54-99b8-4c5a-bdb8-b2f7837749d4/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/3c969a85-899b-4c6a-a791-cf195f5e8db8/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/2fa4e591-1f4f-434d-a341-08e195eb00b7/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/1d0c091e-2b85-4ff8-ba99-d0f6be5c7a42/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/44382a4f-f722-4f0f-8e7d-558a197ee1ee/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/44120e06-5d7d-4408-a0ed-4c484f6d66b0/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/828bea7a-7786-4d65-8e2f-93b2fc1d1222/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/73fea8ef-97e7-4f62-97d7-4d0e86f99b2a/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/41b42349-04e8-49bb-be20-c17ee71433f7/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/d4258e42-cda4-43fd-8555-f51f2ea7a599/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/cd75562e-d151-41a8-ac6f-939b14f723cb/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/97a99f41-ea94-4a12-8a42-3e818a16bfe0/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/d081d401-cb94-4937-bb6d-c9300b659e85/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/518728b9-34bc-4448-a7ec-58934673f4e0/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/6e792c47-5d7d-473a-b19d-61905f4d3da1/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/7ae789b9-dd5f-4ead-b9a9-b72f488b4775/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/4e507d3b-1cfc-42e6-8fdd-d8ad1d4608ed/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/43e6bef8-a5db-4c0f-b444-4ef6dd19faee/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/0d3dd4ad-ad7b-4195-8fec-439c0f633497/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/f1ca4139-c55a-45a0-aba0-038392fc7377/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/bdbb976d-bfdf-4e13-8760-6c2cbbb9cf05/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/310520f6-0021-4329-8cae-81e25e571955/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/d9a3e091-8520-46f0-b5d9-10637af0e5f7/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/9e30e161-c50b-4b0c-9987-d5732bd9d266/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/afed4754-8022-4274-8a8f-9f95a0891c64/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/1c708e46-98fb-4948-b338-09297af37741/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/9f53081d-d5a2-4bd0-8544-58c9c7a9fac0/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/af678ff4-8ed6-4008-874c-31acd1d7cf46/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/f785a8ef-8aa7-491d-afe2-fde76d27e020/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/65c1fd1c-49b5-4377-9850-e3b3facde399/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/961fd9e7-17f6-4d1e-910e-ecbeef24942e/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/bfcb9d49-6739-4efc-91cb-8a223c5e06a2/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/9734652c-124a-494b-81f9-3df86c22b1ea/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/58fa5e6a-2a71-4a7f-b603-140510555adc/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/4ab488dc-53e3-42a8-a481-e0447c1ab913/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/c714ff06-c507-4a77-aa54-a7a9364ae221/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/2de24eb4-9edd-4f6a-a4ac-d5281deb4783/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
+        "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/fead7498-5a95-4378-a404-5015019b3a85/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart"
+
+
+
+
+
+      ],
+      currentImageIndexActividades: 0,
+
+
     };
+  }
+
+  handleModalTabClick = (tab: 'pausas' | 'ejercicios') => {
+    this.setState({ modalTab: tab });
+  };
 
   openModal = (images: string[]): void => {
     this.setState({ showModal: true, modalImages: images });
@@ -37,11 +92,12 @@ export default class Page8 extends React.Component<IPage8Props, {showModal: bool
   }
 
   navigateImages = (direction: 'prev' | 'next', event: React.MouseEvent<HTMLButtonElement>) => {
+
     event.stopPropagation();
-  
+    console.log(this.state.modalImages)
     const { modalImages, currentImageIndex } = this.state;
     const totalImages = modalImages.length;
-  
+
     if (direction === 'prev') {
       this.setState({
         currentImageIndex: (currentImageIndex - 1 + totalImages) % totalImages,
@@ -52,6 +108,23 @@ export default class Page8 extends React.Component<IPage8Props, {showModal: bool
       });
     }
   };
+
+  navigateImagenesActividades = (direction: 'prev' | 'next', event: React.MouseEvent<HTMLButtonElement>) => {
+
+    const { imagesActivities, currentImageIndexActividades } = this.state;
+    const totalImages = imagesActivities.length;
+
+    if (direction === 'prev') {
+      this.setState({
+        currentImageIndexActividades: (currentImageIndexActividades - 1 + totalImages) % totalImages,
+      });
+    } else if (direction === 'next') {
+      this.setState({
+        currentImageIndexActividades: (currentImageIndexActividades + 1) % totalImages,
+      });
+    }
+  }
+
 
   renderIframeContent(index: number): React.ReactNode {
     // Asume que este método devolverá el contenido del iframe según el índice proporcionado.
@@ -80,7 +153,7 @@ export default class Page8 extends React.Component<IPage8Props, {showModal: bool
   };
 
   public render(): React.ReactElement<IPage8Props> {
-    const { showModal, modalImages, currentImageIndex, showPausasActivasModal, focusedIndex,modalTab } = this.state;
+    const { showModal, modalImages, currentImageIndex, showPausasActivasModal, focusedIndex, modalTab, imagesActivities, currentImageIndexActividades} = this.state;
     return (
       <section>
         {/* Imagen */}
@@ -91,15 +164,15 @@ export default class Page8 extends React.Component<IPage8Props, {showModal: bool
         />
 
         {/* Párrafo */}
-        <p style={{ margin: '1% 5% 1% 5%' ,fontSize:'.7rem'}}>
+        <p style={{ margin: '1% 5% 1% 5%', fontSize: '.7rem' }}>
           Nuestro propósito fundamental es proteger la salud, seguridad y bienestar físico, mental y social de los colaboradores en las instalaciones de la compañía; promoviendo y manteniendo ambientes de trabajo saludables y sostenibles, identificando y evaluando los riesgos relacionados con la actividad realizada y fomentando hábitos de vida saludables, programas de salud y bienestar y generando espacios de formación y capacitación.
         </p>
 
         {/* Contenedor con borde azul claro */}
-        <div style={{ borderTop: '5px double #add8e6', borderBottom: '5px double #add8e6', display:'flex', marginBottom:'2%'}}>
+        <div style={{ borderTop: '5px double #add8e6', borderBottom: '5px double #add8e6', display: 'flex', marginBottom: '2%' }}>
           {/* Primera división */}
           <div style={{ width: '50%' }}>
-            <h2 style={{ color: '#000080',fontWeight:'600' }}>Objetivos</h2>
+            <h2 style={{ color: '#000080', fontWeight: '600' }}>Objetivos</h2>
             <ul style={{ fontSize: '1.rem', marginRight: '5%' }}>
               <li>Conocer las generalidades del SG-SST</li>
               <li>Actualizar y reforzar en los colaboradores temas relevantes y relacionados con SST</li>
@@ -109,9 +182,9 @@ export default class Page8 extends React.Component<IPage8Props, {showModal: bool
 
           {/* Segunda división con botones */}
           <div style={{ width: '50%' }}>
-            <button style={{ width: '100%', backgroundColor: '#000080', color: 'white', borderRadius: '25px', padding:'13px',margin: '1rem 0px .2rem;',fontWeight:'600' }}onClick={this.openPausasActivasModal}>Pausas activas</button>
-            <button style={{ width: '100%', backgroundColor: '#add8e6', borderRadius: '25px', margin: '.5rem 0px .2rem',color: 'white', padding:'13px',fontWeight:'600' }}onClick={() => this.openModal(['https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_732/1692247926893.jpg', 'https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_733/1692247997403.jpg'])}>Riesgos y accidentes de trabajo</button>
-            <button style={{ width: '100%', backgroundColor: '#008000', color: 'white', borderRadius: '25px', padding:'13px', margin: '.5rem 0px .2rem',fontWeight:'600' }}onClick={() => this.openModal(['https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_734/1692248160818.jpg', 'https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_735/1692248189473.jpg', 'https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_736/1692248234468.jpg'])}>Comités de Esri NOSA</button>
+            <button style={{ width: '100%', backgroundColor: '#000080', color: 'white', borderRadius: '25px', padding: '13px', margin: '1rem 0px .2rem;', fontWeight: '600' }} onClick={this.openPausasActivasModal}>Pausas activas</button>
+            <button style={{ width: '100%', backgroundColor: '#add8e6', borderRadius: '25px', margin: '.5rem 0px .2rem', color: 'white', padding: '13px', fontWeight: '600' }} onClick={() => this.openModal(['https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_732/1692247926893.jpg', 'https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_733/1692247997403.jpg'])}>Riesgos y accidentes de trabajo</button>
+            <button style={{ width: '100%', backgroundColor: '#008000', color: 'white', borderRadius: '25px', padding: '13px', margin: '.5rem 0px .2rem', fontWeight: '600' }} onClick={() => this.openModal(['https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_734/1692248160818.jpg', 'https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_735/1692248189473.jpg', 'https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_736/1692248234468.jpg'])}>Comités de Esri NOSA</button>
           </div>
         </div>
 
@@ -127,10 +200,10 @@ export default class Page8 extends React.Component<IPage8Props, {showModal: bool
           />
         </div>
 
-         {/* Contenedor con tres columnas y listas */}
+        {/* Contenedor con tres columnas y listas */}
         <div style={{ display: 'flex', flexDirection: 'row', height: 'auto' }}>
           {/* Columna 1 */}
-          <div style={{ flex: 1, padding: '1rem'}}>
+          <div style={{ flex: 1, padding: '1rem' }}>
             <ul style={{ fontSize: '0.8rem', margin: 0 }}>
               <li>Procurar el cuidado integral de su salud.</li>
               <li>Suministrar información clara, veraz y completa sobre su estado de salud.</li>
@@ -162,17 +235,17 @@ export default class Page8 extends React.Component<IPage8Props, {showModal: bool
           </div>
         </div>
 
-        <div style={{ height: '50vh', width: '100%', border:'none' }}>
+        <div style={{ height: '50vh', width: '100%', border: 'none' }}>
           <iframe
             src="https://esricolombia.sharepoint.com/Areas/GH/SiteAssets/Forms/AllItems.aspx?id=%2FAreas%2FGH%2FSiteAssets%2FSitePages%2FSST%2Fcertificacion%2Dautoevaculaci%C3%B3n%2Destandares%2D2022%5F29MAYO023%2Epdf&parent=%2FAreas%2FGH%2FSiteAssets%2FSitePages%2FSST"
             title="Certificación Autoevacuación Estándares 2022"
-            style={{ width: '100%', height: '100%', border:'none' }}
+            style={{ width: '100%', height: '100%', border: 'none' }}
           />
         </div>
         {showPausasActivasModal && (
           <div className={styles.pausasActivasModalOverlay}>
-          <div className={styles.pausasActivasModalContent}>
-          <div className={styles.modalTabs}>
+            <div className={styles.pausasActivasModalContent}>
+              <div className={styles.modalTabs}>
                 <div
                   className={`${styles.modalTab} ${modalTab === 'pausas' ? styles.activeTab : ''}`}
                   onClick={() => this.handleModalTabClick('pausas')}
@@ -187,148 +260,167 @@ export default class Page8 extends React.Component<IPage8Props, {showModal: bool
                 </div>
               </div>
               <button className={styles.closeButton} onClick={this.closePausasActivasModal}>&times;</button>
-           <div style={{ display:'flex',justifyContent:'center'}}>
-                {modalTab === 'pausas' ? ( 
-                <div style={{width:'100%',height:'100%'}}>
-                  <img title="" src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_611/1692200405315.png"
-                   alt=""
-                  style={{display: 'block', objectFit: 'fill', objectPosition: '50% 50%', height:'100%', width:'100%'}}/>
-                </div>  ):(
-                  <div style={{width:'100%',height:'100%'}}>
-            
-              {/* Contenido del modal de "Pausas activas" */}
-              <div className={styles.modalRow}>
-                {/* Primer div */}
-                <div className={styles.modalColumn} onMouseEnter={() => this.handleFocusChange(0)}
-              onMouseLeave={() => this.handleFocusChange(null)}>
-                {focusedIndex === 0 ? (
-                  this.renderIframeContent(0)
-                ) : (
-                  <div style={{position:'relative',width:'100%',height:'100%'}}>
-                  <div className={styles.imageContainer}>
-                    {/* Contenido de la imagen */}
-                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1692246906296.jpeg' alt="Imagen" className={styles.modalImage} />
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                {modalTab === 'pausas' ? (
+                  <div style={{ width: '100%', height: '100%' }}>
+                    <img title="" src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_611/1692200405315.png"
+                      alt=""
+                      style={{ display: 'block', objectFit: 'fill', objectPosition: '50% 50%', height: '100%', width: '100%' }} />
+                  </div>) : (
+                  <div style={{ width: '100%', height: '100%' }}>
+
+                    {/* Contenido del modal de "Pausas activas" */}
+                    <div className={styles.modalRow}>
+                      {/* Primer div */}
+                      <div className={styles.modalColumn} onMouseEnter={() => this.handleFocusChange(0)}
+                        onMouseLeave={() => this.handleFocusChange(null)}>
+                        {focusedIndex === 0 ? (
+                          this.renderIframeContent(0)
+                        ) : (
+                          <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                            <div className={styles.imageContainer}>
+                              {/* Contenido de la imagen */}
+                              <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1692246906296.jpeg' alt="Imagen" className={styles.modalImage} />
+                            </div>
+                            <div className={styles.blankContainer} style={{ background: '#004675' }}>
+                              <div className={styles.flexibilityText}><p>FLEXIBILIDAD DE TRICEPS</p></div>
+                              <div className={styles.curva}><strong style={{ color: 'var(--light-200)', fontSize: '20px', fontWeight: '400' }}><em style={{ color: 'white' }}>Ejercicios de brazos y hombros</em></strong></div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      <div className={styles.modalColumn} onMouseEnter={() => this.handleFocusChange(1)}
+                        onMouseLeave={() => this.handleFocusChange(null)}>
+                        {focusedIndex === 1 ? (
+                          this.renderIframeContent(1)
+                        ) : (
+                          <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                            <div className={styles.imageContainer}>
+                              {/* Contenido de la imagen */}
+                              <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1692246913963.jpeg' alt="Imagen" className={styles.modalImage} />
+                            </div>
+                            <div className={styles.blankContainer} style={{ background: '#004675' }}>
+                              <div className={styles.flexibilityText}><p>FLEXIÓN DE TOBILLOS</p></div>
+                              <div className={styles.curva}><strong style={{ color: 'var(--light-200)', fontSize: '20px', fontWeight: '400' }}><em style={{ color: 'white' }}>Ejercicio de piernas</em></strong></div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      <div className={styles.modalColumn} onMouseEnter={() => this.handleFocusChange(2)}
+                        onMouseLeave={() => this.handleFocusChange(null)}>
+                        {focusedIndex === 2 ? (
+                          this.renderIframeContent(2)
+                        ) : (
+                          <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                            <div className={styles.imageContainer}>
+                              {/* Contenido de la imagen */}
+                              <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1692246925131.jpeg' alt="Imagen" className={styles.modalImage} />
+                            </div>
+                            <div className={styles.blankContainer} style={{ background: '#004675' }}>
+                              <div className={styles.flexibilityText}><p>SEMICÍRCULO DE CUELLO</p></div>
+                              <div className={styles.curva}><strong style={{ color: 'var(--light-200)', fontSize: '20px', fontWeight: '400' }}><em style={{ color: 'white' }}>Ejercicios de cuello y hombros</em></strong></div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      {/* ... Repite esto para los demás divs */}
+                    </div>
+                    <div className={styles.modalRow}>
+                      <div className={styles.modalColumn} onMouseEnter={() => this.handleFocusChange(3)}
+                        onMouseLeave={() => this.handleFocusChange(null)}>
+                        {focusedIndex === 3 ? (
+                          this.renderIframeContent(3)
+                        ) : (
+                          <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                            <div className={styles.imageContainer}>
+                              {/* Contenido de la imagen */}
+                              <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1692246929500.jpeg' alt="Imagen" className={styles.modalImage} />
+                            </div>
+                            <div className={styles.blankContainer} style={{ background: '#2b7434' }}>
+                              <div className={styles.flexibilityText}><p>EXTENSIÓN DE HOMBRO</p></div>
+                              <div className={styles.curva}><strong style={{ color: 'var(--light-200)', fontSize: '20px', fontWeight: '400' }}><em style={{ color: 'white' }}>Ejercicios de brazos y hombros</em></strong></div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      <div className={styles.modalColumn} onMouseEnter={() => this.handleFocusChange(4)}
+                        onMouseLeave={() => this.handleFocusChange(null)}>
+                        {focusedIndex === 4 ? (
+                          this.renderIframeContent(4)
+                        ) : (
+                          <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                            <div className={styles.imageContainer}>
+                              {/* Contenido de la imagen */}
+                              <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1692246936616.jpeg' alt="Imagen" className={styles.modalImage} />
+                            </div>
+                            <div className={styles.blankContainer} style={{ background: '#2b7434' }}>
+                              <div className={styles.flexibilityText}><p>EXTENSIÓN DE HOMBROS Y BICEPS</p></div>
+                              <div className={styles.curva}><strong style={{ color: 'var(--light-200)', fontSize: '20px', fontWeight: '400' }}><em style={{ color: 'white' }}>Ejercicios de brazos y hombros</em></strong></div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      <div className={styles.modalColumn} onMouseEnter={() => this.handleFocusChange(5)}
+                        onMouseLeave={() => this.handleFocusChange(null)}>
+                        {focusedIndex === 5 ? (
+                          this.renderIframeContent(5)
+                        ) : (
+                          <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                            <div className={styles.imageContainer}>
+                              {/* Contenido de la imagen */}
+                              <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1692246941402.jpeg' alt="Imagen" className={styles.modalImage} />
+                            </div>
+                            <div className={styles.blankContainer} style={{ background: '#2b7434' }}>
+                              <div className={styles.flexibilityText}><p>EXTENSIÓN DE HOMBROS Y PECTORAL</p></div>
+                              <div className={styles.curva}><strong style={{ color: 'var(--light-200)', fontSize: '20px', fontWeight: '400' }}><em style={{ color: 'white' }}>Ejercicios de brazos y hombros</em></strong></div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      {/* ... Repite esto para los demás divs */}
+                    </div>
                   </div>
-                  <div className={styles.blankContainer} style={{ background: '#004675' }}>
-                    <div className={styles.flexibilityText}><p>FLEXIBILIDAD DE TRICEPS</p></div>
-                    <div className={styles.curva}><strong style={{color:'var(--light-200)',fontSize:'20px',fontWeight:'400'}}><em style={{color:'white'}}>Ejercicios de brazos y hombros</em></strong></div>
-                </div>
-                </div>
                 )}
-                </div>
-                <div className={styles.modalColumn} onMouseEnter={() => this.handleFocusChange(1)}
-              onMouseLeave={() => this.handleFocusChange(null)}>
-                {focusedIndex === 1 ? (
-                  this.renderIframeContent(1)
-                ) : (
-                  <div style={{position:'relative',width:'100%',height:'100%'}}>
-                  <div className={styles.imageContainer}>
-                    {/* Contenido de la imagen */}
-                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1692246913963.jpeg' alt="Imagen" className={styles.modalImage} />
-                  </div>
-                  <div className={styles.blankContainer} style={{ background: '#004675' }}>
-                    <div className={styles.flexibilityText}><p>FLEXIÓN DE TOBILLOS</p></div>
-                    <div className={styles.curva}><strong style={{color:'var(--light-200)',fontSize:'20px',fontWeight:'400'}}><em style={{color:'white'}}>Ejercicio de piernas</em></strong></div>
-                </div>
-                </div>
-                )}
-                </div>
-                <div className={styles.modalColumn} onMouseEnter={() => this.handleFocusChange(2)}
-              onMouseLeave={() => this.handleFocusChange(null)}>
-                {focusedIndex === 2 ? (
-                  this.renderIframeContent(2)
-                ) : (
-                  <div style={{position:'relative',width:'100%',height:'100%'}}>
-                  <div className={styles.imageContainer}>
-                    {/* Contenido de la imagen */}
-                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1692246925131.jpeg' alt="Imagen" className={styles.modalImage} />
-                  </div>
-                  <div className={styles.blankContainer} style={{ background: '#004675' }}>
-                    <div className={styles.flexibilityText}><p>SEMICÍRCULO DE CUELLO</p></div>
-                    <div className={styles.curva}><strong style={{color:'var(--light-200)',fontSize:'20px',fontWeight:'400'}}><em style={{color:'white'}}>Ejercicios de cuello y hombros</em></strong></div>
-                </div>
-                </div>
-                )}
-                </div>
-                {/* ... Repite esto para los demás divs */}
               </div>
-              <div className={styles.modalRow}>
-              <div className={styles.modalColumn} onMouseEnter={() => this.handleFocusChange(3)}
-              onMouseLeave={() => this.handleFocusChange(null)}>
-                {focusedIndex === 3 ? (
-                  this.renderIframeContent(3)
-                ) : (
-                  <div style={{position:'relative',width:'100%',height:'100%'}}>
-                  <div className={styles.imageContainer}>
-                    {/* Contenido de la imagen */}
-                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1692246929500.jpeg' alt="Imagen" className={styles.modalImage} />
-                  </div>
-                  <div className={styles.blankContainer} style={{ background: '#2b7434' }}>
-                    <div className={styles.flexibilityText}><p>EXTENSIÓN DE HOMBRO</p></div>
-                    <div className={styles.curva}><strong style={{color:'var(--light-200)',fontSize:'20px',fontWeight:'400'}}><em style={{color:'white'}}>Ejercicios de brazos y hombros</em></strong></div>
-                </div>
-                </div>
-                )}
-                </div>
-                <div className={styles.modalColumn} onMouseEnter={() => this.handleFocusChange(4)}
-              onMouseLeave={() => this.handleFocusChange(null)}>
-                {focusedIndex === 4 ? (
-                  this.renderIframeContent(4)
-                ) : (
-                  <div style={{position:'relative',width:'100%',height:'100%'}}>
-                  <div className={styles.imageContainer}>
-                    {/* Contenido de la imagen */}
-                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1692246936616.jpeg' alt="Imagen" className={styles.modalImage} />
-                  </div>
-                  <div className={styles.blankContainer} style={{ background: '#2b7434' }}>
-                    <div className={styles.flexibilityText}><p>EXTENSIÓN DE HOMBROS Y BICEPS</p></div>
-                    <div className={styles.curva}><strong style={{color:'var(--light-200)',fontSize:'20px',fontWeight:'400'}}><em style={{color:'white'}}>Ejercicios de brazos y hombros</em></strong></div>
-                </div>
-                </div>
-                )}
-                </div>
-                <div className={styles.modalColumn} onMouseEnter={() => this.handleFocusChange(5)}
-              onMouseLeave={() => this.handleFocusChange(null)}>
-                {focusedIndex === 5 ? (
-                  this.renderIframeContent(5)
-                ) : (
-                  <div style={{position:'relative',width:'100%',height:'100%'}}>
-                  <div className={styles.imageContainer}>
-                    {/* Contenido de la imagen */}
-                    <img src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1692246941402.jpeg' alt="Imagen" className={styles.modalImage} />
-                  </div>
-                  <div className={styles.blankContainer} style={{ background: '#2b7434' }}>
-                    <div className={styles.flexibilityText}><p>EXTENSIÓN DE HOMBROS Y PECTORAL</p></div>
-                    <div className={styles.curva}><strong style={{color:'var(--light-200)',fontSize:'20px',fontWeight:'400'}}><em style={{color:'white'}}>Ejercicios de brazos y hombros</em></strong></div>
-                </div>
-                </div>
-                )}
-                </div>
-                {/* ... Repite esto para los demás divs */}
-              </div>
-              </div>
-              )}
             </div>
-          </div>
           </div>
         )}
         {showModal && (
           <div className={styles.modalOverlay} onClick={this.closeModal}>
             <div className={styles.modalContent}>
-            <button className={styles.closeButton} onClick={this.closeModal}>&times;</button>
+              <button className={styles.closeButton} onClick={this.closeModal}>&times;</button>
               <div className={styles.modalSlider}>
-              <button className={styles.sliderButton} onClick={(e) => this.navigateImages('prev', e)}>&lt;</button>
-              <img
-              className={styles.modalImage}
-              src={modalImages[currentImageIndex]}
-              alt={`Slide ${currentImageIndex + 1}`}
-              />
-            <button className={styles.slideButton} onClick={(e) => this.navigateImages('next', e)}>&gt;</button>
+                <button className={styles.sliderButton} onClick={(e) => this.navigateImages('prev', e)}>&lt;</button>
+                <img
+                  className={styles.modalImage}
+                  src={modalImages[currentImageIndex]}
+                  alt={`Slide ${currentImageIndex + 1}`}
+                />
+                <button className={styles.slideButton} onClick={(e) => this.navigateImages('next', e)}>&gt;</button>
               </div>
             </div>
           </div>
         )}
-        
+
+        {/* contenido de powerpoint y galeria de imagenes de actividades */}
+        <section className={styles.contentPowerGaleria}>
+          <hr className={styles.hr} />
+          <div className={styles.contentPower}>
+            <h2 className={styles.titlePower}>Podrás encontrar en la presentación la totalidad del sistema de gestión de seguridad y salud en el trabajo.</h2>
+            <iframe className={styles.powerPoint} src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/Doc.aspx?sourcedoc={3995cf1b-93c5-4c76-8083-03c702d12893}&amp;action=embedview&amp;wdAr=1.7777777777777777">Esto es un documento de <a target="_blank" href="https://office.com">Microsoft Office</a> incrustado con tecnología de <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+          </div>
+          <h2 className={styles.titleActividades}>Galería de imágenes actividades SST</h2>
+          <div className={styles.galeriaActividades}>
+            <button className={styles.sliderButton} onClick={(e) => this.navigateImagenesActividades('prev', e)}>&lt;</button>
+            <img
+              className={styles.actividadesImage}
+              src={imagesActivities[currentImageIndexActividades]}
+              alt={`Slide ${currentImageIndexActividades + 1}`}
+            />
+            <button className={styles.slideButton} onClick={(e) => this.navigateImagenesActividades('next', e)}>&gt;</button>
+          </div>
+          <span className={styles.lengthImages}>{currentImageIndexActividades+ 1} de {imagesActivities.length}</span>
+        </section>
       </section>
     );
   }
