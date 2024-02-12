@@ -100,6 +100,54 @@ const Page7: React.FC<IPage7Props> = (props) => {
     // ... otras tarjetas ...
   ];
 
+  const [galeria, setGaleria] = useState<string[]>([]);
+
+  const galeriaExperienciasEsri = {
+    "finAño": [
+
+    ],
+    "cumpleaños": [
+
+    ],
+    "diaFamilia": [
+
+    ],
+    "finDeAño": [
+
+    ],
+    "diaMujer": [
+
+    ],
+    "diaRelajacion": [
+
+    ],
+    "trabajoEquipo": [
+
+    ],
+    "experienciasPanama": [
+
+    ],
+    "gisDayInterno": [
+      "https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/GISDay%20Interno/1700255753532.jpg",
+      "https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/GISDay%20Interno/1700255753990.jpg",
+      "https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/GISDay%20Interno/1700255754313.jpg",
+      "https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/GISDay%20Interno/1700255754406.jpg",
+      "https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/GISDay%20Interno/1700255755996.jpg",
+    ],
+    "sanValentin": [
+
+    ],
+    "Geoween": [
+      "https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/Geoween/369685059_18201588280284977_8270847450178200779_n.jpg",
+      "https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/Geoween/398233327_18201588247284977_4688011382387509843_n.jpg",
+      "https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/Geoween/398234047_18201588256284977_4942428313065172403_n.jpg",
+      "https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/Geoween/398238489_18201588217284977_6578179593996521040_n.jpg",
+      "https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/Geoween/398244756_18201588271284977_1870700518333524495_n.jpg",
+      "https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/Geoween/398428372_18201588238284977_7474925725615675630_n.jpg"
+    ],
+
+  }
+
   const [state, setState] = useState<IPage7State>({
     activeTab: 'bienestar',
     showModal: false,
@@ -110,8 +158,22 @@ const Page7: React.FC<IPage7Props> = (props) => {
   });
 
   const [currentSlideFirst, setCurrentSlideFirst] = useState(0);
-  
+
+  const [currentSlideGallery, setCurrentSlideGallery] = useState(0);
+
+  const handleNextSlideGallery = (): void => {
+    setCurrentSlideGallery((currentSlideGallery + 1) % galeria.length);
+  }
+
+  const handlePrevSlideGallery = (): void => {
+    setCurrentSlideGallery((currentSlideGallery -1 + galeria.length) % galeria.length);
+  }
+
   const handleNextSlideFirst = (): void => {
+    if (state.accion === 'popup1') {
+      setCurrentSlideFirst((currentSlideFirst + 1) % 2);
+      document.getElementById('backButton')!.style.display = 'block';
+    }
     if (state.accion === 'popup4') {
       setCurrentSlideFirst((currentSlideFirst + 1) % 2);
     }
@@ -185,6 +247,11 @@ const Page7: React.FC<IPage7Props> = (props) => {
   };
 
   const handlePrevSlideFirst = (): void => {
+    if (state.accion === 'popup1') {
+      setCurrentSlideFirst((currentSlideFirst - 1 + 2) % 2);
+      document.getElementById('backButton')!.style.display = 'none';
+      setCurrentSlideGallery(0);
+    }
     if (state.accion === 'popup4') {
       setCurrentSlideFirst((currentSlideFirst - 1 + 2) % 2);
     }
@@ -407,6 +474,9 @@ const Page7: React.FC<IPage7Props> = (props) => {
             <button className={styles.closeButton} onClick={closePopup}>
               X
             </button>
+            <button className={styles.backButton} id="backButton" onClick={handlePrevSlideFirst}>
+              &#8617;
+            </button>
             <div style={{ width: '100%', height: '100%', overflowY: 'auto' }}>
               {/* Contenido del modal */}
               <img
@@ -414,99 +484,159 @@ const Page7: React.FC<IPage7Props> = (props) => {
                 style={{ width: '100%', height: '28vh' }}
                 alt="Imagen emergente"
               />
-              <div style={{ height: '65vh' }}>
-                <div style={{ display: 'flex', height: '50%', justifyContent: 'space-between', marginBottom: '5px' }}>
-                  <div style={{ width: '28.3%', position: 'relative' }}>
-                    <img
-                      src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2325/1699568509221.jpg"
-                      alt="Fiesta fin de año"
-                      style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
-                    />
-                    <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
-                      <p>FIESTA FIN DE AÑO</p>
-                    </div>
-                  </div>
-                  <div style={{ width: '20.6%', position: 'relative' }}>
-                    <img
-                      src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2327/1699564315680.jpg"
-                      alt="Cumpleaños"
-                      style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
-                    />
-                    <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
-                      <p>CUMPLEAÑOS</p>
-                    </div>
-                  </div>
-                  <div style={{ width: '29.2%', position: 'relative' }}>
-                    <img
-                      src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2330/1699568567439.jpg"
-                      alt="Día de la familia"
-                      style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
-                    />
-                    <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
-                      <p>DÍA DE LA FAMILIA</p>
-                    </div>
-                  </div>
-                  <div style={{ width: '20.6%', position: 'relative' }}>
-                    <img
-                      src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1699565220188.jpeg"
-                      alt="Día de la mujer"
-                      style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
-                    />
-                    <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
-                      <p>DÍA DE LA MUJER</p>
-                    </div>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', height: '50%', justifyContent: 'space-between' }}>
-                  <div style={{ width: '17%', position: 'relative' }}>
-                    <img
-                      src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2326/1699568630005.jpg"
-                      alt="Día de relajación"
-                      style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
-                    />
-                    <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
-                      <p>DÍA DE RELAJACIÓN</p>
-                    </div>
-                  </div>
-                  <div style={{ width: '18.8%', position: 'relative' }}>
-                    <img
-                      src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2328/1699566025766.jpg"
-                      alt="Trabajo en equipo"
-                      style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
-                    />
-                    <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
-                      <p>TRABAJO EN EQUIPO</p>
-                    </div>
-                  </div>
+              <div style={{ height: '60vh', display: 'flex' }}>
+                <div style={{ width: '100%' }}>
+                  <div className={`${styles.slider2andContainer} ${styles.firstSlider}`}>
+                    <div className={styles.slides2} style={{ transform: `translateX(-${currentSlideFirst * 100}%)` }}>
+                      <div className={styles.slide2}>
+                        <div style={{ height: '100%' }}>
+                          {/* Primer slide */}
+                          <div style={{ width: '100%', height: '100%' }}>
+                            <div style={{ display: 'flex', height: '50%', justifyContent: 'space-between', marginBottom: '5px' }}>
+                              <div style={{ width: '17%', position: 'relative' }}>
+                                <img
+                                  src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2325/1699568509221.jpg"
+                                  alt="Fiesta fin de año"
+                                  style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
+                                />
+                                <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
+                                  <p>FIESTA FIN DE AÑO</p>
+                                </div>
+                              </div>
+                              <div style={{ width: '18.8%', position: 'relative' }}>
+                                <img
+                                  src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2327/1699564315680.jpg"
+                                  alt="Cumpleaños"
+                                  style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
+                                />
+                                <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
+                                  <p>CUMPLEAÑOS</p>
+                                </div>
+                              </div>
+                              <div style={{ width: '24.4%', position: 'relative' }}>
+                                <img
+                                  src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2330/1699568567439.jpg"
+                                  alt="Día de la familia"
+                                  style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
+                                />
+                                <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
+                                  <p>DÍA DE LA FAMILIA</p>
+                                </div>
+                              </div>
+                              <div style={{ width: '18.8%', position: 'relative' }}>
+                                <img
+                                  src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1699565220188.jpeg"
+                                  alt="Día de la mujer"
+                                  style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
+                                />
+                                <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
+                                  <p>DÍA DE LA MUJER</p>
+                                </div>
+                              </div>
+                              <div style={{ width: '18.8%', position: 'relative', cursor: 'pointer' }} onClick={() => { setGaleria(galeriaExperienciasEsri['Geoween']); handleNextSlideFirst(); }}>
+                                <img
+                                  src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/Geoween/398238489_18201588217284977_6578179593996521040_n.jpg"
+                                  alt="GEOWEEN"
+                                  style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
+                                />
+                                <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
+                                  <p>GEOWEEN</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div style={{ display: 'flex', height: '50%', justifyContent: 'space-between' }}>
+                              <div style={{ width: '17%', position: 'relative' }}>
+                                <img
+                                  src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2326/1699568630005.jpg"
+                                  alt="Día de relajación"
+                                  style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
+                                />
+                                <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
+                                  <p>DÍA DE RELAJACIÓN</p>
+                                </div>
+                              </div>
+                              <div style={{ width: '18.8%', position: 'relative' }}>
+                                <img
+                                  src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2328/1699566025766.jpg"
+                                  alt="Trabajo en equipo"
+                                  style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
+                                />
+                                <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
+                                  <p>TRABAJO EN EQUIPO</p>
+                                </div>
+                              </div>
 
-                  <div style={{ width: '24.4%', position: 'relative' }}>
-                    <img
-                      src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2333/1699565644858.jpg"
-                      alt="Experiencias Panamá"
-                      style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
-                    />
-                    <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
-                      <p>EXPERIENCIAS PANAMÁ</p>
-                    </div>
-                  </div>
-                  <div style={{ width: '18.8%', position: 'relative' }}>
-                    <img
-                      src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2332/1699566863751.jpg"
-                      alt="Gisday interno"
-                      style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
-                    />
-                    <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
-                      <p>GISDAY INTERNO</p>
-                    </div>
-                  </div>
-                  <div style={{ width: '18.8%', position: 'relative' }}>
-                    <img
-                      src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2333/1699566270171.jpg"
-                      alt="San Valentin"
-                      style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
-                    />
-                    <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
-                      <p>SAN VALENTIN</p>
+                              <div style={{ width: '24.4%', position: 'relative' }}>
+                                <img
+                                  src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2333/1699565644858.jpg"
+                                  alt="Experiencias Panamá"
+                                  style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
+                                />
+                                <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
+                                  <p>EXPERIENCIAS PANAMÁ</p>
+                                </div>
+                              </div>
+                              <div style={{ width: '18.8%', position: 'relative', cursor: 'pointer' }} onClick={() => { setGaleria(galeriaExperienciasEsri['gisDayInterno']); handleNextSlideFirst(); }}>
+                                <img
+                                  src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2332/1699566863751.jpg"
+                                  alt="Gisday interno"
+                                  style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
+                                />
+                                <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
+                                  <p>GISDAY INTERNO</p>
+                                </div>
+                              </div>
+                              <div style={{ width: '18.8%', position: 'relative' }}>
+                                <img
+                                  src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2333/1699566270171.jpg"
+                                  alt="San Valentin"
+                                  style={{ display: 'block', objectFit: 'cover', objectPosition: "50% 50%", width: '100%', height: '100%' }}
+                                />
+                                <div style={{ position: 'absolute', bottom: 0, backgroundColor: "rgba(0, 0, 0, 0.46)", color: 'white', textAlign: 'center', width: '100%' }}>
+                                  <p>SAN VALENTIN</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.slide2}>
+                        <div style={{ height: '100%' }}>
+                          {/* Segundo slide */}
+                          <div className={styles.slide2} style={{ height: '100%' }}>
+                            <div style={{ height: '100%' }}>
+
+                              <div style={{ width: '100%', height: '100%' }}>
+
+                                <div style={{ width: '65%', height: '100%', margin: '0 auto' }}>
+                                  <div className={`${styles.slider2andContainer} ${styles.firstSlider}`}>
+                                    <div className={styles.slides2} style={{ transform: `translateX(-${currentSlideGallery * 100}%)` }}>
+                                      {/* Imágenes del primer slider */}
+                                      {galeria.map((imagen, index) => {
+                                        return (
+                                          <div className={styles.slide2}>
+                                            <img
+                                              alt={"Image " + index}
+                                              src={imagen}
+                                              className={styles.imguni2}
+                                            />
+                                          </div>
+                                        );
+                                      })}
+                                    </div>
+                                    {/* Controles del primer slider */}
+                                    <div className={styles.controls1}>
+                                      <span className={styles.span1} onClick={handlePrevSlideGallery}>{'<'}</span>
+                                      <span className={styles.span1} onClick={handleNextSlideGallery}>{'>'}</span>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -538,9 +668,9 @@ const Page7: React.FC<IPage7Props> = (props) => {
                   podrán expresarse libremente y con ello contribuir a la implementación de la empresa donde todos
                   queremos estar y ser creadores del buen trato, ingresa al siguiente link y muy pronto estaremos en
                   contacto contigo,&nbsp;</span>
-                <a href="https://forms.office.com/pages/responsepage.aspx?id=MLebJL6XPEGBWnfM-nXERX-I-92LKNhHsdHHLm1ihutUOE5TQ01KUVBZSUpPMlNRSkwyU01IVEFEVS4u" 
-                target="_self" data-uniqueid="" data-dsid="" data-link="null" 
-                style={{fontSize:"15px", color:"rgb(0, 78, 140)"}}>Ingresa aquí</a>
+                <a href="https://forms.office.com/pages/responsepage.aspx?id=MLebJL6XPEGBWnfM-nXERX-I-92LKNhHsdHHLm1ihutUOE5TQ01KUVBZSUpPMlNRSkwyU01IVEFEVS4u"
+                  target="_self" data-uniqueid="" data-dsid="" data-link="null"
+                  style={{ fontSize: "15px", color: "rgb(0, 78, 140)" }}>Ingresa aquí</a>
               </p>
               <div className={styles.modalTabs}>
                 <div
