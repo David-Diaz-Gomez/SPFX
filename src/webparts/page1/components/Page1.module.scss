@@ -183,6 +183,19 @@
   height: 100%;
   display: flex;
   justify-content: center;
+
+  &::after {
+    content: "";
+    width: 100%;
+    /* El height controla el alto del degradado */
+    height: 100%;
+    position: absolute;
+    left: 0;
+    /* Puedes cambiar la posición del degrado desde aquí */
+    bottom: 0;
+    /* Si cambias la posición, reemplaza también la dirección en el gradiente */
+    background-image: linear-gradient(to bottom, rgba(2,0,36,1) 20%, transparent);
+  }
 }
 
 .image {

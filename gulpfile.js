@@ -27,10 +27,20 @@ const fontLoaderConfig = {
   }]
 };
 
+const imageConfig = {
+  test: /\.(png|jpe?g|gif)$/i,
+  use: [
+    {
+      loader: 'file-loader',
+    },
+  ],
+};
+
 // Merge custom loader to web pack configuration
 build.configureWebpack.mergeConfig({
   additionalConfiguration: (generatedConfiguration) => {
     generatedConfiguration.module.rules.push(fontLoaderConfig);
+    generatedConfiguration.module.rules.push(imageConfig);
     return generatedConfiguration;
   }
 });

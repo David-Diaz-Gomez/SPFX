@@ -21,7 +21,7 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
             <div className={styles.pinGroup1}>
             <a href={url4}>
               <img
-              src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2686/1700189452529.gif"
+              src={require('../assets/pin_1.gif')}
                 alt="Pin 1"
                 className={`${styles.pin} `}
               />

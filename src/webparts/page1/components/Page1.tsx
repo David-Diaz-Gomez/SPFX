@@ -32,7 +32,7 @@ export default class Page1 extends React.Component<IPage1Props, { currentSlide: 
       <div className={styles.slider} id="organizacion">
         <div className={styles.slides} style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
           <div className={styles.slide}>
-            <img alt="Image 1" src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2846/1701956805180.png" />
+            <img alt="Image 1" src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/image.png"/>
           </div>
           <div className={styles.slide}>
             <img alt="Image 2" src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/templates/1697119674136.jpeg" />
@@ -144,7 +144,7 @@ export default class Page1 extends React.Component<IPage1Props, { currentSlide: 
         <section style={{ position: "relative" }}>
           <div className={styles.imageContainer}>
             <img
-              src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2222/1698289677019.png"
+              src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/banner_1.png"
               alt="Nuestra Misión y Nuestro Objetivo"
               style={{ width: '98%', height: '90vh', marginBottom: '2vh' }}
             />
@@ -168,6 +168,14 @@ export default class Page1 extends React.Component<IPage1Props, { currentSlide: 
           </div>
         </section>
 
+        <Calendar
+          hasTeamsContext={hasTeamsContext}
+          userDisplayName={userDisplayName}
+          description="Descripción predeterminada"
+          isDarkTheme={false}
+          environmentMessage="Mensaje predeterminado"
+        />
+
         {/* Renderizar el componente Page2 */}
         <Page2
           url4={url4}
@@ -185,14 +193,6 @@ export default class Page1 extends React.Component<IPage1Props, { currentSlide: 
 
         {/* Renderizar el componente Page3 */}
         <Page3
-          hasTeamsContext={hasTeamsContext}
-          userDisplayName={userDisplayName}
-          description="Descripción predeterminada"
-          isDarkTheme={false}
-          environmentMessage="Mensaje predeterminado"
-        />
-
-        <Calendar
           hasTeamsContext={hasTeamsContext}
           userDisplayName={userDisplayName}
           description="Descripción predeterminada"
