@@ -21,7 +21,7 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
             <div className={styles.pinGroup1}>
             <a href={url4}>
               <img
-              src={require('../assets/pin_1.gif')}
+              src="https://esricolombia.sharepoint.com/sites/AppCatalog/ClientSideAssets/e7da743b-bb7c-428f-9d0b-4261391623d1/13f97a773982aa9963d68dfd5c823818.gif"
                 alt="Pin 1"
                 className={`${styles.pin} `}
               />

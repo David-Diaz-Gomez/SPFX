@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { flushSync } from 'react-dom';
 import type { ICalendarProps } from './ICalendarProps';
 import axios, { AxiosRequestConfig } from 'axios';
 import styles from './Calendar.module.scss'
@@ -75,7 +76,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     '#FDEBD0', // Amarillo suave
     '#A9DFBF', // Verde suave
     '#D2B4DE', // Púrpura suave
-];
+  ];
 
 
   const meses: string[] = [
@@ -136,7 +137,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
           id: index.toString(),
           calendarId: modalidad,
           title: element.Actividad,
-          body:   `
+          body: `
         <div style="display: flex; flex-direction: column;">
           <h3 style="margin-block-end: 0; margin-block-start:0;" >${element.Actividad}</h3>
           <img src="${element.LINK_IMG}" alt="Imagen" style="width: 4em; height: 3em;"/>
@@ -182,20 +183,20 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     popupDetailTitle({ title }: { title: any }) {
       return `<h3 style=" black: white;">${title}</h3>`;
     },
- 
+
     popupDetailRecurrenceRule({ recurrenceRule }: { recurrenceRule: any }) {
-   
+
       return `<div style="background-color: yellow; color: black;">${recurrenceRule}</div>`;
     },
     popupDetailBody({ body }: { body: any }) {
-   
+
       return `<span style="color: black;">${body}</span>`;
     },
     popupDetailState({ state }: { state: any }) {
       return '';
     },
-    
-  
+
+
   };
 
   useEffect(() => {
@@ -220,6 +221,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     }
 
     getDateCalendar();
+    document.body.addEventListener('click', handleClick);
 
   }, []);
 
@@ -227,40 +229,68 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
   const calendarRef: any = React.createRef();
 
   const handleClickNextButton = () => {
-    const calendarInstance = calendarRef.current.getInstance();
-    if (calendarInstance) {
-      calendarInstance.next();
-      const currentLocalDate = calendarInstance.getDate();
-      const year = currentLocalDate.getFullYear().toString();
-      const month = meses[currentLocalDate.getMonth()];
-      setCurrentDate({ Month: month, year: year });
-    }
+    flushSync(() => {
+      const calendarInstance = calendarRef.current.getInstance();
+      if (calendarInstance) {
+        calendarInstance.next();
+        const currentLocalDate = calendarInstance.getDate();
+        const year = currentLocalDate.getFullYear().toString();
+        const month = meses[currentLocalDate.getMonth()];
+        setCurrentDate({ Month: month, year: year });
+      }
+    });
+    setTimeout(() => {
+      let doc = document.getElementsByClassName('toastui-calendar-event-detail-popup-slot')[0]
+      doc.innerHTML = '';
+    }, 0);
+    
+
   };
 
   const handleClickBackButton = () => {
-    const calendarInstance = calendarRef.current.getInstance();
-    if (calendarInstance) {
-      calendarInstance.prev();
-      const currentLocalDate = calendarInstance.getDate();
-      const year = currentLocalDate.getFullYear().toString();
-      const month = meses[currentLocalDate.getMonth()];
-      setCurrentDate({ Month: month, year: year });
-    }
+    flushSync(() => {
+      const calendarInstance = calendarRef.current.getInstance();
+      if (calendarInstance) {
+        calendarInstance.prev();
+        const currentLocalDate = calendarInstance.getDate();
+        const year = currentLocalDate.getFullYear().toString();
+        const month = meses[currentLocalDate.getMonth()];
+        setCurrentDate({ Month: month, year: year });
+      }
+    });
+    setTimeout(() => {
+      let doc = document.getElementsByClassName('toastui-calendar-event-detail-popup-slot')[0]
+      doc.innerHTML = '';
+    }, 0);
+
   };
   const handleGoToToday = () => {
-    const today = new Date();
-    const calendarInstance = calendarRef.current.getInstance();
-    if (calendarInstance) {
-      calendarInstance.setDate(today);
-      const month = String(today.getMonth());
-      const year = String(today.getFullYear());
-      setCurrentDate({ Month: meses[Number(month)], year: year });
-    }
+    flushSync(() => {
+      const today = new Date();
+      const calendarInstance = calendarRef.current.getInstance();
+      if (calendarInstance) {
+        calendarInstance.setDate(today);
+        const month = String(today.getMonth());
+        const year = String(today.getFullYear());
+        setCurrentDate({ Month: meses[Number(month)], year: year });
+      }
+    });
+
+    setTimeout(() => {
+      let doc = document.getElementsByClassName('toastui-calendar-event-detail-popup-slot')[0]
+      doc.innerHTML = '';
+    }, 0);
+
   };
+
+  const handleClick = () => {
+    let doc = document.getElementsByClassName('toastui-calendar-event-detail-popup-slot')[0]
+    doc.innerHTML = '';
+  }
 
 
   return (
-    <section id={styles.calendarContainer}>
+    <section id={styles.calendarContainer} >
       <div className={styles.calendarControl}>
         <div className={styles.controlsMonth}>
           <button className={styles.controlMonth} onClick={handleClickBackButton}>&lsaquo;</button>
@@ -282,7 +312,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
           </div>
         </div>
         <div className={styles.calendario}>
-          <CalendarTUI  ref={calendarRef} usageStatistics={false} calendars={calendars} events={events} view="month" template={template} useDetailPopup={true} isReadOnly={true} />
+          <CalendarTUI ref={calendarRef} usageStatistics={false} calendars={calendars} events={events} view="month" template={template} useDetailPopup={true} isReadOnly={true} />
         </div>
       </div>
 
