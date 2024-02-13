@@ -169,6 +169,22 @@
           "manifest": "./src/webparts/calendar/CalendarWebPart.manifest.json"
         }
       ]
+    },
+    "page-9-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/page9/Page9WebPart.js",
+          "manifest": "./src/webparts/page9/Page9WebPart.manifest.json"
+        }
+      ]
+    },
+    "seleccion-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/seleccion/SeleccionWebPart.js",
+          "manifest": "./src/webparts/seleccion/SeleccionWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -193,6 +209,8 @@
     "BienestarWebPartStrings": "lib/webparts/bienestar/loc/{locale}.js",
     "Page8WebPartStrings": "lib/webparts/page8/loc/{locale}.js",
     "SstWebPartStrings": "lib/webparts/sst/loc/{locale}.js",
-    "CalendarWebPartStrings": "lib/webparts/calendar/loc/{locale}.js"
+    "CalendarWebPartStrings": "lib/webparts/calendar/loc/{locale}.js",
+    "Page9WebPartStrings": "lib/webparts/page9/loc/{locale}.js",
+    "SeleccionWebPartStrings": "lib/webparts/seleccion/loc/{locale}.js"
   }
 }
