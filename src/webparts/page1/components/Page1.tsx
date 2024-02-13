@@ -208,7 +208,7 @@ export default class Page1 extends React.Component<IPage1Props, { currentSlide: 
             className={styles.clickableImageLink}
           >
             <img
-              src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2620/1699660816643.png"
+              src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/1699660816643.png"
               alt="Enlace Clickeable"
               className={styles.clickableImage}
             />
@@ -223,7 +223,7 @@ export default class Page1 extends React.Component<IPage1Props, { currentSlide: 
             className={styles.clickableImageLink1}
           >
             <img
-              src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2669/1700083790590.png"
+              src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/1700083790590.png"
               alt="Enlace Clickeable"
               className={styles.clickableImage1}
             />

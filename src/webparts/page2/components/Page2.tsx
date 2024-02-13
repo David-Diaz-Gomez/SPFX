@@ -10,7 +10,7 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
       <section id="experiencias">
         <div className={styles.container}>
           <img
-            src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2496/1699620717661.png"
+            src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/1699620717661.png"
             alt="Background"
             className={styles.backgroundImage}
           />
@@ -21,7 +21,7 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
             <div className={styles.pinGroup1}>
             <a href={url4}>
               <img
-              src="https://esricolombia.sharepoint.com/sites/AppCatalog/ClientSideAssets/e7da743b-bb7c-428f-9d0b-4261391623d1/13f97a773982aa9963d68dfd5c823818.gif"
+              src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Imagenes/pin_1.gif"
                 alt="Pin 1"
                 className={`${styles.pin} `}
               />

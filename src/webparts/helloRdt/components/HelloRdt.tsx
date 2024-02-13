@@ -5,7 +5,7 @@ import type { IHelloRdtProps } from './IHelloRdtProps';
 export default class HelloRdt extends React.Component<IHelloRdtProps, {}> {
 
   public render(): React.ReactElement<IHelloRdtProps> {
-
+    const { url1,url2,url3 } = this.props;
     function handleClick(id:string) {
       console.log(id)
     }
@@ -23,7 +23,7 @@ export default class HelloRdt extends React.Component<IHelloRdtProps, {}> {
               <li title="ORGANIZACIÓN " role="menuitem"
                 className="scroll-item nav-item"><a id="jimu-link-app-0"
                   draggable="false" role="button" aria-pressed="true"
-                  href={'#organizacion'}
+                  href={url1}
                   onClick={() => {handleClick("organizacion")}}
                   tabIndex={0}
                   className="jimu-btn jimu-link  app-root-emotion-cache-ltr-nzkanw nav-link jimu-outline-inside active btn btn-default"
@@ -33,7 +33,7 @@ export default class HelloRdt extends React.Component<IHelloRdtProps, {}> {
               <li title="MAPA DE EXPERIENCIAS" role="menuitem"
                 className="scroll-item nav-item"><a id="jimu-link-app-1"
                   draggable="false" role="button" aria-pressed="false"
-                  href={'#experiencias'}
+                  href={url2}
                   onClick={() => {handleClick("experiencias")}}
                   tabIndex={0}
                   className="jimu-btn jimu-link  app-root-emotion-cache-ltr-nzkanw nav-link jimu-outline-inside btn btn-default"
@@ -43,7 +43,7 @@ export default class HelloRdt extends React.Component<IHelloRdtProps, {}> {
               <li title="APLICACIONES" role="menuitem"
                 className="scroll-item nav-item"><a id="jimu-link-app-2"
                   draggable="false" role="button" aria-pressed="false"
-                  href={'#aplicaciones'}
+                  href={url3}
                   onClick={() => {handleClick("aplicaciones")}}
                   tabIndex={0}
                   className="jimu-btn jimu-link  app-root-emotion-cache-ltr-nzkanw nav-link jimu-outline-inside btn btn-default"
