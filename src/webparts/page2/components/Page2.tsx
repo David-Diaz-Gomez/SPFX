@@ -21,22 +21,22 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
             <div className={styles.pinGroup1}>
             <a href={url4}>
               <img
-                src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2500/1699588711348.gif"
+              src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2686/1700189452529.gif"
                 alt="Pin 1"
                 className={`${styles.pin} `}
               />
-              <div className={styles.description}>ONBOARDING</div>
+              <div className={styles.description}>SELECCIÓN</div>
               </a>
             </div>
 
             <div className={styles.pinGroup2}>
                <a href={url5}>
               <img
-                src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2498/1699588620966.gif"
+              src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2500/1699588711348.gif"
                 alt="Pin 2"
                 className={`${styles.pin}`}
               />
-              <div className={styles.description}>PLAN CARRERA</div>
+              <div className={styles.description}>ONBOARDING</div>
               </a>
             </div>
 
@@ -44,33 +44,33 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
             <div className={styles.pinGroup3}>
               <a href={url6}>
               <img
-                src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2497/1699588573015.gif"
+              src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2498/1699588620966.gif"
                 alt="Pin 3"
                 className={`${styles.pin} `}
               />
-              <div className={styles.description}>ENTRENAMIENTO</div>
+              <div className={styles.description}>PLAN CARRERA</div>
               </a>
             </div>
 
             <div className={styles.pinGroup4}>
                <a href={url7}>
               <img
-                src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2499/1699588674572.gif"
+              src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2497/1699588573015.gif"
                 alt="Pin 4"
                 className={`${styles.pin} `}
               />
-              <div className={styles.description}>BIENESTAR</div>
+              <div className={styles.description}>ENTRENAMIENTO</div>
               </a>
             </div>
 
             <div className={styles.pinGroup5}>
                <a href={url8}>
               <img
-                src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2686/1700189452529.gif"
+              src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2499/1699588674572.gif"                
                 alt="Pin 5"
                 className={`${styles.pin} `}
               />
-              <div className={styles.description}>SST</div>
+              <div className={styles.description}>BIENESTAR</div>
               </a>
             </div>
 
@@ -81,7 +81,7 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
                 alt="Pin 6"
                 className={`${styles.pin} `}
               />
-              <div className={styles.description}>SELECCIÓN</div>
+              <div className={styles.description}>SST</div>
               </a>
             </div>
             {/* Repite para los demás pines */}
