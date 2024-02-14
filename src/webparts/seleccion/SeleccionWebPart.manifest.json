@@ -22,7 +22,10 @@
     "description": { "default": "seleccion description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "seleccion"
+      "description": "seleccion",
+      "url1": "url1",
+      "url2": "url2",
+      "url3": "url3"
     }
   }]
 }
