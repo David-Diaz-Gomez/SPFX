@@ -14,6 +14,9 @@ import { ISeleccionProps } from './components/ISeleccionProps';
 
 export interface ISeleccionWebPartProps {
   description: string;
+  url1: string;
+  url2: string;
+  url3: string;
 }
 
 export default class SeleccionWebPart extends BaseClientSideWebPart<ISeleccionWebPartProps> {
@@ -26,6 +29,9 @@ export default class SeleccionWebPart extends BaseClientSideWebPart<ISeleccionWe
       Seleccion,
       {
         description: this.properties.description,
+        url1: this.properties.url1,
+        url2: this.properties.url2,
+        url3: this.properties.url3,
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
@@ -110,6 +116,15 @@ export default class SeleccionWebPart extends BaseClientSideWebPart<ISeleccionWe
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
+                }),
+                PropertyPaneTextField('url1', {
+                  label: strings.Url1FieldLabel
+                }),
+                PropertyPaneTextField('url2', {
+                  label: strings.Url2FieldLabel
+                }),
+                  PropertyPaneTextField('url3', {
+                  label: strings.Url3FieldLabel
                 })
               ]
             }

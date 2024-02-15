@@ -67,7 +67,7 @@ kpacheco@esri.ec
         </li>
       </ul>
     </div>
-    <div style={{display:'flex', justifyContent:'center', width:'100%'}}>
+    <div style={{display:'flex', justifyContent:'center', width:'100%', marginBottom:'5vh'}}>
     <a href="https://app.powerbi.com/groups/me/reports/5af2c88c-2166-470b-8082-56db1dba034e?ctid=249bb730-97be-413c-815a-77ccfa75c445&pbi_source=linkShare" target="_blank" rel="noopener noreferrer" className={styles.powerBiBanner}>
       <p style={{display:'flex',alignItems:'center', justifyContent:'center', textAlign:'center'}}>¡Conoce las métricas de nuestro proceso en Power BI! <img src="https://geoapps.esri.co/Recursos/RH_sharepoint/powerBi.png" width={'30px'} height={'25px'}/></p>
     </a>
