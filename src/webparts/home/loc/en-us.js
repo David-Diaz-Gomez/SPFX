@@ -12,6 +12,7 @@ define([], function() {
     "Url7FieldLabel": "Url7",
     "Url8FieldLabel": "Url8",
     "Url9FieldLabel": "Url9",
+    "Url10FieldLabel": "Url10",
     "AppLocalEnvironmentSharePoint": "The app is running on your local environment as SharePoint web part",
     "AppLocalEnvironmentTeams": "The app is running on your local environment as Microsoft Teams app",
     "AppLocalEnvironmentOffice": "The app is running on your local environment in office.com",

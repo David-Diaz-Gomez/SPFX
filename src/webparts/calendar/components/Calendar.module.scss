@@ -38,12 +38,7 @@
     }
   }
 }
-// // estilos aparte
-// .calendar{
-//   background-color: aqua;
-//   width: 30%;
-//   height: auto;
-// }
+
 .calendarControl {
   width: 100%;
   height: 3rem;
@@ -116,6 +111,11 @@
   display: flex;
 }
 
+.titleCalendar{
+  width: 100%;
+  font-size: x-large;
+}
+
 .lateral{
   width: 15%;
   height: auto;
@@ -129,27 +129,44 @@
 .calendario{
   width: 85%;
   height: auto;
-}
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 
+}
+.listTitleCalendar{
+  width: 90%;
+  font-size: large;
+  font-weight: bold;
+}
 .listCalendars{
   width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.5rem;
 }
-.calendarName{
-  width: 4rem;
-  height: 1rem;
-  border-radius: 5px;
+
+.listCalendarName{
+  width: 85%;
+  height: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding:8px;
   font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
 }
 
+.listCalendarSpan{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 // estilosd el  poput
 .spanCalendar{

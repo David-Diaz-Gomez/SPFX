@@ -23,6 +23,7 @@ export interface IHomeWebPartProps {
   url7: string;
   url8: string;
   url9: string;
+  url10: string;
 }
 
 export default class HomeWebPart extends BaseClientSideWebPart<IHomeWebPartProps> {
@@ -44,6 +45,7 @@ export default class HomeWebPart extends BaseClientSideWebPart<IHomeWebPartProps
         url7: this.properties.url7,
         url8: this.properties.url8,
         url9: this.properties.url9,
+        url10: this.properties.url10,
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
@@ -155,6 +157,9 @@ export default class HomeWebPart extends BaseClientSideWebPart<IHomeWebPartProps
                 }),
                 PropertyPaneTextField('url9', {
                   label: strings.Url9FieldLabel
+                }),
+                PropertyPaneTextField('url10', {
+                  label: strings.Url10FieldLabel
                 })
               ]
             }

@@ -59,6 +59,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
   const [events, setEvents] = useState<EventObject[]>();
   const [calendars, setCalendars] = useState<any>();
   const [currentDate, setCurrentDate] = useState<{ Month: string; year: string }>();
+  const[titleCalendar, setTitleCalendar] = useState<string>("");
 
   const colors: string[] = [
     '#FFB58E', // Naranja suave
@@ -92,16 +93,18 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     }
     let axiosResponse = await axios(options);
     const workbook = XLSX.read(axiosResponse.data, { type: 'binary', cellText: false, cellDates: true });
+
     let worksheets = workbook.SheetNames.map((sheetName: string) => {
       return { sheetName, data: XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { raw: false, dateNF: 'yyyy-mm-dd' }) };
     });
+    setTitleCalendar(worksheets[0].sheetName) ;
 
     const dataCalendars: string[] = [];
     const calendars: CalendarObject[] = [];
 
     worksheets[0].data.forEach((element: any, index: number) => {
       if (element.Modalidad !== undefined) {
-        const modalidad = element.Modalidad.trim(); // Eliminar espacios al principio y al final
+        const modalidad = element.Modalidad.trim(); 
         if (modalidad && dataCalendars.indexOf(modalidad) === -1) {
           dataCalendars.push(modalidad);
         }
@@ -291,22 +294,22 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
 
   return (
     <section id={styles.calendarContainer} >
+      <h1 className={styles.titleCalendar}>{titleCalendar}</h1>
       <div className={styles.calendarControl}>
         <div className={styles.controlsMonth}>
           <button className={styles.controlMonth} onClick={handleClickBackButton}>&lsaquo;</button>
           <button className={styles.controlMonth} onClick={handleClickNextButton}>&rsaquo;</button>
           <button className={styles.controlHoy} onClick={handleGoToToday}>Hoy</button>
         </div>
-
         <span className={styles.CalenderName}>{currentDate?.Month}  {currentDate?.year}</span>
       </div>
       <div className={styles.calendarContainer}>
         <div className={styles.lateral}>
-          <h4>Calendarios</h4>
+          <span className={styles.listTitleCalendar}>Calendarios</span>
           <div className={styles.listCalendars} >
             {calendars && calendars.map((calendar: CalendarObject) => (
-              <div key={calendar.id} >
-                <span className={styles.calendarName} style={{ backgroundColor: calendar.bgColor }}>{calendar.name}</span>
+              <div key={calendar.id}  className={styles.listCalendarName}>
+                <span  className={styles.listCalendarSpan} style={{ backgroundColor: calendar.bgColor }}>{calendar.name}</span>
               </div>
             ))}
           </div>

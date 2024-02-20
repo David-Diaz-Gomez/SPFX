@@ -51,9 +51,9 @@ export default class Page1 extends React.Component<IPage1Props, { currentSlide: 
   render() {
     const {
       hasTeamsContext, userDisplayName,
-      url4, url5, url6, url7, url8, url9
+      url4, url5, url6, url7, url8, url9,url10
     } = this.props;
-
+    console.log(url10)
     const imageInfo = [
       {
         imageUrl: 'https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_1291/1695066754297.jpg',
@@ -184,6 +184,7 @@ export default class Page1 extends React.Component<IPage1Props, { currentSlide: 
           url7={url7}
           url8={url8}
           url9={url9}
+          url10={url10}
           hasTeamsContext={hasTeamsContext}
           userDisplayName={userDisplayName}
           description="Descripción predeterminada"

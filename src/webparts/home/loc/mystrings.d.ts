@@ -11,6 +11,7 @@ declare interface IHomeWebPartStrings {
   Url7FieldLabel: string;
   Url8FieldLabel: string;
   Url9FieldLabel: string;
+  Url10FieldLabel: string;
   AppLocalEnvironmentSharePoint: string;
   AppLocalEnvironmentTeams: string;
   AppLocalEnvironmentOffice: string;

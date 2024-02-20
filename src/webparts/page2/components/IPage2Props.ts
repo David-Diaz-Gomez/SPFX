@@ -6,6 +6,7 @@ export interface IPage2Props {
   url7: string;
   url8: string;
   url9: string;
+  url10: string;
   isDarkTheme: boolean;
   environmentMessage: string;
   hasTeamsContext: boolean;

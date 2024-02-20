@@ -20,6 +20,7 @@ export interface IPage1WebPartProps {
   url7: string;
   url8: string;
   url9: string;
+  url10: string;
 }
 
 export default class Page1WebPart extends BaseClientSideWebPart<IPage1WebPartProps> {
@@ -42,6 +43,7 @@ export default class Page1WebPart extends BaseClientSideWebPart<IPage1WebPartPro
         url7: this.properties.url7,
         url8: this.properties.url8,
         url9: this.properties.url9,
+        url10: this.properties.url10
       }
     );
 

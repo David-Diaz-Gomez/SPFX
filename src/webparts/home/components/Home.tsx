@@ -9,7 +9,7 @@ import './styles.css';
 
 export default class Home extends React.Component<IHomeProps, {}> {
   public render(): React.ReactElement<IHomeProps> {
-    const { url1,url2,url3,url4,url5,url6,url7,url8,url9 } = this.props;
+    const { url1,url2,url3,url4,url5,url6,url7,url8,url9,url10 } = this.props;
     const {
       hasTeamsContext,
       userDisplayName
@@ -46,6 +46,7 @@ export default class Home extends React.Component<IHomeProps, {}> {
           url7={url7}
           url8={url8}
           url9={url9} 
+          url10={url10}
           hasTeamsContext={hasTeamsContext}
           userDisplayName={userDisplayName}
           description="Descripción predeterminada"

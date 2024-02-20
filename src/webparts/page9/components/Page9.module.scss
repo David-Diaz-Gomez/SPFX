@@ -5,7 +5,7 @@
 }
 
 .container {
-  height: 20%;
+  height: 15%;
   width: 100%;
   margin: 0;
   display: flex;
@@ -24,57 +24,48 @@
   display: flex;
   justify-content: space-between;
   height: auto;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin-top: 1%;
 }
 
 .card {
   position: relative;
   width: 100%;
+  height: 2.5rem;
   padding: 10px;
   height: auto;
-  background-color: white;
-  color: rgb(173, 104, 13);
+  background-image: linear-gradient(to bottom, rgb(173, 104, 13), white 270%);
+  color: white;
   text-align: center;
   overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  margin-bottom: 5px;
 
-  &::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(255, 255, 255, 0), white);
-    top: 0; /* Cambiado de bottom a top */
-    left: 0;
-    transform-origin: top; /* Cambiado de bottom a top */
-    transform: scaleY(1);
-    transition: transform 0.5s, background-color 0.5s;
-  }
+  // &:hover {
+  //   background-color: rgb(173, 104, 13);
+  //   color: white;
+  // }
 
-  &:hover {
-    background-color: rgb(173, 104, 13);
-    color: white;
-    height: auto;
 
-    &::before {
-      transform: scaleY(0);
-    }
-  }
-
-  h3 {
-    margin-bottom: 10px;
-  }
 
   p {
-    display: none;
+    width: 80%;
+    display:block;
     text-align: justify;
-    font-size: 13px;
+    align-items: center;
+    font-size: large;
+    transform: translateY(-100px);
+    margin: auto;
+    position: absolute;
   }
 
   &:hover p {
-    display: block;
+    transform: translateY(0);
+    position: relative;
+    transition: all 0.5s ease;
   }
 }
+
 .div3070{
   width: 100%;
   display: flex;
@@ -105,15 +96,14 @@ ul > li > ul {
   margin-top: 10px;
   margin-left: 20px;
 }
-/* PowerBiBanner.css */
-/* Estilos existentes */
 .powerBiBanner {
   width: 65%;
+  height: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 5px;
+  padding: 2px;
   background-color: #113ef2;
   color: #fff;
   text-align: center;
@@ -135,7 +125,7 @@ ul > li > ul {
 
 /* Nuevos estilos para la imagen al lado del texto */
 .powerBiBanner img {
-  width: 5%; /* Ajusta el tamaño de la imagen según tus preferencias */
+  width: 7%; /* Ajusta el tamaño de la imagen según tus preferencias */
   height: auto; /* Permite que la altura se ajuste automáticamente */
   margin-left: 10px; /* Espacio entre el texto y la imagen */
 }
@@ -157,3 +147,18 @@ ul > li > ul {
   transform: scale(1.2); /* Hace un zoom al 120% del tamaño original */
   transition: transform 0.3s ease; /* Mantiene la transición suave en hover */
 }
+
+
+.procesoSeleccion{
+  width: 100%;
+}
+.imgProceso{
+  width: 100%;
+  height: 100%;
+  object-fit: 100% ;
+}
+.titleObjectivos{
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+

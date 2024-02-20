@@ -20,6 +20,7 @@ export interface IPage2WebPartProps {
   url7: string;
   url8: string;
   url9: string;
+  url10: string;
 }
 
 export default class Page2WebPart extends BaseClientSideWebPart<IPage2WebPartProps> {
@@ -38,6 +39,7 @@ export default class Page2WebPart extends BaseClientSideWebPart<IPage2WebPartPro
         url7: this.properties.url7,
         url8: this.properties.url8,
         url9: this.properties.url9,
+        url10: this.properties.url10,
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,

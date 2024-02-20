@@ -3,7 +3,7 @@ import styles from './Page8.module.scss';
 import type { IPage8Props } from './IPage8Props';
 
 
-export default class Page8 extends React.Component<IPage8Props, { showModal: boolean; modalImages: string[]; currentImageIndex: number; showPausasActivasModal: boolean; focusedIndex: number | null; modalTab: 'pausas' | 'ejercicios'; imagesActivities: string[];currentImageIndexActividades:number }> {
+export default class Page8 extends React.Component<IPage8Props, { showModal: boolean; modalImages: string[]; currentImageIndex: number; showPausasActivasModal: boolean; focusedIndex: number | null; modalTab: 'pausas' | 'ejercicios'; imagesActivities: string[]; currentImageIndexActividades: number; showPildorasModal: boolean }> {
   constructor(props: IPage8Props) {
     super(props);
     this.state = {
@@ -11,6 +11,7 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
       modalImages: [],
       currentImageIndex: 0,
       showPausasActivasModal: false,
+      showPildorasModal: false,
       focusedIndex: null,
       modalTab: 'pausas',
       imagesActivities: [
@@ -59,11 +60,6 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
         "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/c714ff06-c507-4a77-aa54-a7a9364ae221/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
         "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/2de24eb4-9edd-4f6a-a4ac-d5281deb4783/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart",
         "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/fead7498-5a95-4378-a404-5015019b3a85/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart"
-
-
-
-
-
       ],
       currentImageIndexActividades: 0,
 
@@ -91,6 +87,12 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
     this.setState({ showPausasActivasModal: false });
   }
 
+  closeModalPildoras = () => {
+    this.setState({ showPildorasModal: false });
+  }
+  openModalPildoras = () => {
+    this.setState({ showPildorasModal: true });
+  }
   navigateImages = (direction: 'prev' | 'next', event: React.MouseEvent<HTMLButtonElement>) => {
 
     event.stopPropagation();
@@ -153,7 +155,7 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
   };
 
   public render(): React.ReactElement<IPage8Props> {
-    const { showModal, modalImages, currentImageIndex, showPausasActivasModal, focusedIndex, modalTab, imagesActivities, currentImageIndexActividades} = this.state;
+    const { showModal, modalImages, currentImageIndex, showPausasActivasModal, focusedIndex, modalTab, imagesActivities, currentImageIndexActividades, showPildorasModal } = this.state;
     return (
       <section>
         {/* Imagen */}
@@ -168,23 +170,22 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
           Nuestro propósito fundamental es proteger la salud, seguridad y bienestar físico, mental y social de los colaboradores en las instalaciones de la compañía; promoviendo y manteniendo ambientes de trabajo saludables y sostenibles, identificando y evaluando los riesgos relacionados con la actividad realizada y fomentando hábitos de vida saludables, programas de salud y bienestar y generando espacios de formación y capacitación.
         </p>
 
-        {/* Contenedor con borde azul claro */}
-        <div style={{ borderTop: '5px double #add8e6', borderBottom: '5px double #add8e6', display: 'flex', marginBottom: '2%' }}>
+
+        <div className={styles.contentNavegacionObjectivos}>
+          <div className={styles.barraNavegación} >
+            <button className={styles.navegationButton} onClick={this.openPausasActivasModal}>Pausas activas</button>
+            <button className={styles.navegationButton} onClick={() => this.openModal(['https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_732/1692247926893.jpg', 'https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_733/1692247997403.jpg'])} >Riesgos y accidentes de trabajo</button>
+            <button className={styles.navegationButton} onClick={() => this.openModal(['https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_734/1692248160818.jpg', 'https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Seguridad%20y%20salud%20en%20el%20trabajo/Comités%20de%20Esri%20NOSA/Comite%20de%20Convivencia%20Laboral%20-%20inf.jpg', 'https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Seguridad%20y%20salud%20en%20el%20trabajo/Comités%20de%20Esri%20NOSA/COPASST.jpg'])}>Comités de Esri NOSA</button>
+            <button className={styles.navegationButton} onClick={this.openModalPildoras}>Capsulas de bienestar</button>
+          </div>
           {/* Primera división */}
-          <div style={{ width: '50%' }}>
+          <div className={styles.objectivos}>
             <h2 style={{ color: '#000080', fontWeight: '600' }}>Objetivos</h2>
             <ul style={{ fontSize: '1.rem', marginRight: '5%' }}>
               <li>Conocer las generalidades del SG-SST</li>
               <li>Actualizar y reforzar en los colaboradores temas relevantes y relacionados con SST</li>
               <li>Fortalecer los conocimientos para identificación de peligros y control de riesgos, prevención AT, EL</li>
             </ul>
-          </div>
-
-          {/* Segunda división con botones */}
-          <div style={{ width: '50%' }}>
-            <button style={{ width: '100%', backgroundColor: '#000080', color: 'white', borderRadius: '25px', padding: '13px', margin: '1rem 0px .2rem;', fontWeight: '600' }} onClick={this.openPausasActivasModal}>Pausas activas</button>
-            <button style={{ width: '100%', backgroundColor: '#add8e6', borderRadius: '25px', margin: '.5rem 0px .2rem', color: 'white', padding: '13px', fontWeight: '600' }} onClick={() => this.openModal(['https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_732/1692247926893.jpg', 'https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_733/1692247997403.jpg'])}>Riesgos y accidentes de trabajo</button>
-            <button style={{ width: '100%', backgroundColor: '#008000', color: 'white', borderRadius: '25px', padding: '13px', margin: '.5rem 0px .2rem', fontWeight: '600' }} onClick={() => this.openModal(['https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_734/1692248160818.jpg', 'https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_735/1692248189473.jpg', 'https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_736/1692248234468.jpg'])}>Comités de Esri NOSA</button>
           </div>
         </div>
 
@@ -235,13 +236,10 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
           </div>
         </div>
 
-        <div style={{ height: '50vh', width: '100%', border: 'none' }}>
-          <iframe
-            src="https://esricolombia.sharepoint.com/Areas/GH/SiteAssets/Forms/AllItems.aspx?id=%2FAreas%2FGH%2FSiteAssets%2FSitePages%2FSST%2Fcertificacion%2Dautoevaculaci%C3%B3n%2Destandares%2D2022%5F29MAYO023%2Epdf&parent=%2FAreas%2FGH%2FSiteAssets%2FSitePages%2FSST"
-            title="Certificación Autoevacuación Estándares 2022"
-            style={{ width: '100%', height: '100%', border: 'none' }}
-          />
+        <div style={{ height: '50vh', width: '40%', border: 'none', display: "flex", justifyContent: "center", alignItems: "center", margin: "auto" }}>
+          <iframe src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=bcde9628-616c-4835-aa6e-80a32e6ad7f2" width="640" height="360" scrolling="no" title="certificacion autoevaculación estandares 2023_02022024.pdf"></iframe>
         </div>
+
         {showPausasActivasModal && (
           <div className={styles.pausasActivasModalOverlay}>
             <div className={styles.pausasActivasModalContent}>
@@ -385,6 +383,7 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
             </div>
           </div>
         )}
+
         {showModal && (
           <div className={styles.modalOverlay} onClick={this.closeModal}>
             <div className={styles.modalContent}>
@@ -401,6 +400,24 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
             </div>
           </div>
         )}
+
+        {showPildorasModal && (
+          <div className={styles.modalOverlay}>
+            <div className={styles.contentModalPildoras}>
+              <h1 className={styles.titlePildoras}>Capsulas de bienestar</h1>
+              <h2 className={styles.subtitlePildoras}>bienestar emocional</h2>
+              <div className={styles.contentPildoras}>
+                <iframe src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=84362ab0-c719-4f15-a942-f6d365a8016a" width="640" height="360" scrolling="no" title="PAP.pdf"></iframe>
+                <iframe src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=c57e7c37-7172-4594-8579-5fab205fefaa" width="640" height="360" scrolling="no" title="Manejo de duelo en el entorno laboral.pdf"></iframe>
+                <iframe src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=a0858c87-7cef-40f7-ac3b-6b03adfe0039" width="640" height="360" scrolling="no" title="Gestión Emocional.pdf"></iframe>
+                <iframe src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=1cafcd42-9050-4ae2-ab74-7498684c19ce" width="640" height="360" scrolling="no" title="Estrés Agudo.pdf"></iframe>
+                <iframe src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=e0604d90-bdb9-49bb-a911-46fe03496e4e" width="640" height="360" scrolling="no" title="Bornout.pdf"></iframe>
+              </div>
+              <button onClick={this.closeModalPildoras}></button>
+            </div>
+          </div>
+        )
+        }
 
         {/* contenido de powerpoint y galeria de imagenes de actividades */}
         <section className={styles.contentPowerGaleria}>
@@ -419,7 +436,7 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
             />
             <button className={styles.slideButton} onClick={(e) => this.navigateImagenesActividades('next', e)}>&gt;</button>
           </div>
-          <span className={styles.lengthImages}>{currentImageIndexActividades+ 1} de {imagesActivities.length}</span>
+          <span className={styles.lengthImages}>{currentImageIndexActividades + 1} de {imagesActivities.length}</span>
         </section>
       </section>
     );

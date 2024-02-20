@@ -5,6 +5,7 @@ import type { IHelloRdtProps } from './IHelloRdtProps';
 export default class HelloRdt extends React.Component<IHelloRdtProps, {}> {
 
   public render(): React.ReactElement<IHelloRdtProps> {
+    
     const { url1,url2,url3 } = this.props;
     function handleClick(id:string) {
       console.log(id)
