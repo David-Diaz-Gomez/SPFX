@@ -41,28 +41,34 @@
 
 .tarjeta {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
   height: auto;
   width: 14%;
   max-width: 14%;
+
 }
 
 .tarjeta img {
   max-width: 100%;
   border-radius: 8px;
-  margin-bottom: 10px;
+
 }
 
 .tarjeta h2 {
   font-size: 0.8em;
-  margin-bottom: 5px;
   height: 10vh;
+
 }
 
 .tarjeta p {
   font-size: 0.7em;
-  margin-bottom: 10px;
+
   height: 20vh;
+  overflow: hidden;
 }
 
 .tarjeta button {
@@ -456,4 +462,26 @@
   justify-content: center;
   top: 15%;
   position: relative;
+}
+
+// estilos de testimonio dentro del popup 6
+.contentTestimonio{
+  position: relative;
+  width: 100%;
+
+}
+
+.contentTestimonioPersona{
+  width: 85%;
+  margin: auto;
+  height: 17rem;
+  // background-color: #0078d4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 16px;
+}
+.contentTestimonio h4{
+  margin-block-start: 0;
+  margin-block-end: 0;
 }

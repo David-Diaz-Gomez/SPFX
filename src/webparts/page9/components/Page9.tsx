@@ -27,8 +27,7 @@ export default class Page9 extends React.Component<IPage9Props, {}> {
           </div>
         </section>
         <section className={styles.procesoSeleccion}>
-          <h2>Proceso de selección</h2>
-          <img className={styles.imgProceso} src="https://img.freepik.com/vector-gratis/infografia-linea-tiempo-elementos-amarillos_23-2148568467.jpg" alt="" />
+          <img className={styles.imgProceso} src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Seguridad%20y%20salud%20en%20el%20trabajo/Infografía-Proceso-de-Selección%201%20(1).png" alt="" />
         </section>
         <section className={styles.div3070}>
           <div className={styles.div30}>

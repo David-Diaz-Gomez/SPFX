@@ -33,7 +33,12 @@
   height: 2.5rem;
   padding: 10px;
   height: auto;
-  background-image: linear-gradient(to bottom, rgb(173, 104, 13), white 270%);
+  // background-image: linear-gradient(to bottom, rgb(173, 104, 13), white 270%);
+  // background-image: linear-gradient(to bottom, #a7c7e7, #c0a3d8);
+  background-image: linear-gradient(to right, #5d8ccf, #8e5aad);
+
+
+ 
   color: white;
   text-align: center;
   overflow: hidden;
@@ -54,7 +59,7 @@
     text-align: justify;
     align-items: center;
     font-size: large;
-    transform: translateY(-100px);
+    transform: translateY(-300px);
     margin: auto;
     position: absolute;
   }

@@ -303,35 +303,61 @@ margin-top: 2rem;
   align-items: center;
 }
 
-// estilos del modal de pildoras
-.contentModalPildoras{
-  position:relative;
-  background-color: #6A5ACD;
-  height: 80%;
-  width: 80%;
-  overflow: hidden;
-  margin: auto;
-}
-.titlePildoras{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-}
-.subtitlePildoras{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
+// estilos de pildoras 
 .contentPildoras{
-  width: 100%;
-  height: 90%;
-  background-color: yellow;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr; 
-  gap: 10px; 
+  width: 80%;
+  height:80%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  overflow: scroll;
+  overflow-x: hidden;
+  border-radius: 5px;
 }
 
+.banerPildoras{
+  width: 98%;
+  height: auto;
+  margin: auto;
+  margin-top: 10px;
+ 
+}
+.closePildoras{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 3px  ;
+}
+.closePildoras:hover{
+  font-size: 20px;
+}
+
+
+
+.pdfPildoras{
+  margin: auto;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+  
+
+
+}
+
+.iframePildoras{
+  border: none;
+  grid-column: auto;
+  height: 16rem;
+  overflow: hidden;
+
+}

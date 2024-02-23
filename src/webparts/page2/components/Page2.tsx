@@ -95,8 +95,7 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
                 <div className={styles.description}></div>
               </a>
             </div>
-            {/* Repite para los demás pines */}
-            {/* ... */}
+        
           </div>
         </div>
       </section>

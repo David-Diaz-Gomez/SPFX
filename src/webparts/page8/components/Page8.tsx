@@ -403,19 +403,19 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
 
         {showPildorasModal && (
           <div className={styles.modalOverlay}>
-            <div className={styles.contentModalPildoras}>
-              <h1 className={styles.titlePildoras}>Capsulas de bienestar</h1>
-              <h2 className={styles.subtitlePildoras}>bienestar emocional</h2>
-              <div className={styles.contentPildoras}>
-                <iframe src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=84362ab0-c719-4f15-a942-f6d365a8016a" width="640" height="360" scrolling="no" title="PAP.pdf"></iframe>
-                <iframe src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=c57e7c37-7172-4594-8579-5fab205fefaa" width="640" height="360" scrolling="no" title="Manejo de duelo en el entorno laboral.pdf"></iframe>
-                <iframe src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=a0858c87-7cef-40f7-ac3b-6b03adfe0039" width="640" height="360" scrolling="no" title="Gestión Emocional.pdf"></iframe>
-                <iframe src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=1cafcd42-9050-4ae2-ab74-7498684c19ce" width="640" height="360" scrolling="no" title="Estrés Agudo.pdf"></iframe>
-                <iframe src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=e0604d90-bdb9-49bb-a911-46fe03496e4e" width="640" height="360" scrolling="no" title="Bornout.pdf"></iframe>
+            <div className={styles.contentPildoras}>
+              <img className={styles.banerPildoras} src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Seguridad%20y%20salud%20en%20el%20trabajo/Capsulas%20bienestar/Baners%20Pildoras/9853c57b10d312619e9814f5fa90962a-1.jpg" />
+              <div className={styles.pdfPildoras}>
+                <iframe className={styles.iframePildoras} src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=84362ab0-c719-4f15-a942-f6d365a8016a"  scrolling="no" title="PAP.pdf"></iframe>
+                <iframe className={styles.iframePildoras} src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=c57e7c37-7172-4594-8579-5fab205fefaa"  scrolling="no" title="Manejo de duelo en el entorno laboral.pdf"></iframe>
+                <iframe className={styles.iframePildoras} src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=a0858c87-7cef-40f7-ac3b-6b03adfe0039"  scrolling="no" title="Gestión Emocional.pdf"></iframe>
+                <iframe className={styles.iframePildoras} src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=1cafcd42-9050-4ae2-ab74-7498684c19ce"  scrolling="no" title="Estrés Agudo.pdf"></iframe>
+                <iframe className={styles.iframePildoras} src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=e0604d90-bdb9-49bb-a911-46fe03496e4e"  scrolling="no" title="Bornout.pdf"></iframe>
               </div>
-              <button onClick={this.closeModalPildoras}></button>
+              <button className={styles.closePildoras} onClick={this.closeModalPildoras}>X</button>
             </div>
           </div>
+
         )
         }
 
@@ -442,3 +442,4 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
     );
   }
 }
+
