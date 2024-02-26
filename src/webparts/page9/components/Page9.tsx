@@ -57,7 +57,7 @@ export default class Page9 extends React.Component<IPage9Props, {}> {
             </ul>
           </div>
           <div style={{ display: 'flex', justifyContent:"space-around", width: '100%', }}>
-            <a href="https://app.powerbi.com/groups/me/reports/5af2c88c-2166-470b-8082-56db1dba034e?ctid=249bb730-97be-413c-815a-77ccfa75c445&pbi_source=linkShare" target="_blank" rel="noopener noreferrer" className={styles.powerBiBanner}>
+            <a href="https://app.powerbi.com/groups/1e6b5075-e460-4276-829f-4a96faa2f69b/reports/e5180410-b3b7-4607-817b-44d7c44aec1b/ReportSection?experience=power-bi" target="_blank" rel="noopener noreferrer" className={styles.powerBiBanner}>
               <p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', height:"100%", width:"100%", marginBlockStart:"0", marginBlockEnd:"0" }}>¡Conoce las métricas de nuestro proceso en Power BI! <img src="https://geoapps.esri.co/Recursos/RH_sharepoint/powerBi.png" /></p>
             </a>
           </div>

@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from './Page4Origin.module.scss';
 import type { IPage4OriginProps } from './IPage4OriginProps';
 
-export default class Page4Origin extends React.Component<IPage4OriginProps, { currentSlide: number,currentSlideFirst: number, currentSlideSecond: number }> {
+export default class Page4Origin extends React.Component<IPage4OriginProps, { currentSlide: number, currentSlideFirst: number, currentSlideSecond: number }> {
   constructor(props: IPage4OriginProps) {
     super(props);
     this.state = {
@@ -86,12 +86,12 @@ export default class Page4Origin extends React.Component<IPage4OriginProps, { cu
                   src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_1624/1695078491954.jpg"
                   className={styles.imguni2}
                 />
-              </div>              
+              </div>
             </div>
             <div className={styles.controls}>
-            <span className={styles.span} onClick={this.handlePrevSlide}>{'<'}</span>
-            <span className={styles.span} onClick={this.handleNextSlide}>{'>'}</span>
-          </div>
+              <span className={styles.span} onClick={this.handlePrevSlide}>{'<'}</span>
+              <span className={styles.span} onClick={this.handleNextSlide}>{'>'}</span>
+            </div>
             {/* Contenedor */}
             <div className={styles.container40}>
               <div className={styles.card1} style={{ backgroundPosition: 'center' }}>
@@ -105,27 +105,28 @@ export default class Page4Origin extends React.Component<IPage4OriginProps, { cu
           </div>
           {/* Controles del slider */}
         </section>
-        <section className={styles.imageSection} style={{marginBottom:'0'}}>
-        <div className={styles.container}>
-          <a href="https://app.powerbi.com/groups/me/reports/b251867b-e70d-4382-aee3-86653f549685?ctid=249bb730-97be-413c-815a-77ccfa75c445&pbi_source=linkShare" target='_blank' className={styles.divimg1}>
-            <div>
-            <img
-              className={styles.image1}
-              src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2704/1700170921257.png"
-              alt="Imagen 1"
-            />
+        <section className={styles.imageSection1} style={{ marginBottom: '0' }}>
+          <div className={styles.container}>
+            <a href="https://app.powerbi.com/groups/me/reports/b251867b-e70d-4382-aee3-86653f549685?ctid=249bb730-97be-413c-815a-77ccfa75c445&pbi_source=linkShare" target='_blank' className={styles.divimg1}>
+              <div>
+                <img
+                  className={styles.image1}
+                  src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2704/1700170921257.png"
+                  alt="Imagen 1"
+                />
+              </div>
+            </a>
+            <div className={styles.divimg2}>
+              <img
+                className={styles.image2}
+                src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2760/1700179224557.png"
+                alt="Imagen 2"
+              />
             </div>
-          </a>
-          <div className={styles.divimg2}>
-          <img
-            className={styles.image2}
-            src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2760/1700179224557.png"
-            alt="Imagen 2"
-          />
           </div>
-        </div>
-      </section>
-      <section className={styles.imageSection}>
+        </section>
+
+        <section className={styles.imageSection}>
           <div className={styles.container}>
             {/* Primer Slider con 5 imágenes */}
             <div className={`${styles.slider2andContainer} ${styles.firstSlider}`}>
@@ -151,21 +152,21 @@ export default class Page4Origin extends React.Component<IPage4OriginProps, { cu
                     src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2714/1700172481958.png"
                     className={styles.imguni2}
                   />
-                </div>  
+                </div>
                 <div className={styles.slide2}>
                   <img
                     alt="Image 4"
                     src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2715/1700172579065.png"
                     className={styles.imguni2}
                   />
-                </div>  
+                </div>
                 <div className={styles.slide2}>
                   <img
                     alt="Image 5"
                     src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2716/1700172665445.png"
                     className={styles.imguni2}
                   />
-                </div>              
+                </div>
               </div>
               {/* Controles del primer slider */}
               <div className={styles.controls1}>
@@ -176,91 +177,91 @@ export default class Page4Origin extends React.Component<IPage4OriginProps, { cu
 
             {/* Segundo Slider con 12 imágenes */}
             <div className={`${styles.slider2andContainer} ${styles.secondSlider}`}>
-            <div className={styles.slides2} style={{ transform: `translateX(-${this.state.currentSlideSecond * 100}%)` }}>
-              <div className={styles.slide2}>
-                <img
-                  alt="Image 1"
-                  src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2717/1700172768837.png'
-                  className={styles.imguni2}
-                />
-              </div>
-              <div className={styles.slide2}>
-                <img
-                  alt="Image 2"
-                  src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2718/1700172835966.png'
-                  className={styles.imguni2}
-                />
-              </div>
-              <div className={styles.slide2}>
-                <img
-                  alt="Image 3"
-                  src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2719/1700172895533.png'
-                  className={styles.imguni2}
-                />
-              </div>
-              <div className={styles.slide2}>
-                <img
-                  alt="Image 4"
-                  src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2720/1700172953819.png'
-                  className={styles.imguni2}
-                />
-              </div>
-              <div className={styles.slide2}>
-                <img
-                  alt="Image 5"
-                  src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2771/1700181015851.png'
-                  className={styles.imguni2}
-                />
-              </div>
-              <div className={styles.slide2}>
-                <img
-                  alt="Image 6"
-                  src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2772/1700181164509.png'
-                  className={styles.imguni2}
-                />
-              </div>
-              <div className={styles.slide2}>
-                <img
-                  alt="Image 7"
-                  src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2773/1700181321465.png'
-                  className={styles.imguni2}
-                />
-              </div>
-              <div className={styles.slide2}>
-                <img
-                  alt="Image 8"
-                  src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2774/1700181483101.png'
-                  className={styles.imguni2}
-                />
-              </div>
-              <div className={styles.slide2}>
-                <img
-                  alt="Image 9"
-                  src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2775/1700181630051.png'
-                  className={styles.imguni2}
-                />
-              </div>
-              <div className={styles.slide2}>
-                <img
-                  alt="Image 10"
-                  src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2776/1700181868715.png'
-                  className={styles.imguni2}
-                />
-              </div>
-              <div className={styles.slide2}>
-                <img
-                  alt="Image 11"
-                  src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2777/1700182472863.png'
-                  className={styles.imguni2}
-                />
-              </div>
-              <div className={styles.slide2}>
-                <img
-                  alt="Image 12"
-                  src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2778/1700182632395.png'
-                  className={styles.imguni2}
-                />
-              </div>
+              <div className={styles.slides2} style={{ transform: `translateX(-${this.state.currentSlideSecond * 100}%)` }}>
+                <div className={styles.slide2}>
+                  <img
+                    alt="Image 1"
+                    src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2717/1700172768837.png'
+                    className={styles.imguni2}
+                  />
+                </div>
+                <div className={styles.slide2}>
+                  <img
+                    alt="Image 2"
+                    src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2718/1700172835966.png'
+                    className={styles.imguni2}
+                  />
+                </div>
+                <div className={styles.slide2}>
+                  <img
+                    alt="Image 3"
+                    src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2719/1700172895533.png'
+                    className={styles.imguni2}
+                  />
+                </div>
+                <div className={styles.slide2}>
+                  <img
+                    alt="Image 4"
+                    src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2720/1700172953819.png'
+                    className={styles.imguni2}
+                  />
+                </div>
+                <div className={styles.slide2}>
+                  <img
+                    alt="Image 5"
+                    src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2771/1700181015851.png'
+                    className={styles.imguni2}
+                  />
+                </div>
+                <div className={styles.slide2}>
+                  <img
+                    alt="Image 6"
+                    src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2772/1700181164509.png'
+                    className={styles.imguni2}
+                  />
+                </div>
+                <div className={styles.slide2}>
+                  <img
+                    alt="Image 7"
+                    src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2773/1700181321465.png'
+                    className={styles.imguni2}
+                  />
+                </div>
+                <div className={styles.slide2}>
+                  <img
+                    alt="Image 8"
+                    src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2774/1700181483101.png'
+                    className={styles.imguni2}
+                  />
+                </div>
+                <div className={styles.slide2}>
+                  <img
+                    alt="Image 9"
+                    src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2775/1700181630051.png'
+                    className={styles.imguni2}
+                  />
+                </div>
+                <div className={styles.slide2}>
+                  <img
+                    alt="Image 10"
+                    src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2776/1700181868715.png'
+                    className={styles.imguni2}
+                  />
+                </div>
+                <div className={styles.slide2}>
+                  <img
+                    alt="Image 11"
+                    src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2777/1700182472863.png'
+                    className={styles.imguni2}
+                  />
+                </div>
+                <div className={styles.slide2}>
+                  <img
+                    alt="Image 12"
+                    src='https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2778/1700182632395.png'
+                    className={styles.imguni2}
+                  />
+                </div>
               </div>
               {/* Controles del segundo slider */}
               <div className={styles.controls1}>

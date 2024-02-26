@@ -32,7 +32,7 @@ const Page7: React.FC<IPage7Props> = (props) => {
       accion: 'redireccionar'
     }, {
       imagen: 'https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_1920/1696482052016.png',
-      titulo: 'Diversidad e inclución',
+      titulo: 'Diversidad e inclusión',
       descripcion: 'Hagamos un entorno favorable para todos los colaboradores, así logramos potencializar la igualdad de oportunidades en la compañía.',
       accion: 'popup0'
     }, {
