@@ -48,9 +48,12 @@
 
 .card {
   width: 33%;
-  height: 45vh;
+  height: 30vh;
   background-color: #bae0f7; // Color de fondo de las tarjetas
   color: #004675;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 10px;
   margin: 5px;

@@ -1344,7 +1344,6 @@ const Page7: React.FC<IPage7Props> = (props) => {
                         <>
                           {testimonios && (
                             <div className={styles.contentTestimonio}>
-                              <strong style={{ fontSize: "16px", backgroundColor: "rgba(0, 0, 0, 0)", color: "#004675" }}>Testimonio</strong>
                               <div className={styles.contentTestimonioPersona}>
                                 <h2>{testimonios[indexTestimonio].NOMBRES}</h2>
                                 <h4>{testimonios[indexTestimonio].CARGO}</h4>
