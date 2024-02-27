@@ -193,7 +193,7 @@
 .slide2 {
   flex: 0 0 100%;
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
 
   img {
@@ -484,4 +484,10 @@
 .contentTestimonio h4{
   margin-block-start: 0;
   margin-block-end: 0;
+}
+.title_P{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
