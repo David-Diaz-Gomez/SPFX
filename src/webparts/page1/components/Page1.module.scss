@@ -220,7 +220,7 @@
 
 .column {
   flex: 1;
-  width: 50%;
+  max-width: 400px;
   margin: 10px;
   padding: 15px;
   background-color: rgba(0, 0, 0, 0.4);

@@ -103,6 +103,7 @@
   height: 100%; /* Altura del modal igual a la altura de la ventana */
  /* Máximo ancho del modal */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra del modal */
+  position: relative;
 }
 /* Agrega más estilos según sea necesario */
 .closeButton {
