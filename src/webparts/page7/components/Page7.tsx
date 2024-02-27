@@ -1266,7 +1266,7 @@ const Page7: React.FC<IPage7Props> = (props) => {
                     </div>
                   </div>
                 </div>
-                <div style={{ width: '35%', padding: "10px" }}>
+                <div style={{ width: '35%', paddingLeft: "10px", display:"flex", flexDirection:"column", justifyContent:"space-between" }}>
                   <p style={{ fontSize: "18px" }}>
                     En el año 2022 Esri Colombia, Ecuador y Panamá se certificaron como “Great Place to Work”, un reconocimiento a la calidad del ambiente laboral que tiene la organización y que nos hace destacar a las demás en el país. Uno de los resultados más relevantes en este informe fue que el 98% de los empleados dice que este es un excelente lugar para trabajar.
                   </p>

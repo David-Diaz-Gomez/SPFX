@@ -194,7 +194,7 @@
     /* Puedes cambiar la posición del degrado desde aquí */
     bottom: 0;
     /* Si cambias la posición, reemplaza también la dirección en el gradiente */
-    background-image: linear-gradient(to bottom, rgba(2,0,36,1) 20%, transparent);
+    // background-image: linear-gradient(to bottom, rgba(2,0,36,1) 20%, transparent);
   }
 }
 
@@ -215,14 +215,16 @@
   align-items:start;
   flex-wrap: wrap;
   color: #fff;
+  margin: auto;
 }
 
 .column {
   flex: 1;
-  max-width: 400px;
+  width: 50%;
   margin: 10px;
-  padding: 20px;
-  background-color: transparent;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
 }
 
 h3 {
@@ -232,7 +234,7 @@ h3 {
 }
 
 p {
-  font-size: 1rem;
+  font-size: small;
   text-align: justify;
   line-height: 1.4;
 }
