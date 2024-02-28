@@ -55,9 +55,10 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
             <div className={styles.pinGroup4}>
               <a href={url7} target='_blank'>
                 <img
-                  src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2497/1699588573015.gif"
+                  src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Experiencias/Logos/Pin%20entrenamiento%204.gif"
                   alt="Pin 4"
                   className={`${styles.pin} `}
+                  style={{ width: '250px', height: '250px'}}
                 />
                 <div className={styles.description}>ENTRENAMIENTO</div>
               </a>
@@ -69,6 +70,7 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
                   src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2499/1699588674572.gif"
                   alt="Pin 5"
                   className={`${styles.pin} `}
+             
                 />
                 <div className={styles.description}>BIENESTAR</div>
               </a>
@@ -77,25 +79,27 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
             <div className={styles.pinGroup6}>
               <a href={url9} target='_blank'>
                 <img
-                  src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2686/1700189452529.gif"
+                  src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Experiencias/Logos/Pin%20Salud.gif"
                   alt="Pin 6"
                   className={`${styles.pin} `}
+                  style={{ width: '250px', height: '250px'}}
+                 
                 />
                 <div className={styles.description}>SST</div>
               </a>
             </div>
             {/* nuevo  */}
             <div className={styles.pinGroup7}>
-              <a href={url10} target='_blank'>
+              <a href={url10} target='_blank' >
                 <img
                   src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2686/1700189452529.gif"
                   alt="Pin 7"
                   className={`${styles.pin} `}
+                 
                 />
                 <div className={styles.description}></div>
               </a>
             </div>
-        
           </div>
         </div>
       </section>
