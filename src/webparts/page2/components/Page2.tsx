@@ -55,9 +55,10 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
             <div className={styles.pinGroup4}>
               <a href={url7} target='_blank'>
                 <img
-                  src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2497/1699588573015.gif"
+                  src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Experiencias/Logos/Pin%20entrenamiento.gif"
                   alt="Pin 4"
                   className={`${styles.pin} `}
+                  style={{    width: '217px', height: '150px',  left: '25%', top: '-25%'}}
                 />
                 <div className={styles.description}>ENTRENAMIENTO</div>
               </a>
@@ -77,9 +78,10 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
             <div className={styles.pinGroup6}>
               <a href={url9} target='_blank'>
                 <img
-                  src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2686/1700189452529.gif"
+                  src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Experiencias/Logos/Pin%20Salud.gif"
                   alt="Pin 6"
                   className={`${styles.pin} `}
+                  style={{width: '250px', height: '250px', top: '-77%', left: '-12%'}}
                 />
                 <div className={styles.description}>SST</div>
               </a>
