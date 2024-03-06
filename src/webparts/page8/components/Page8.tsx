@@ -1,9 +1,10 @@
 import * as React from 'react';
 import styles from './Page8.module.scss';
 import type { IPage8Props } from './IPage8Props';
+import axios, { AxiosRequestConfig } from 'axios';
+var XLSX = require("xlsx");
 
-
-export default class Page8 extends React.Component<IPage8Props, { showModal: boolean; modalImages: string[]; currentImageIndex: number; showPausasActivasModal: boolean; focusedIndex: number | null; modalTab: 'pausas' | 'ejercicios'; imagesActivities: string[]; currentImageIndexActividades: number; showPildorasModal: boolean }> {
+export default class Page8 extends React.Component<IPage8Props, { showModal: boolean; modalImages: string[]; currentImageIndex: number; showPausasActivasModal: boolean; focusedIndex: number | null; modalTab: 'pausas' | 'ejercicios'; imagesActivities: string[]; currentImageIndexActividades: number; showPildorasModal: boolean, showPDFModal: boolean, capsulas: [], actualPDF: string, showPoliticasModal: boolean, politicas: [] }> {
   constructor(props: IPage8Props) {
     super(props);
     this.state = {
@@ -12,6 +13,8 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
       currentImageIndex: 0,
       showPausasActivasModal: false,
       showPildorasModal: false,
+      showPDFModal: false,
+      showPoliticasModal: false,
       focusedIndex: null,
       modalTab: 'pausas',
       imagesActivities: [
@@ -62,7 +65,9 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
         "https://esricolombia.sharepoint.com/_api/v2.1/sites/esricolombia.sharepoint.com,4952de7d-e2ae-4622-8c80-cd64dedc02af,fa6a5fd9-c88e-48c3-b29d-df4ae270e9a4/lists/1f9b9914-0315-4214-8b61-6b6444e1140c/items/fead7498-5a95-4378-a404-5015019b3a85/driveItem/thumbnails/0/c960x99999/content?prefer=noRedirect,extendCacheMaxAge&clientType=modernWebPart"
       ],
       currentImageIndexActividades: 0,
-
+      capsulas: [],
+      actualPDF: '',
+      politicas: []
 
     };
   }
@@ -93,6 +98,22 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
   openModalPildoras = () => {
     this.setState({ showPildorasModal: true });
   }
+
+  closeModalPoliticas = () => {
+    this.setState({ showPoliticasModal: false });
+  }
+  openModalPoliticas = () => {
+    this.setState({ showPoliticasModal: true });
+  }
+
+  openModalPDF = (url: string) => {
+    this.setState({ actualPDF: url, showPDFModal: true });
+  }
+
+  closePDFModal = () => {
+    this.setState({ showPDFModal: false });
+  }
+
   navigateImages = (direction: 'prev' | 'next', event: React.MouseEvent<HTMLButtonElement>) => {
 
     event.stopPropagation();
@@ -144,6 +165,8 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
         return <iframe title={`iframe-${index}`} src="https://esricolombia.sharepoint.com/Areas/GH/_layouts/15/stream.aspx?id=%2FAreas%2FGH%2FPausasActivas%2FEjercicio%20para%20pausa%20activa5%2Emp4" style={{ width: '100%', height: '100%', border: 'none' }} />;
       case 5:
         return <iframe title={`iframe-${index}`} src="https://esricolombia.sharepoint.com/Areas/GH/_layouts/15/stream.aspx?id=%2FAreas%2FGH%2FPausasActivas%2FEjercicio%20para%20pausa%20activa6%2Emp4&nav=eyJwbGF5YmFja09wdGlvbnMiOnsic3RhcnRUaW1lSW5TZWNvbmRzIjoyNC41NDM0OTJ9fQ%3D%3D&referrer=SharePointFileViewer%2EWeb&referrerScenario=PopOut%2Emis%2E65c35079%2Db8f3%2D4530%2Daa65%2D2482c5654e09" style={{ width: '100%', height: '100%', border: 'none' }} />;
+      case 6:
+        return <iframe title={`iframe-${index}`} src={this.state.actualPDF} style={{ width: '100%', height: '100%', border: 'none' }} />;
       // Añadir más casos según sea necesario
       default:
         return null;
@@ -154,8 +177,38 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
     this.setState({ focusedIndex: index });
   };
 
+  getData = async (url: string) => {
+    const options: AxiosRequestConfig<any> = {
+      url,
+      responseType: "arraybuffer"
+    }
+    let axiosResponse = await axios(options)
+    const workbook = XLSX.read(axiosResponse.data, { type: 'binary' });
+    let worksheets = workbook.SheetNames.map((sheetName: string) => {
+      return { sheetName, data: XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { raw: false, dateNF: 'yyyy-mm-dd' }) };
+    });
+    // const allTestimonios: any = []
+    // worksheets[0].data.forEach((element: any) => {
+    //   allTestimonios.push(element);
+    // });
+    return worksheets;
+  }
+
+  componentWillMount = async () => {
+    const fetchCapsulas = async () => {
+      const capsulasData = await this.getData("https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Seguridad%20y%20salud%20en%20el%20trabajo/Capsulas%20bienestar/Libro.xlsx")
+      this.setState({ capsulas: capsulasData })
+    }
+    const fetchPoliticas = async () => {
+      const politicasData = await this.getData("https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Seguridad%20y%20salud%20en%20el%20trabajo/Politicas/Libro.xlsx")
+      this.setState({ politicas: politicasData[0].data })
+    }
+    await fetchCapsulas();
+    await fetchPoliticas();
+  }
+
   public render(): React.ReactElement<IPage8Props> {
-    const { showModal, modalImages, currentImageIndex, showPausasActivasModal, focusedIndex, modalTab, imagesActivities, currentImageIndexActividades, showPildorasModal } = this.state;
+    const { showModal, modalImages, currentImageIndex, showPausasActivasModal, focusedIndex, modalTab, imagesActivities, currentImageIndexActividades, showPildorasModal, showPDFModal, capsulas, showPoliticasModal, politicas } = this.state;
     return (
       <section>
         {/* Imagen */}
@@ -176,7 +229,11 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
             <button className={styles.navegationButton} onClick={this.openPausasActivasModal}>Pausas activas</button>
             <button className={styles.navegationButton} onClick={() => this.openModal(['https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_732/1692247926893.jpg', 'https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_733/1692247997403.jpg'])} >Riesgos y accidentes de trabajo</button>
             <button className={styles.navegationButton} onClick={() => this.openModal(['https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_734/1692248160818.jpg', 'https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Seguridad%20y%20salud%20en%20el%20trabajo/Comités%20de%20Esri%20NOSA/Comite%20de%20Convivencia%20Laboral%20-%20inf.jpg', 'https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Seguridad%20y%20salud%20en%20el%20trabajo/Comités%20de%20Esri%20NOSA/COPASST.jpg'])}>Comités de Esri NOSA</button>
-            <button className={styles.navegationButton} onClick={this.openModalPildoras}>Capsulas de bienestar</button>
+            <button className={styles.navegationButton} onClick={this.openModalPildoras}>Cápsulas de bienestar</button>
+          </div>
+          <div className={styles.barraNavegación} style={{ justifyContent: 'center' }}>
+            <button className={styles.navegationButton} onClick={() => { this.openModalPDF('https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Seguridad%20y%20salud%20en%20el%20trabajo/Certificaci%C3%B3n%20de%20estandares/certificacion%20autoevaculaci%C3%B3n%20estandares%202023_02022024.pdf?CT=1709741223057&OR=ItemsView') }}>Certif. de cumplimiento de estándares</button>
+            <button className={styles.navegationButton} style={{ backgroundColor: '#add8e6', boxShadow: '#add8e6 0px 0px 10px' }} onClick={() => { this.openModalPoliticas() }}>Políticas</button>
           </div>
           {/* Primera división */}
           <div className={styles.objectivos}>
@@ -236,9 +293,9 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
           </div>
         </div>
 
-        <div style={{ height: '50vh', width: '40%', border: 'none', display: "flex", justifyContent: "center", alignItems: "center", margin: "auto" }}>
+        {/* <div style={{ height: '50vh', width: '40%', border: 'none', display: "flex", justifyContent: "center", alignItems: "center", margin: "auto" }}>
           <iframe src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=bcde9628-616c-4835-aa6e-80a32e6ad7f2" width="640" height="360" scrolling="no" title="certificacion autoevaculación estandares 2023_02022024.pdf"></iframe>
-        </div>
+        </div> */}
 
         {showPausasActivasModal && (
           <div className={styles.pausasActivasModalOverlay}>
@@ -401,21 +458,61 @@ export default class Page8 extends React.Component<IPage8Props, { showModal: boo
           </div>
         )}
 
+        {showPDFModal && (
+          <div className={styles.modalOverlay} style={{ zIndex: 1001 }} onClick={this.closePDFModal}>
+            <div className={styles.modalContent}>
+              <button className={styles.closeButton} onClick={this.closePDFModal}>&times;</button>
+              <div className={styles.modalPDF}>
+                {
+                  this.renderIframeContent(6)
+                }
+              </div>
+            </div>
+          </div>
+        )}
+
         {showPildorasModal && (
           <div className={styles.modalOverlay}>
             <div className={styles.contentPildoras}>
               <img className={styles.banerPildoras} src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Seguridad%20y%20salud%20en%20el%20trabajo/Capsulas%20bienestar/Baners%20Pildoras/9853c57b10d312619e9814f5fa90962a-1.jpg" />
-              <div className={styles.pdfPildoras}>
-                <iframe className={styles.iframePildoras} src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=84362ab0-c719-4f15-a942-f6d365a8016a"  scrolling="no" title="PAP.pdf"></iframe>
-                <iframe className={styles.iframePildoras} src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=c57e7c37-7172-4594-8579-5fab205fefaa"  scrolling="no" title="Manejo de duelo en el entorno laboral.pdf"></iframe>
-                <iframe className={styles.iframePildoras} src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=a0858c87-7cef-40f7-ac3b-6b03adfe0039"  scrolling="no" title="Gestión Emocional.pdf"></iframe>
-                <iframe className={styles.iframePildoras} src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=1cafcd42-9050-4ae2-ab74-7498684c19ce"  scrolling="no" title="Estrés Agudo.pdf"></iframe>
-                <iframe className={styles.iframePildoras} src="https://esricolombia.sharepoint.com/Areas/GH_2/_layouts/15/embed.aspx?UniqueId=e0604d90-bdb9-49bb-a911-46fe03496e4e"  scrolling="no" title="Bornout.pdf"></iframe>
+              <div style={{ width: '98%' }}>
+                {capsulas && capsulas.map((item: any) => {
+                  return (
+                    <section>
+                      <h3>{item.sheetName}</h3>
+                      <div className={styles.buttonList}>
+                        {item.data.map((file: any) => {
+                          return (
+                            <button className={styles.navegationButton} onClick={() => { this.openModalPDF(file.Enlace) }} title={file.Descripcion}>{file.Titulo}</button>
+                          )
+                        })}
+                      </div>
+                    </section>
+                  )
+                })}
               </div>
               <button className={styles.closePildoras} onClick={this.closeModalPildoras}>X</button>
             </div>
           </div>
+        )
+        }
 
+        {showPoliticasModal && (
+          <div className={styles.modalOverlay}>
+            <div className={styles.contentPildoras}>
+              <div style={{ width: '98%' }}>
+                <h2 style={{textAlign: 'center'}}>Políticas</h2>
+                <div className={styles.buttonList}>
+                  {politicas && politicas.map((item: any) => {
+                    return (
+                      <button className={styles.navegationButton} onClick={() => { this.openModalPDF(item.Enlace) }} style={{height: 'auto'}}>{item.Titulo}</button>
+                    )
+                  })}
+                </div>
+              </div>
+              <button className={styles.closePildoras} onClick={this.closeModalPoliticas}>X</button>
+            </div>
+          </div>
         )
         }
 

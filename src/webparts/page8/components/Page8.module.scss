@@ -280,7 +280,7 @@ margin-top: 2rem;
   cursor: pointer;
 }
 
-.navegationButton:nth-child(1){
+.navegationButton:nth-child(1),.navegationButton:nth-child(5){
   background-color:  #6A5ACD;
   box-shadow:#6A5ACD 0px 0px 10px;
 }
@@ -320,8 +320,8 @@ margin-top: 2rem;
 
 .banerPildoras{
   width: 98%;
-  height: auto;
-  margin: auto;
+  height: 80%;
+  //margin: auto;
   margin-top: 10px;
  
 }
@@ -360,4 +360,30 @@ margin-top: 2rem;
   height: 16rem;
   overflow: hidden;
 
+}
+
+.modalPDF{
+  height: 90vh;
+  width: 90vw;
+}
+
+.buttonList{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 1rem;
+
+  .navegationButton{
+    width: 12rem;
+    height: 3rem;
+    background-color:#add8e6 ;
+    box-shadow: #add8e6 0px 0px 10px;
+    border-radius: 25px;
+    color: white;
+    padding:10px ;
+    font-weight: 600;
+    border: 0;
+    cursor: pointer;
+  }
 }
