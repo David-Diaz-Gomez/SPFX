@@ -55,10 +55,10 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
             <div className={styles.pinGroup4}>
               <a href={url7} target='_blank'>
                 <img
-                  src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Experiencias/Logos/Pin%20entrenamiento%204.gif"
+                  src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Experiencias/Logos/Pin%20entrenamiento.gif"
                   alt="Pin 4"
                   className={`${styles.pin} `}
-                  style={{ width: '250px', height: '250px'}}
+                  style={{    width: '217px', height: '150px',  left: '25%', top: '-25%'}}
                 />
                 <div className={styles.description}>ENTRENAMIENTO</div>
               </a>
@@ -82,8 +82,7 @@ export default class Page2 extends React.Component<IPage2Props, {}> {
                   src="https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/Experiencias/Logos/Pin%20Salud.gif"
                   alt="Pin 6"
                   className={`${styles.pin} `}
-                  style={{ width: '250px', height: '250px'}}
-                 
+                  style={{width: '250px', height: '250px', top: '-77%', left: '-12%'}}
                 />
                 <div className={styles.description}>SST</div>
               </a>
