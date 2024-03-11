@@ -30,23 +30,19 @@
 }
 
 .pin {
+  position: absolute;
   width: 100px;
   height: 100px;
 }
-img:nth-of-type(4n){
-  width: 200px;
-  height: 200px;
-  background-color: red;
-}
 
 /* Estilos para cada pin específico */
-.pinGroup1 { top: 41%; left: 6%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center; background-color: red; display: flex; justify-content: center;align-items: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
-.pinGroup2 { top: 42%; left: 22%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;  background-color: red;display: flex; justify-content: center;align-items: center; } /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
-.pinGroup3 { top: 55%; left: 30%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center; background-color: red;display: flex; justify-content: center;align-items: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
-.pinGroup4 { top: 52%; left: 43%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center; background-color: red;display: flex; justify-content: center;align-items: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
-.pinGroup5 { top: 55%; left: 60%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center; background-color: red;display: flex; justify-content: center;align-items: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
-.pinGroup6 { top: 34%; left: 58%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center; background-color: red;display: flex; justify-content: center;align-items: center;}
-.pinGroup7 { top: 42%; left: 80%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center; background-color: red;display: flex; justify-content: center;align-items: center;}
+.pinGroup1 { top: 39%; left: 6%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup2 { top: 40%; left: 22%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup3 { top: 55%; left: 25%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup4 { top: 52%; left: 40%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup5 { top: 55%; left: 60%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;} /* Ajusta la posición de cada grupo de pin y descripción dentro del contenedor principal */
+.pinGroup6 { top: 34%; left: 50%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;}
+.pinGroup7 { top: 42%; left: 75%; position: absolute;  width: 100px; height: 100px; display: flex; justify-content: center;}
 
 /* Repite para los demás pines */
 
