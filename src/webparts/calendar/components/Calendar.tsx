@@ -101,7 +101,6 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
 
     const dataCalendars: string[] = [];
     const calendars: CalendarObject[] = [];
-
     worksheets[0].data.forEach((element: any, index: number) => {
       if (element.Modalidad !== undefined) {
         const modalidad = element.Modalidad.trim(); 
@@ -135,22 +134,36 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
       if (element.Fecha !== undefined) {
         const modalidad = element.Modalidad.trim();
         const existingCalendar = calendars.map((cal: CalendarObject) => cal.id).indexOf(modalidad);
-
+        var body;
+        if(modalidad === "Formación"){
+          body = `
+          <div style="display: flex; flex-direction: column;">
+            <h3 style="margin-block-end: 0; margin-block-start:0;" >${element.Actividad}</h3>
+            <img src="${element.LINK_IMG}" alt="Imagen" style="width: 4em; height: 3em;"/>
+            <span>Fecha: ${element.Fecha}</span>
+            <p>Facilitador: ${element.Facilitador}</p>
+            <div  style="background-color: ${existingCalendar !== -1 ? calendars[existingCalendar].bgColor : 'transparent'}; width: 4rem; height: auto; display: flex; justify-content: center; border-radius: 5px; padding:4px;">
+             ${element.Modalidad}
+            </div>
+           </div> 
+            `
+        }else{
+          body = `
+          <div style="display: flex; flex-direction: column;">
+            <h3 style="margin-block-end: 0; margin-block-start:0;" >${element.Actividad}</h3>
+            <img src="${element.LINK_IMG}" alt="Imagen" style="width: 4em; height: 3em;"/>
+            <span>Fecha: ${element.Fecha}</span>
+            <div  style="background-color: ${existingCalendar !== -1 ? calendars[existingCalendar].bgColor : 'transparent'}; width: 4rem; height: auto; display: flex; justify-content: center; border-radius: 5px; padding:4px;">
+             ${element.Modalidad}
+            </div>
+           </div> 
+            `
+        }
         let event: EventObject = {
           id: index.toString(),
           calendarId: modalidad,
           title: element.Actividad,
-          body: `
-        <div style="display: flex; flex-direction: column;">
-          <h3 style="margin-block-end: 0; margin-block-start:0;" >${element.Actividad}</h3>
-          <img src="${element.LINK_IMG}" alt="Imagen" style="width: 4em; height: 3em;"/>
-          <span>Fecha: ${element.Fecha}</span>
-          <p>Descripción: ${element.Temas}</p>
-          <div  style="background-color: ${existingCalendar !== -1 ? calendars[existingCalendar].bgColor : 'transparent'}; width: 4rem; height: auto; display: flex; justify-content: center; border-radius: 5px; padding:4px;">
-           ${element.Modalidad}
-          </div>
-         </div> 
-          `,
+          body: body,
           start: element.Fecha,
           end: element.Fecha,
           category: 'allday',
@@ -205,7 +218,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
   useEffect(() => {
     async function fetchData() {
       try {
-        await getValuesFromXlsxCalendars("https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/FR-GH-14%20Cronograma%20actividades%202024%20(1)-d8189961-a11b-42a7-8488-8d4a01ba69fd.xlsx");
+        await getValuesFromXlsxCalendars("https://esricolombia.sharepoint.com/Areas/GH_2/SiteAssets/FR-GH-14%20Cronograma%20actividades%202024%20(1).xlsx");
 
       } catch (err) {
         console.log(err);
