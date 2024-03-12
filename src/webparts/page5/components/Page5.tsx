@@ -176,7 +176,8 @@ export default class Page5 extends React.Component<IPage5Props, { currentSlide: 
         )}
       </div>
       <section className={styles.section2}>
-      <iframe src="https://geoapps.esri.co/AppGestionHumana/"></iframe>
+      {/* <iframe src="https://geoapps.esri.co/AppGestionHumana/"></iframe> */}
+      <iframe title="Plan_carrera_Caminos" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=29d96bd7-73fb-4109-9403-416213bb58a2&autoAuth=true&ctid=249bb730-97be-413c-815a-77ccfa75c445" frameBorder="0" allowFullScreen={true}></iframe>
       </section>
       <section className={styles.section3}>
         <img src="https://www.arcgis.com/sharing/rest/content/items/84aa679e450d4db4875798fd6d60fdee/resources/images/widget_2671/1700083311160.png"/>
